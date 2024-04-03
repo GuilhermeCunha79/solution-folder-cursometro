@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <Folder Include="Controllers\" />
+      <Folder Include="Domain\Calculo\" />
       <Folder Include="Domain\ExameIngresso\" />
       <Folder Include="Infrastructure\" />
     </ItemGroup>
