@@ -6,16 +6,16 @@ namespace WebApplication1.Domain.Curso_Tags;
 
 public class Curso_Tags : Entity<Identifier>
 {
-    public TagID TagId;
+    public Guid TagId;
     public CursoCodigo CursoCodigo;
 
     public Curso_Tags()
     {
     }
 
-    public Curso_Tags(string tagId, string codCurso)
+    public Curso_Tags(Guid tagId, string codCurso)
     {
-        TagId = new TagID(tagId);
+        TagId = tagId;
         CursoCodigo = new CursoCodigo(codCurso);
     }
 }

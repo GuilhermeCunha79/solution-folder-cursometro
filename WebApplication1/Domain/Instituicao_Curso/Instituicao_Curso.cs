@@ -14,9 +14,24 @@ public class Instituicao_Curso: Entity<Identifier>
     public Instituicao_CursoDuracao InstituicaoCursoDuracao;
     public Instituicao_CursoGrau InstituicaoCursoGrau;
     //atributos estrangeiros
- 
-    
-    
+    public Identifier CandidaturaIdentifier;
+    public Identifier CodigoExame;
 
+    public Instituicao_Curso()
+    {
+        
+    }
 
+    public Instituicao_Curso(string instituicaoCodigo, string cursoCodigo, string ects, string duracao, string grau,
+        string candidaturaId, string codigoExame)
+    {
+        Id = new Identifier(Guid.NewGuid());
+        InstituicaoCodigo = new InstituicaoCodigo(instituicaoCodigo);
+        CursoCodigo = new CursoCodigo(cursoCodigo);
+        InstituicaoCursoEcts = new Instituicao_CursoECTS(ects);
+        InstituicaoCursoDuracao = new Instituicao_CursoDuracao(duracao);
+        InstituicaoCursoGrau = new Instituicao_CursoGrau(grau);
+        CandidaturaIdentifier = new Identifier(candidaturaId);
+        CodigoExame = new Identifier(codigoExame);
+    }
 }

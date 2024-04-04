@@ -10,8 +10,6 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     public InstituicaoFax Fax { get; set; }
     public InstituicaoLogo Logo { get; set; }
     public InstituicaoMorada Morada { get; set; }
-    public InstituicaoNome Nome { get; set; }
-    public NomeTags Tags { get; set; }
     public InstituicaoTelefone Telefone { get; set; }
     public InstituicaoTipoEnsino TipoEnsino { get; set; }
 
@@ -19,8 +17,7 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     {
     }
 
-    public Instituicao(string email, string codigo, string fax, string logo, string morada, string nome, string[] tags,
-        string telefone, string tipoEnsino)
+    public Instituicao(string email, string codigo, string fax, string logo, string morada, string telefone, string tipoEnsino)
     {
         Id = new Identifier(Guid.NewGuid());
         Email = new EmailInstituicao(email);
@@ -28,22 +25,6 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
         Fax = new InstituicaoFax(fax);
         Logo = new InstituicaoLogo(logo);
         Morada = new InstituicaoMorada(morada);
-        Nome = new InstituicaoNome(nome);
-        Tags = new NomeTags(tags);
-        Telefone = new InstituicaoTelefone(telefone);
-        TipoEnsino = new InstituicaoTipoEnsino(tipoEnsino);
-    }
-
-    public Instituicao(string email, string fax, string logo, string morada, string nome, string tags, string telefone,
-        string tipoEnsino)
-    {
-        Id = new Identifier(Guid.NewGuid());
-        Email = new EmailInstituicao(email);
-        Fax = new InstituicaoFax(fax);
-        Logo = new InstituicaoLogo(logo);
-        Morada = new InstituicaoMorada(morada);
-        Nome = new InstituicaoNome(nome);
-        Tags = new NomeTags(tags);
         Telefone = new InstituicaoTelefone(telefone);
         TipoEnsino = new InstituicaoTipoEnsino(tipoEnsino);
     }

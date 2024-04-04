@@ -5,18 +5,18 @@ namespace WebApplication1.Domain.Candidatura;
 
 public class Candidatura:Entity<Identifier>
 {
-    public NotaEntrada.NotaEntrada NotaEntrada;
-    public Vagas.Vagas Vagas;
+    public Identifier NotaEntradaId;
+    public Identifier VagasId;
 
     public Candidatura()
     {
         
     }
 
-    public Candidatura(NotaEntrada.NotaEntrada notaEntrada,Vagas.Vagas vagas)
+    public Candidatura(string notaEntradaId,string vagasId)
     {
         Id = new Identifier(Guid.NewGuid());
-        NotaEntrada = notaEntrada;
-        Vagas = vagas;
+        NotaEntradaId = new Identifier(notaEntradaId);
+        VagasId = new Identifier(vagasId);
     }
 }

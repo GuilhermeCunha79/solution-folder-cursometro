@@ -6,11 +6,11 @@ public class Instituicao_CursoDuracao : IValueObject
 {
     private string Duracao { get; set; }
 
-    private Instituicao_CursoDuracao()
+    public Instituicao_CursoDuracao()
     {
     }
 
-    private Instituicao_CursoDuracao(string duracao)
+    public Instituicao_CursoDuracao(string duracao)
     {
         Duracao = duracao;
     }
