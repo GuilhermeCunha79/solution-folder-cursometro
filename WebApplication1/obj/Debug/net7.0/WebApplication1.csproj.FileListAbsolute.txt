@@ -25,3 +25,6 @@ C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\n
 C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\net7.0\WebApplication1.pdb
 C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\net7.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
+C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\net7.0\WebApplication1.sourcelink.json
+C:\Users\Guilherme Cunha\RiderProjects\cursometro.pt\WebApplication1\obj\Debug\net7.0\WebAppli.7D14BD69.Up2Date
