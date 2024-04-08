@@ -10,8 +10,8 @@ public class Instituicao_CursoCodigo : IValueObject
     {
     }
 
-    public Instituicao_CursoCodigo(string codigo)
+    public Instituicao_CursoCodigo(string codigoInstituicao, string codigoCurso)
     {
-        Codigo = codigo;
+        Codigo = codigoInstituicao + "/" + codigoCurso;
     }
 }

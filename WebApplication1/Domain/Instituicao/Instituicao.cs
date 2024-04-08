@@ -12,17 +12,15 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     public InstituicaoMorada Morada { get; set; }
     public InstituicaoTelefone Telefone { get; set; }
     public InstituicaoTipoEnsino TipoEnsino { get; set; }
-    public InstituicaoAreaCientifica AreaCientifica { get; set; }
 
     public Instituicao()
     {
     }
 
-    public Instituicao(string email, string codigo, string area, string fax, string logo, string morada, string telefone, string tipoEnsino)
+    public Instituicao(string email, string codigo, string fax, string logo, string morada, string telefone, string tipoEnsino)
     {
         Id = new Identifier(Guid.NewGuid());
         Email = new EmailInstituicao(email);
-        AreaCientifica = new InstituicaoAreaCientifica(area);
         Codigo = new InstituicaoCodigo(codigo);
         Fax = new InstituicaoFax(fax);
         Logo = new InstituicaoLogo(logo);

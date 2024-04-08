@@ -6,6 +6,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 
 public class Instituicao_Curso: Entity<Identifier>
 {
+    public Instituicao_CursoCodigo InstituicaoCursoCodigo;
     //pk, junção de duas fk
     public InstituicaoCodigo InstituicaoCodigo;
     public CursoCodigo CursoCodigo;
@@ -26,8 +27,7 @@ public class Instituicao_Curso: Entity<Identifier>
         string candidaturaId, string codigoExame)
     {
         Id = new Identifier(Guid.NewGuid());
-        InstituicaoCodigo = new InstituicaoCodigo(instituicaoCodigo);
-        CursoCodigo = new CursoCodigo(cursoCodigo);
+        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(instituicaoCodigo, cursoCodigo);
         InstituicaoCursoEcts = new Instituicao_CursoECTS(ects);
         InstituicaoCursoDuracao = new Instituicao_CursoDuracao(duracao);
         InstituicaoCursoGrau = new Instituicao_CursoGrau(grau);

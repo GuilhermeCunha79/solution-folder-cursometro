@@ -2,17 +2,17 @@
 
 namespace WebApplication1.Domain.Instituicao;
 
-public class InstituicaoAreaCientifica : IValueObject
+public class Instituicao_CursoAreaCientifica : IValueObject
 {
 
     private string Area { get; set; }
 
-    public InstituicaoAreaCientifica()
+    public Instituicao_CursoAreaCientifica()
     {
         
     }
 
-    public InstituicaoAreaCientifica(string area)
+    public Instituicao_CursoAreaCientifica(string area)
     {
         Area = area;
     }
