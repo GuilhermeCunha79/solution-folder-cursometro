@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Curso;
 
 public class CursoNome : IValueObject
 {
-    private string Nome { get; set; }
+    public string Nome { get; set; }
 
     public CursoNome()
     {

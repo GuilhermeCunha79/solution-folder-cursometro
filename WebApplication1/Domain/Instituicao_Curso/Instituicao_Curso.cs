@@ -18,6 +18,8 @@ public class Instituicao_Curso: Entity<Identifier>
     public Identifier CandidaturaIdentifier;
     public Identifier CodigoExame;
 
+    public Curso.Curso Curso { get; set; }
+
     public Instituicao_Curso()
     {
         

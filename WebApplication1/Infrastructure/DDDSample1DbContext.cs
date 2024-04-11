@@ -5,6 +5,7 @@ namespace WebApplication1.Infrastructure;
 public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
+    public DbSet<Domain.Curso.Curso> Cursos { get; set; }
 
 
     public int ObterNumeroDeJogadores()
