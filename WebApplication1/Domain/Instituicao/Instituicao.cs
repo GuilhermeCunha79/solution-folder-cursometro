@@ -19,7 +19,6 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
 
     public Instituicao(string email, string codigo, string fax, string logo, string morada, string telefone, string tipoEnsino)
     {
-        Id = new Identifier(Guid.NewGuid());
         Email = new EmailInstituicao(email);
         Codigo = new InstituicaoCodigo(codigo);
         Fax = new InstituicaoFax(fax);

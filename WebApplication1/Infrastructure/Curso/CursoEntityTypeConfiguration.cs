@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.Curso;
-using WebApplication1.Domain.Curso_Tags;
 using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
@@ -13,9 +12,6 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
     {
         builder.ToTable("Curso", SchemaNames.DDDSample1);
         builder.HasKey(b => b.CursoCodigo);
-
-        builder.Property(b => b.Id).HasConversion(v => v.Value,
-            v => new Identifier(v.ToString()));
 
         builder.Property(b => b.CursoCodigo)
             .HasConversion(v => v.Codigo,
@@ -30,7 +26,8 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
 
         builder.HasOne(e => e.Curso_Tags)
             .WithOne(j => j.Curso)
-            .HasForeignKey<Curso_Tags>(e => e.CursoCodigo);
+            .HasForeignKey<Domain.Curso_Tags.Curso_Tags>(e => e.CursoCodigo)
+            .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasOne(f => f.InstituicaoCurso)
             .WithOne(j => j.Curso)

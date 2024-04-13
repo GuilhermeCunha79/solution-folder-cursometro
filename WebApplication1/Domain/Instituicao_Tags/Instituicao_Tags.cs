@@ -5,20 +5,22 @@ namespace WebApplication1.Domain.Instituicao_Tags;
 
 public class Instituicao_Tags:Entity<Identifier>
 {
+    public Identifier TagId { get; set; }
+    public InstituicaoCodigo InstituicaoCodigo { get; set; }
 
-    public InstituicaoCodigo InstituicaoCodigo;
-    public Identifier TagsIdentifier;
+    public Tags.Tags Tags { get; set; }
+
 
     public Instituicao_Tags()
     {
         
     }
 
-    public Instituicao_Tags(string codInstituicao, string tagId)
+    public Instituicao_Tags(string tagId,string codInstituicao)
     {
         Id = new Identifier(Guid.NewGuid());
         InstituicaoCodigo = new InstituicaoCodigo(codInstituicao);
-        TagsIdentifier = new Identifier(tagId);
+        TagId = new Identifier(tagId);
     }
 
 }

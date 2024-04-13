@@ -3,15 +3,11 @@
 public class VagasDTO
 {
     public Guid Id;
-    public string VagasMenosUm;
-    public string VagasMenosDois;
-    public string VagasMenosTres;
+    public string VagasNumero;
 
-    public VagasDTO(Guid id, string vagasMenosUm, string vagasMenosDois, string vagasMenosTres)
+    public VagasDTO(Guid id, string vagasNumero)
     {
         Id = id;
-        VagasMenosUm = vagasMenosUm;
-        VagasMenosDois = vagasMenosDois;
-        VagasMenosTres = vagasMenosTres;
+        VagasNumero = vagasNumero;
     }
 }

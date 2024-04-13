@@ -3,14 +3,16 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Calculo_ExameIngresso;
 
-public class Calculo_ExameIngresso:Entity<Identifier>
+public class Calculo_ExameIngresso : Entity<Identifier>
 {
-    public ExameIngressoCodigo ExameIngressoCodigo;
-    public Identifier CalculoIdentifier;
+    public ExameIngressoCodigo ExameIngressoCodigo { get; set; }
+    public Identifier CalculoIdentifier { get; set; }
+
+    public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
+    public Calculo.Calculo Calculo { get; set; }
 
     public Calculo_ExameIngresso()
     {
-        
     }
 
     public Calculo_ExameIngresso(string idCalculo, string exameCodigo)
@@ -19,5 +21,4 @@ public class Calculo_ExameIngresso:Entity<Identifier>
         ExameIngressoCodigo = new ExameIngressoCodigo(exameCodigo);
         CalculoIdentifier = new Identifier(idCalculo);
     }
-
 }

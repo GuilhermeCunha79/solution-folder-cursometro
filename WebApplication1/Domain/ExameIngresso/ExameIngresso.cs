@@ -7,6 +7,8 @@ public class ExameIngresso: Entity<Identifier>
     public ExameIngressoCodigo ExameIngressoCodigo;
     public ExameIngressoNome ExameIngressoNome;
 
+    public ICollection<Calculo_ExameIngresso.Calculo_ExameIngresso> CalculoExameIngresso { get; set; }
+
     public ExameIngresso()
     {
         

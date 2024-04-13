@@ -5,8 +5,12 @@ namespace WebApplication1.Domain.Tags;
 public class Tags : Entity<Identifier>
 {
 
-    public NomeTags NomeTags;
-    public TagDescricao TagDescricao;
+    public NomeTags NomeTags { get; set; }
+    public TagDescricao TagDescricao { get; set; }
+
+    public Curso_Tags.Curso_Tags CursoTags;
+    
+    public Instituicao_Tags.Instituicao_Tags InstituicaoTags;
 
     public Tags()
     {

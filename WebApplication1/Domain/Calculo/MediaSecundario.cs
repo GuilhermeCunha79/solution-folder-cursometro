@@ -5,14 +5,14 @@ namespace WebApplication1.Domain.Calculo;
 public class MediaSecundario : IValueObject
 {
 
-    private string SecundarioMedia { get; set; }
+    public string? SecundarioMedia { get; set; }
 
     public MediaSecundario()
     {
         
     }
 
-    public MediaSecundario(string secundarioMedia)
+    public MediaSecundario(string? secundarioMedia)
     {
         SecundarioMedia = secundarioMedia;
     }

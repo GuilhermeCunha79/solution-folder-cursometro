@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Calculo;
 public class MediaIngresso : IValueObject
 {
 
-    private string? IngressoMedia { get; set; }
+    public string? IngressoMedia { get; set; }
 
     public MediaIngresso()
     {

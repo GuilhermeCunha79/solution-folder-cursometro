@@ -4,10 +4,11 @@ namespace WebApplication1.Domain.Calculo;
 
 public class Calculo : Entity<Identifier>
 {
-    public MediaIngresso MediaIngresso;
-    public MediaIngressoDesporto MediaIngressoDesporto;
-    public MediaSecundario MediaSecundario;
-
+    public MediaIngresso MediaIngresso { get; set; }
+    public MediaIngressoDesporto MediaIngressoDesporto { get; set; }
+    public MediaSecundario MediaSecundario { get; set; }
+    
+    public ICollection<Calculo_ExameIngresso.Calculo_ExameIngresso> CalculoExameIngresso { get; set; }
     public Calculo()
     {
         

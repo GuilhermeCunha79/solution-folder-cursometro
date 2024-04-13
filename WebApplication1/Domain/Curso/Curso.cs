@@ -19,7 +19,6 @@ public class Curso : Entity<Identifier>
 
     public Curso(string codigoId, string nome)
     {
-        Id = new Identifier(Guid.NewGuid());
         CursoCodigo = new CursoCodigo(codigoId);
         CursoNome = new CursoNome(nome);
         Active = true;

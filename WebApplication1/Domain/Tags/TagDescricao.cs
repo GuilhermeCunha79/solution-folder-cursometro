@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Tags;
 
 public class TagDescricao:IValueObject
 {
-    private string Descricao { get; set; }
+    public string Descricao { get; set; }
 
     public TagDescricao()
     {
