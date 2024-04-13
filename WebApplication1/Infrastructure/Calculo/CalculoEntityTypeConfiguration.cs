@@ -1,5 +1,4 @@
-﻿using System.Xml.Serialization;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.Calculo;
 using WebApplication1.Shared;
