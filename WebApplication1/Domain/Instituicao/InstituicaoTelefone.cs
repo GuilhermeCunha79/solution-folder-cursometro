@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao;
 
 public class InstituicaoTelefone:IValueObject
 {
-    private string Telefone { get; set; }
+    public string Telefone { get; set; }
 
     public InstituicaoTelefone()
     {

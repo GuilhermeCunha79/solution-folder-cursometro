@@ -5,14 +5,14 @@ namespace WebApplication1.Domain.Instituicao;
 public class InstituicaoLogo : IValueObject
 {
 
-    private string Logo { get; set; }
+    public byte[] Logo { get; set; }
 
     public InstituicaoLogo()
     {
         
     }
 
-    public InstituicaoLogo(string logo)
+    public InstituicaoLogo(byte[] logo)
     {
         Logo = logo;
     }

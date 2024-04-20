@@ -24,9 +24,9 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
         builder.Property<bool>("_active").HasColumnName("Active");
 
 
-        builder.HasOne(e => e.Curso_Tags)
+        builder.HasMany(e => e.Curso_Tags)
             .WithOne(j => j.Curso)
-            .HasForeignKey<Domain.Curso_Tags.Curso_Tags>(e => e.CursoCodigo)
+            .HasForeignKey(e => e.CursoCodigo)
             .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasOne(f => f.InstituicaoCurso)

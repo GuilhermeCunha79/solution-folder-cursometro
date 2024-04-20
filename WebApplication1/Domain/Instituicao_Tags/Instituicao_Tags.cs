@@ -8,6 +8,8 @@ public class Instituicao_Tags:Entity<Identifier>
     public Identifier TagId { get; set; }
     public InstituicaoCodigo InstituicaoCodigo { get; set; }
 
+    public Instituicao.Instituicao Instituicao { get; set; }
+
     public Tags.Tags Tags { get; set; }
 
 

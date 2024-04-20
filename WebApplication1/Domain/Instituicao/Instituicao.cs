@@ -12,13 +12,19 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     public InstituicaoMorada Morada { get; set; }
     public InstituicaoTelefone Telefone { get; set; }
     public InstituicaoTipoEnsino TipoEnsino { get; set; }
+    public InstituicaoNome Nome { get; set; }
+    
+    public ICollection<Instituicao_Ranking.Instituicao_Ranking> InstituicaoRankings { get; set; }
+    public ICollection<Instituicao_Tags.Instituicao_Tags> InstituicaoTags { get; set; }
+    public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
 
     public Instituicao()
     {
     }
 
-    public Instituicao(string email, string codigo, string fax, string logo, string morada, string telefone, string tipoEnsino)
+    public Instituicao(string nome,string email, string codigo, string fax, byte[] logo, string morada, string telefone, string tipoEnsino)
     {
+        Nome = new InstituicaoNome(nome);
         Email = new EmailInstituicao(email);
         Codigo = new InstituicaoCodigo(codigo);
         Fax = new InstituicaoFax(fax);

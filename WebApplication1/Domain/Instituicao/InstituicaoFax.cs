@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Instituicao;
 public class InstituicaoFax : IValueObject
 {
 
-    private string Fax;
+    public string Fax { get; set; }
 
     public InstituicaoFax()
     {

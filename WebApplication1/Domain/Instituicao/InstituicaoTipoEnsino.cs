@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao;
 
 public class InstituicaoTipoEnsino : IValueObject
 {
-    private string TipoEnsino { get; set; }
+    public string TipoEnsino { get; set; }
 
     public InstituicaoTipoEnsino()
     {

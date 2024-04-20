@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Instituicao;
 public class InstituicaoMorada : IValueObject
 {
 
-    private string Morada { get; set; }
+    public string Morada { get; set; }
 
     public InstituicaoMorada()
     {

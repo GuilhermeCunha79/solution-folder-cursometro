@@ -7,10 +7,10 @@ public class CandidaturaDTO
     public Guid Id;
     public Guid IdVagas;
     public Guid IdNotaEntrada;
-    public string AnoEntrada;
-    public string Fase;
+    public int AnoEntrada;
+    public int Fase;
 
-    public CandidaturaDTO(Guid id, Guid idVagas, Guid idNotaEntrada,string ano, string fase)
+    public CandidaturaDTO(Guid id, Guid idVagas, Guid idNotaEntrada,int ano, int fase)
     {
         Id = id;
         IdVagas = idVagas;

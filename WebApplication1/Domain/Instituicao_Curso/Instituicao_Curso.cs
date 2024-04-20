@@ -17,7 +17,9 @@ public class Instituicao_Curso: Entity<Identifier>
     //atributos estrangeiros
     public Identifier CandidaturaIdentifier;
     public Identifier CodigoExame;
-
+    
+    public ICollection<Instituicao_Tags.Instituicao_Tags> InstituicaoTags { get; set; }
+    public Instituicao.Instituicao Instituicao { get; set; }
     public Curso.Curso Curso { get; set; }
 
     public Instituicao_Curso()

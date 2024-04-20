@@ -5,14 +5,14 @@ namespace WebApplication1.Domain.Candidatura;
 public class CandidaturaFase:IValueObject
 {
     
-    public string Fase { get; set; }
+    public int Fase { get; set; }
 
     public CandidaturaFase()
     {
         
     }
 
-    public CandidaturaFase(string fase)
+    public CandidaturaFase(int fase)
     {
         Fase = fase;
     }

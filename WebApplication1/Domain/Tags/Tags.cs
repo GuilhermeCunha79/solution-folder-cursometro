@@ -8,9 +8,9 @@ public class Tags : Entity<Identifier>
     public NomeTags NomeTags { get; set; }
     public TagDescricao TagDescricao { get; set; }
 
-    public Curso_Tags.Curso_Tags CursoTags;
+    public ICollection<Curso_Tags.Curso_Tags> CursoTags { get; set; }
     
-    public Instituicao_Tags.Instituicao_Tags InstituicaoTags;
+    public ICollection<Instituicao_Tags.Instituicao_Tags> InstituicaoTags { get; set; }
 
     public Tags()
     {

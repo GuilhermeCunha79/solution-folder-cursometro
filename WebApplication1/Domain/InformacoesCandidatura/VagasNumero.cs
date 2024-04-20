@@ -5,14 +5,14 @@ namespace WebApplication1.Domain.Vagas;
 public class VagasNumero:IValueObject
 {
 
-    public string NumeroVagas { get; set; }
+    public int NumeroVagas { get; set; }
 
     public VagasNumero()
     {
         
     }
 
-    public VagasNumero(string numeroVagas)
+    public VagasNumero(int numeroVagas)
     {
         NumeroVagas = numeroVagas;
     }

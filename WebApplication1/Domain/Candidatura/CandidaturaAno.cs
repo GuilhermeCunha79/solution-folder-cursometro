@@ -4,14 +4,14 @@ namespace WebApplication1.Domain.Candidatura;
 
 public class CandidaturaAno:IValueObject
 {
-    public string Ano { get; set; }
+    public int Ano { get; set; }
 
     public CandidaturaAno()
     {
         
     }
 
-    public CandidaturaAno(string ano)
+    public CandidaturaAno(int ano)
     {
         Ano = ano;
     }

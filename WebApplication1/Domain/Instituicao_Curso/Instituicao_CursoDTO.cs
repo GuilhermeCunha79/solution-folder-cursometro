@@ -11,9 +11,10 @@ public class Instituicao_CursoDTO
     public string Grau;
     public Guid IdCandidatura;
     public string CodigoExame;
+    public byte[] Logo;
 
     public Instituicao_CursoDTO(Guid id, string codigoInstituicao, string codigoCurso, string ects, string area,
-        string duracao, string grau, Guid idCandidatura, string codigoExame)
+        string duracao, string grau, Guid idCandidatura, string codigoExame, byte[] logo)
     {
         Id = id;
         CodigoInstituicao = codigoInstituicao;
@@ -24,5 +25,6 @@ public class Instituicao_CursoDTO
         Grau = grau;
         IdCandidatura = idCandidatura;
         CodigoExame = codigoExame;
+        Logo = logo;
     }
 }

@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Instituicao;
 public class EmailInstituicao : IValueObject
 {
 
-    private string Email { get; set; }
+    public string Email { get; set; }
 
     public EmailInstituicao()
     {

@@ -23,14 +23,14 @@ public class TagsEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Tags.
             v => new TagDescricao(v.ToString()));
 
 
-        builder.HasOne(e => e.CursoTags)
+        builder.HasMany(e => e.CursoTags)
             .WithOne(j => j.Tags)
-            .HasForeignKey<Domain.Curso_Tags.Curso_Tags>(e => e.TagId)
+            .HasForeignKey(e => e.TagId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(e => e.InstituicaoTags)
+        builder.HasMany(e => e.InstituicaoTags)
             .WithOne(j => j.Tags)
-            .HasForeignKey<Instituicao_Tags>(e => e.TagId)
+            .HasForeignKey(e => e.TagId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

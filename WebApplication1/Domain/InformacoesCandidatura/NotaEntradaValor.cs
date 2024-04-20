@@ -1,18 +1,18 @@
 ﻿using WebApplication1.Shared;
 
-namespace WebApplication1.Domain.NotaEntrada;
+namespace WebApplication1.Domain.InformacoesCandidatura;
 
 public class NotaEntradaValor : IValueObject
 {
 
-    public string ValorNotaEntrada { get; set; }
+    public int ValorNotaEntrada { get; set; }
 
     public NotaEntradaValor()
     {
         
     }
     
-    public NotaEntradaValor(string valor)
+    public NotaEntradaValor(int valor)
     {
         ValorNotaEntrada = valor;
     }

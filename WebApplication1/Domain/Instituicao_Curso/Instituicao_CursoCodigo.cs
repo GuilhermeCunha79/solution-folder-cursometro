@@ -10,6 +10,11 @@ public class Instituicao_CursoCodigo : IValueObject
     {
     }
 
+    public Instituicao_CursoCodigo(string codInstCurso)
+    {
+        Codigo = codInstCurso;
+    }
+
     public Instituicao_CursoCodigo(string codigoInstituicao, string codigoCurso)
     {
         Codigo = codigoInstituicao + "/" + codigoCurso;
