@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Utilizador;
 public class UtilizadorIdade:IValueObject
 {
     
-    public string IdadeUtilizador { get; set; }
+    public int IdadeUtilizador { get; set; }
 
 
     public UtilizadorIdade()
@@ -13,7 +13,7 @@ public class UtilizadorIdade:IValueObject
         
     }
 
-    public UtilizadorIdade(string idade)
+    public UtilizadorIdade(int idade)
     {
         IdadeUtilizador = idade;
     }

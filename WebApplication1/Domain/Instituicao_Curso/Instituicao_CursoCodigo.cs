@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 
 public class Instituicao_CursoCodigo : IValueObject
 {
-    private string Codigo { get; set; }
+    public string Codigo { get; set; }
 
     public Instituicao_CursoCodigo()
     {

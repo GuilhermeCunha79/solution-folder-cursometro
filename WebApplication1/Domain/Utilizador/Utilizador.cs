@@ -4,22 +4,39 @@ namespace WebApplication1.Domain.Utilizador;
 
 public class Utilizador : Entity<Identifier>
 {
-    public UtilizadorEscola UtilizadorEscola { get; set; }
+    public Identifier IdEscola { get; set; }
+    public Identifier IdCalculo { get; set; }
     public UtilizadorIdade UtilizadorIdade { get; set; }
     public UtilizadorNome UtilizadorNome { get; set; }
     public UtilizadorPassword UtilizadorPassword { get; set; }
+    public UtilizadorAno UtilizadorAno { get; set; }
+
+    public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngresso { get; set; }
+    public ICollection<Favoritos.Favoritos> Favoritos { get; set; }
 
     public Utilizador()
     {
         
     }
 
-    public Utilizador(string escola, string idade, string nome, string password)
+    public Utilizador(string calculo, string escola, int idade, string nome, string password, int ano)
     {
         Id = new Identifier(Guid.NewGuid());
-        UtilizadorEscola = new UtilizadorEscola(escola);
+        IdEscola = new Identifier(escola);
+        IdCalculo =new Identifier(calculo);
         UtilizadorIdade = new UtilizadorIdade(idade);
         UtilizadorNome = new UtilizadorNome(nome);
         UtilizadorPassword = new UtilizadorPassword(password);
+        UtilizadorAno = new UtilizadorAno(ano);
+    }
+    
+    public Utilizador(string escola, int idade, string nome, string password, int ano)
+    {
+        Id = new Identifier(Guid.NewGuid());
+        IdEscola = new Identifier(escola);
+        UtilizadorIdade = new UtilizadorIdade(idade);
+        UtilizadorNome = new UtilizadorNome(nome);
+        UtilizadorPassword = new UtilizadorPassword(password);
+        UtilizadorAno = new UtilizadorAno(ano);
     }
 }
