@@ -31,6 +31,6 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
         
         builder.HasOne(f => f.InstituicaoCurso)
             .WithOne(j => j.Curso)
-            .HasForeignKey<Instituicao_Curso>(f => f.CursoCodigo);
+            .HasForeignKey<Domain.Instituicao_Curso.Instituicao_Curso>(f => f.CursoCodigo);
     }
 }

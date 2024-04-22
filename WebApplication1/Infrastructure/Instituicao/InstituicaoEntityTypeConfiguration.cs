@@ -41,6 +41,6 @@ public class InstituicaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
         
         builder.HasOne(f => f.InstituicaoCurso)
             .WithOne(j => j.Instituicao)
-            .HasForeignKey<Instituicao_Curso>(f => f.InstituicaoCodigo);
+            .HasForeignKey<Domain.Instituicao_Curso.Instituicao_Curso>(f => f.InstituicaoCodigo);
     }
 }

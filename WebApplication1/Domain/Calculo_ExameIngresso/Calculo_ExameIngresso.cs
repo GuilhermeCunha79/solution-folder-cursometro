@@ -6,8 +6,7 @@ namespace WebApplication1.Domain.Calculo_ExameIngresso;
 public class Calculo_ExameIngresso : Entity<Identifier>
 {
     public ExameIngressoCodigo ExameIngressoCodigo { get; set; }
-    public Identifier CalculoIdentifier { get; set; }
-
+    public Identifier IdCalculo { get; set; }
     public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
     public Calculo.Calculo Calculo { get; set; }
 
@@ -19,6 +18,6 @@ public class Calculo_ExameIngresso : Entity<Identifier>
     {
         Id = new Identifier(Guid.NewGuid());
         ExameIngressoCodigo = new ExameIngressoCodigo(exameCodigo);
-        CalculoIdentifier = new Identifier(idCalculo);
+        IdCalculo = new Identifier(idCalculo);
     }
 }

@@ -15,8 +15,6 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
 
         builder.Property(b => b.Id).HasConversion(v => v.Value,
             v=>new Identifier(v));
-        builder.Property(b => b.IdCalculo).IsRequired(false).HasConversion(v => v.Value,
-            v=>new Identifier(v));
         builder.Property(b => b.IdEscola).HasConversion(v => v.Value,
             v=>new Identifier(v));
         builder.Property(b => b.UtilizadorNome).HasConversion(v=>v.NomeUtilizador,
@@ -37,5 +35,10 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
             .WithOne(j => j.Utilizador)
             .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(f => f.Calculo)
+            .WithOne(j => j.Utilizador)
+            .HasForeignKey<Domain.Calculo.Calculo>(f => f.IdUtilizador)
+            .OnDelete(DeleteBehavior.Restrict);;
     }
 }

@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 
 public class Instituicao_CursoDuracao : IValueObject
 {
-    private string Duracao { get; set; }
+    public string Duracao { get; set; }
 
     public Instituicao_CursoDuracao()
     {

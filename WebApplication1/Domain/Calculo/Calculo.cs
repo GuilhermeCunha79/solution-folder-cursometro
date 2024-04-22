@@ -7,7 +7,8 @@ public class Calculo : Entity<Identifier>
     public MediaIngresso MediaIngresso { get; set; }
     public MediaIngressoDesporto MediaIngressoDesporto { get; set; }
     public MediaSecundario MediaSecundario { get; set; }
-    
+    public Utilizador.Utilizador Utilizador { get; set; }
+    public Identifier IdUtilizador { get; set; }
     public ICollection<Calculo_ExameIngresso.Calculo_ExameIngresso> CalculoExameIngresso { get; set; }
     public Calculo()
     {

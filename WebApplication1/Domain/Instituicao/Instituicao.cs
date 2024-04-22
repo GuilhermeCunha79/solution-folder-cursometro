@@ -14,6 +14,7 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     public InstituicaoTipoEnsino TipoEnsino { get; set; }
     public InstituicaoNome Nome { get; set; }
     
+    
     public ICollection<Instituicao_Ranking.Instituicao_Ranking> InstituicaoRankings { get; set; }
     public ICollection<Instituicao_Tags.Instituicao_Tags> InstituicaoTags { get; set; }
     public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }

@@ -8,6 +8,8 @@ public class Favoritos:Entity<Identifier>
 
     public Instituicao_CursoCodigo InstituicaoCursoCodigo { get; set; }
     public Identifier UtilizadorId { get; set; }
+    
+    public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
 
     public Utilizador.Utilizador Utilizador { get; set; }
 

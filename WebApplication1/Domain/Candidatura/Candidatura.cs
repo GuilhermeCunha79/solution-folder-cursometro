@@ -13,6 +13,7 @@ public class Candidatura:Entity<Identifier>
 
     public InformacoesCandidatura.InformacoesCandidatura InformacoesCandidatura { get; set; }
     public Instituicao_CursoCodigo InstituicaoCursoCodigo { get; set; }
+    public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
     public Identifier IdInformacoes { get; set; }
 
     public Candidatura()

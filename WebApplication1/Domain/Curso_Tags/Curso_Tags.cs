@@ -8,7 +8,6 @@ public class Curso_Tags : Entity<Identifier>
 {
     public Identifier TagId { get; set; }
     public CursoCodigo CursoCodigo { get; set; }
-
     public Curso.Curso Curso { get; set; }
     public Tags.Tags Tags { get; set; }
 

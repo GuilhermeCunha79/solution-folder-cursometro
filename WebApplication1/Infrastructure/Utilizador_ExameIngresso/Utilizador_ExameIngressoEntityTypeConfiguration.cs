@@ -11,7 +11,7 @@ public class Utilizador_ExameIngressoEntityTypeConfiguration:IEntityTypeConfigur
     public void Configure(EntityTypeBuilder<Domain.Utilizador_ExameIngresso.Utilizador_ExameIngresso> builder)
     {
         builder.ToTable("Utilizador_ExameIngresso", SchemaNames.DDDSample1);
-        builder.HasKey(b=>b.Id);
+        builder.HasKey(b=> new {b.IdUtilizador,b.ExameIngressoCodigo});
 
         builder.Property(b=>b.Id).HasConversion(v=>v.Value,
             v=>new Identifier(v));

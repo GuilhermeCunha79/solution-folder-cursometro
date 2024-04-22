@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 
 public class Instituicao_CursoECTS : IValueObject
 {
-    private string ECTS { get; set; }
+    public string ECTS { get; set; }
 
     public Instituicao_CursoECTS()
     {

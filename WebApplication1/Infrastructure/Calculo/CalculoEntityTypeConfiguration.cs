@@ -23,7 +23,7 @@ public class CalculoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Calc
 
         builder.HasMany(e => e.CalculoExameIngresso)
             .WithOne(j => j.Calculo)
-            .HasForeignKey(e => e.CalculoIdentifier)
+            .HasForeignKey(e => e.IdCalculo)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

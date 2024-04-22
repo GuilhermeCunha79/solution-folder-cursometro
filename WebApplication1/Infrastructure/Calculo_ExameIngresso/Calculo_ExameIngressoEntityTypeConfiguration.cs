@@ -10,11 +10,11 @@ public class Calculo_ExameIngressoEntityTypeConfiguration:IEntityTypeConfigurati
     public void Configure(EntityTypeBuilder<Domain.Calculo_ExameIngresso.Calculo_ExameIngresso> builder)
     {
         builder.ToTable("Calculo_ExameIngresso", SchemaNames.DDDSample1);
-        builder.HasKey(b => new { b.ExameIngressoCodigo, b.CalculoIdentifier });
+        builder.HasKey(b => new { b.ExameIngressoCodigo, b.IdCalculo });
 
         builder.Property(b => b.ExameIngressoCodigo).HasConversion(v => v.CodigoExameIngresso,
             v => new ExameIngressoCodigo(v.ToString()));
-        builder.Property(b => b.CalculoIdentifier).HasConversion(v => v.Value,
+        builder.Property(b => b.IdCalculo).HasConversion(v => v.Value,
             v=>new Identifier(v.ToString()));
     }
 }
