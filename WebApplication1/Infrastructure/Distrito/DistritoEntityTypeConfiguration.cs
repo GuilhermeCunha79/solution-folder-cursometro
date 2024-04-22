@@ -21,6 +21,6 @@ public class DistritoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Dis
         builder
             .HasOne(e => e.Escola)
             .WithOne(j => j.Distrito)
-            .HasForeignKey<Escola>(e=>e.IdDistrito);
+            .HasForeignKey<Domain.Escola.Escola>(e=>e.IdDistrito);
     }
 }

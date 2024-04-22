@@ -21,6 +21,6 @@ public class RegiaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Regia
         builder
             .HasOne(e => e.Escola)
             .WithOne(j => j.Regiao)
-            .HasForeignKey<Escola>(e=>e.IdDistrito);
+            .HasForeignKey<Domain.Escola.Escola>(e=>e.IdDistrito);
     }
 }

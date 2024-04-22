@@ -13,6 +13,7 @@ public class Utilizador : Entity<Identifier>
 
     public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngresso { get; set; }
     public ICollection<Favoritos.Favoritos> Favoritos { get; set; }
+    public Escola.Escola Escola { get; set; }
 
     public Utilizador()
     {

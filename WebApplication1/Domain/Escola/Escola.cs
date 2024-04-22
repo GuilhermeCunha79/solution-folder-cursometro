@@ -10,6 +10,7 @@ public class Escola:Entity<Identifier>
 
     public Distrito.Distrito Distrito { get; set; }
     public Regiao.Regiao Regiao { get; set; }
+    public Utilizador.Utilizador Utilizador { get; set; }
 
     public Escola()
     {
