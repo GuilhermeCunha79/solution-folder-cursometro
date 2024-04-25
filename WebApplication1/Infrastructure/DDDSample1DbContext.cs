@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication1.Infrastructure.Calculo;
-using WebApplication1.Infrastructure.Calculo_ExameIngresso;
 using WebApplication1.Infrastructure.Candidatura;
 using WebApplication1.Infrastructure.Curso;
 using WebApplication1.Infrastructure.Curso_Tags;
@@ -26,7 +25,7 @@ public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
     public DbSet<Domain.Curso.Curso> Cursos { get; set; }
-
+    public DbSet<Domain.Calculo.Medias> Calculos { get; set; }
 
     public int ObterNumeroDeJogadores()
     {
@@ -53,8 +52,7 @@ public class DDDSample1DbContext : DbContext
         modelBuilder.ApplyConfiguration(new FavoritosEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new Calculo_ExameIngressoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new CalculoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MediasEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new InformacoesCandidaturaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CandidaturaEntityTypeConfiguration());

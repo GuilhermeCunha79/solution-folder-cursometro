@@ -4,10 +4,10 @@ public class CalculoDTO
 {
     public Guid Id;
     public string MediaSecundario;
-    public string MediaIngresso;
-    public string MediaIngressoDesporto;
+    public string? MediaIngresso;
+    public string? MediaIngressoDesporto;
 
-    public CalculoDTO(Guid id, string mediaSecundario, string mediaIngresso, string mediaIngressoDesporto)
+    public CalculoDTO(Guid id, string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto)
     {
         Id = id;
         MediaSecundario = mediaSecundario;

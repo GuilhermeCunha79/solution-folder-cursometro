@@ -21,5 +21,7 @@ public class Utilizador_ExameIngressoEntityTypeConfiguration:IEntityTypeConfigur
             v=>new ExameIngressoCodigo(v));
         builder.Property(b=>b.ExameIngressoNotaExame).HasConversion(v=>v.NotaExameIngresso,
             v=>new Utilizador_ExameIngressoNotaExame(v));
+        builder.Property(b => b.IngressoBool).HasConversion(v=>v.BoolIngresso,
+            v=>new IngressoBool(v));
     }
 }

@@ -28,6 +28,10 @@ public class InstituicaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
             v=>new EmailInstituicao(v.ToString()));
         builder.Property(b => b.Logo).HasConversion(v => v.Logo,
             v=> new InstituicaoLogo(v));
+        builder.Property(b=>b.MapaLink).HasConversion(v=>v.MapaLink,
+            v=>new InstituicaoMapaLink(v));
+        builder.Property(b => b.PaginaLink).HasConversion(v=>v.LinkInstituicao,
+            v=>new InstituicaoPaginaLink(v));
         
         builder.HasMany(e => e.InstituicaoRankings)
             .WithOne(j => j.Instituicao)

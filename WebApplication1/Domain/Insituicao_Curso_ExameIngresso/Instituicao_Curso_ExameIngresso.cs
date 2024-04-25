@@ -10,6 +10,8 @@ public class Instituicao_Curso_ExameIngresso : Entity<Identifier>
     public Instituicao_CursoCodigo InstituicaoCursoCodigo { get; set; }
     public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
 
+    public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
+
     public Instituicao_Curso_ExameIngresso()
     {
         

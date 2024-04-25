@@ -36,9 +36,9 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
             .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(f => f.Calculo)
+        builder.HasOne(f => f.Medias)
             .WithOne(j => j.Utilizador)
-            .HasForeignKey<Domain.Calculo.Calculo>(f => f.IdUtilizador)
+            .HasForeignKey<Domain.Calculo.Medias>(f => f.IdUtilizador)
             .OnDelete(DeleteBehavior.Restrict);;
     }
 }

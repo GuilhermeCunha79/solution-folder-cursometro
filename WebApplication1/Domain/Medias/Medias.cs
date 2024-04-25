@@ -2,20 +2,20 @@
 
 namespace WebApplication1.Domain.Calculo;
 
-public class Calculo : Entity<Identifier>
+public class Medias : Entity<Identifier>
 {
     public MediaIngresso MediaIngresso { get; set; }
     public MediaIngressoDesporto MediaIngressoDesporto { get; set; }
     public MediaSecundario MediaSecundario { get; set; }
     public Utilizador.Utilizador Utilizador { get; set; }
     public Identifier IdUtilizador { get; set; }
-    public ICollection<Calculo_ExameIngresso.Calculo_ExameIngresso> CalculoExameIngresso { get; set; }
-    public Calculo()
+    
+    public Medias()
     {
         
     }
 
-    public Calculo(string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto)
+    public Medias(string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto)
     {
         Id = new Identifier(Guid.NewGuid());
         MediaSecundario = new MediaSecundario(mediaSecundario);
