@@ -11,22 +11,20 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
     public void Configure(EntityTypeBuilder<Domain.Curso.Curso> builder)
     {
         builder.ToTable("Curso", SchemaNames.DDDSample1);
-        builder.HasKey(b => b.CursoCodigo);
+        builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.CursoCodigo)
-            .HasConversion(v => v.Codigo,
-                v => new CursoCodigo(v.ToString()));
-
+        builder.Property(b => b.Id)
+            .HasConversion(v => v.StringValue,
+                v => new Identifier(v))
+            .HasColumnName("CursoId");
+        
         builder.Property(b => b.CursoNome)
             .HasConversion(v => v.Nome,
                 v => new CursoNome(v.ToString()));
-        
-        builder.Property<bool>("_active").HasColumnName("Active");
-
 
         builder.HasMany(e => e.Curso_Tags)
             .WithOne(j => j.Curso)
-            .HasForeignKey(e => e.CursoCodigo)
+            .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasOne(f => f.InstituicaoCurso)

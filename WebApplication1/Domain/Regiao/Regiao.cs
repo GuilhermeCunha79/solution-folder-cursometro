@@ -5,7 +5,7 @@ namespace WebApplication1.Domain.Regiao;
 public class Regiao : Entity<Identifier>
 {
     public RegiaoNome RegiaoNome { get; set; }
-    public Escola.Escola Escola { get; set; }
+    public Distrito.Distrito Distrito { get; set; }
     
     public Regiao()
     {
@@ -14,7 +14,6 @@ public class Regiao : Entity<Identifier>
 
     public Regiao(string nomeRegiao)
     {
-        Id = new Identifier(Guid.NewGuid());
         RegiaoNome = new RegiaoNome(nomeRegiao);
     }
 }

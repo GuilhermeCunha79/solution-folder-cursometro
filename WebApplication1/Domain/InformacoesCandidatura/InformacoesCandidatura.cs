@@ -17,7 +17,6 @@ public class InformacoesCandidatura : Entity<Identifier>
 
     public InformacoesCandidatura(int notaEntrada, int vagas)
     {
-        Id = new Identifier(Guid.NewGuid());
         NotaEntradaValor = new NotaEntradaValor(notaEntrada);
         VagasNumero = new VagasNumero(vagas);
     }

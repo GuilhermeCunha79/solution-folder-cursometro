@@ -13,14 +13,15 @@ public class DistritoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Dis
         builder.ToTable("Distrito", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);
 
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
-            v=>new Identifier(v));
+        builder.Property(b=>b.Id).HasConversion(v=>v.StringValue,
+            v=>new Identifier(v))
+            .HasColumnName("DistritoId");
         builder.Property(b=>b.DistritoNome).HasConversion(v=>v.NomeDistrito,
             v=>new DistritoNome(v));
         
         builder
             .HasOne(e => e.Escola)
             .WithOne(j => j.Distrito)
-            .HasForeignKey<Domain.Escola.Escola>(e=>e.IdDistrito);
+            .HasForeignKey<Domain.Escola.Escola>(e=>e.DistritoId);
     }
 }

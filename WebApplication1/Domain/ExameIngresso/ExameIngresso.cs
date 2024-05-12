@@ -5,7 +5,6 @@ namespace WebApplication1.Domain.ExameIngresso;
 
 public class ExameIngresso: Entity<Identifier>
 {
-    public ExameIngressoCodigo ExameIngressoCodigo;
     public ExameIngressoNome ExameIngressoNome;
 
     public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngressos { get; set; }
@@ -18,8 +17,7 @@ public class ExameIngresso: Entity<Identifier>
 
     public ExameIngresso(string codigo, string nome)
     {
-        Id = new Identifier(Guid.NewGuid());
-        ExameIngressoCodigo = new ExameIngressoCodigo(codigo);
+        Id = new ExameIngressoCodigo(codigo).GetCodigoExameIngresso();
         ExameIngressoNome = new ExameIngressoNome(nome);
     }
 }

@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.ExameIngresso;
 
 public class ExameIngressoCodigo:IValueObject
 {
-    public string CodigoExameIngresso { get; set; }
+    public Identifier CodigoExameIngresso { get; set; }
 
     public ExameIngressoCodigo()
     {
@@ -13,7 +13,12 @@ public class ExameIngressoCodigo:IValueObject
 
     public ExameIngressoCodigo(string codigoExameIngresso)
     {
-        CodigoExameIngresso = codigoExameIngresso;
+        CodigoExameIngresso = new Identifier(codigoExameIngresso);
+    }
+    
+    public Identifier GetCodigoExameIngresso()
+    {
+        return CodigoExameIngresso;
     }
     
 }

@@ -6,7 +6,7 @@ namespace WebApplication1.Domain.Instituicao;
 public class Instituicao : Entity<Identifier>, IAggregateRoot
 {
     public EmailInstituicao Email { get; set; }
-    public InstituicaoCodigo Codigo { get; set; }
+  //  public InstituicaoCodigo Codigo { get; set; }
     public InstituicaoFax Fax { get; set; }
     public InstituicaoLogo Logo { get; set; }
     public InstituicaoMorada Morada { get; set; }
@@ -24,12 +24,12 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     {
     }
 
-    public Instituicao(string nome,string email, string codigo, string fax, byte[] logo, string morada, string telefone,
+    public Instituicao(string nome,string email, int codigo, string fax, byte[] logo, string morada, string telefone,
         string tipoEnsino, string mapaLink, string paginaLink)
     {
+        Id = new InstituicaoCodigo(codigo).Codigo;
         Nome = new InstituicaoNome(nome);
         Email = new EmailInstituicao(email);
-        Codigo = new InstituicaoCodigo(codigo);
         Fax = new InstituicaoFax(fax);
         Logo = new InstituicaoLogo(logo);
         Morada = new InstituicaoMorada(morada);

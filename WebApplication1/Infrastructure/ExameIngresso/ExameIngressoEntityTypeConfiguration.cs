@@ -10,21 +10,23 @@ public class ExameIngressoEntityTypeConfiguration:IEntityTypeConfiguration<Domai
     public void Configure(EntityTypeBuilder<Domain.ExameIngresso.ExameIngresso> builder)
     {
         builder.ToTable("ExameIngresso", SchemaNames.DDDSample1);
-        builder.HasKey(b => b.ExameIngressoCodigo);
+        builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.ExameIngressoCodigo).HasConversion(v => v.CodigoExameIngresso,
-            v=> new ExameIngressoCodigo(v.ToString()));
+        builder.Property(b => b.Id).HasConversion(v => v.StringValue,
+            v=> new Identifier(v))
+            .HasColumnName("ExameIngressoCodigo");
+        
         builder.Property(b => b.ExameIngressoNome).HasConversion(v => v.NomeExameIngresso,
         v=>new ExameIngressoNome(v.ToString()));
         
         builder.HasMany(e => e.UtilizadorExameIngressos)
             .WithOne(j => j.ExameIngresso)
-            .HasForeignKey(e => e.ExameIngressoCodigo)
+            .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasMany(e => e.InstituicaoCursoExameIngressos)
             .WithOne(j => j.ExameIngresso)
-            .HasForeignKey(e => e.ExameIngressoCodigo)
+            .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

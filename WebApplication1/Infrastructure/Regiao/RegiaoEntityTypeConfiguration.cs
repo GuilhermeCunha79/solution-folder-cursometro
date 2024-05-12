@@ -13,14 +13,19 @@ public class RegiaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Regia
         builder.ToTable("Regiao", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);
 
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
-            v=>new Identifier(v));
+        builder.Property(b=>b.Id).HasConversion(v=>v.IntValue,
+            v=>new Identifier(v))
+            .HasColumnName("RegiaoId");
         builder.Property(b => b.RegiaoNome).HasConversion(v=>v.NomeRegiao,
             v=>new RegiaoNome(v));
         
         builder
-            .HasOne(e => e.Escola)
+            .HasOne(e => e.Distrito)
             .WithOne(j => j.Regiao)
-            .HasForeignKey<Domain.Escola.Escola>(e=>e.IdRegiao);
+            .HasForeignKey<Domain.Distrito.Distrito>(e=>e.RegiaoId);
+        
+        builder
+            .Property(e => e.Id)
+            .ValueGeneratedOnAdd();
     }
 }

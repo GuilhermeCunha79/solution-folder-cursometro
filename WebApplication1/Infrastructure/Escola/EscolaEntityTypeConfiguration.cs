@@ -11,19 +11,18 @@ public class EscolaEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Escol
     {
         builder.ToTable("Escola", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);
-
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
-            v=>new Identifier(v));
+        
+        builder.Property(b=>b.Id).HasConversion(v=>v.IntValue,
+            v=>new Identifier(v))
+            .HasColumnName("EscolaId");
         builder.Property(b=>b.EscolaNome).HasConversion(v=>v.NomeEscola,
             v=>new EscolaNome(v));
-        builder.Property(b=>b.IdDistrito).HasConversion(v=>v.Value,
+        builder.Property(b=>b.DistritoId).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.IdRegiao).HasConversion(v=>v.Value,
-            v=>new Identifier(v));
-        
+
         builder
             .HasOne(e => e.Utilizador)
             .WithOne(j => j.Escola)
-            .HasForeignKey<Domain.Utilizador.Utilizador>(e=>e.IdEscola);
+            .HasForeignKey<Domain.Utilizador.Utilizador>(e=>e.EscolaId);
     }
 }

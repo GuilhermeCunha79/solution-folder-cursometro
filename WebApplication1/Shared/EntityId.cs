@@ -2,31 +2,28 @@
 
 public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
 {
-    protected Object ObjValue { get; }
+    protected object Value { get; }
 
-    public String Value
+    public string StringValue => Value.ToString();
+    public int IntValue => Value is int intValue ? intValue : throw new InvalidOperationException("Value is not an integer.");
+    
+    public String ValueGuid
     {
         get
         {
-            if (this.ObjValue is string)
-                return (String)this.ObjValue;
+            if (this.Value is string)
+                return (String)this.Value;
             return AsString();
         }
     }
-
-    protected EntityId(Object value)
+    
+    protected EntityId(object value)
     {
-        if (value is string)
-            this.ObjValue = createFromString((String)value);
+        if (value is int || value is string)
+            Value = value;
         else
-            this.ObjValue = value;
+            throw new ArgumentException("Value must be either an integer or a string.");
     }
-
-
-    protected abstract Object createFromString(String text);
-
-    public abstract String AsString();
-
 
     public override bool Equals(object? obj)
     {
@@ -45,14 +42,14 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
             return false;
         if (this.GetType() != other.GetType())
             return false;
-        return this.Value == other.Value;
+        return this.Value.Equals(other.Value);
     }
 
     public int CompareTo(EntityId other)
     {
         if (other == null)
             return -1;
-        return String.Compare(Value, other.Value, StringComparison.Ordinal);
+        return String.Compare(StringValue, other.StringValue, StringComparison.Ordinal);
     }
 
     public static bool operator ==(EntityId obj1, EntityId obj2)
@@ -74,4 +71,6 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
     {
         return !(x == y);
     }
+    
+    public abstract String AsString();
 }

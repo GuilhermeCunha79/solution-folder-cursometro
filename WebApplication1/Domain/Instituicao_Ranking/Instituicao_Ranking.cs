@@ -7,7 +7,7 @@ namespace WebApplication1.Domain.Instituicao_Ranking;
 public class Instituicao_Ranking:Entity<Identifier>
 {
     public Identifier IdRanking { get; set; }
-    public InstituicaoCodigo InstituicaoCodigo { get; set; }
+    public Identifier InstituicaoCodigo { get; set; }
 
     public Ranking Ranking { get; set; }
     public Instituicao.Instituicao Instituicao { get; set; }
@@ -17,10 +17,9 @@ public class Instituicao_Ranking:Entity<Identifier>
         
     }
 
-    public Instituicao_Ranking(Guid idRanking, string codigo)
+    public Instituicao_Ranking(int idRanking, int codigo)
     {
-        Id = new Identifier(Guid.NewGuid());
         IdRanking = new Identifier(idRanking);
-        InstituicaoCodigo = new InstituicaoCodigo(codigo);
+        InstituicaoCodigo = new InstituicaoCodigo(codigo).Codigo;
     }
 }

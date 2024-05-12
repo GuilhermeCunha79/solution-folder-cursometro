@@ -10,16 +10,11 @@ public class CursoTagsEntityTypeConfiguration : IEntityTypeConfiguration<Domain.
     public void Configure(EntityTypeBuilder<Domain.Curso_Tags.Curso_Tags> builder)
     {
         builder.ToTable("Curso_Tags", SchemaNames.DDDSample1);
-        builder.HasKey(b => new { b.TagId, b.CursoCodigo});
+        builder.HasKey(b => new {b.TagId,b.CursoCodigo});
 
-        builder.Property(b => b.Id).HasConversion(v => v.Value,
-            v => new Identifier(v.ToString()));
-
-        builder.Property(b => b.CursoCodigo).HasConversion(v => v.Codigo,
-            v => new CursoCodigo(v.ToString()));
-        
-        builder.Property(b => b.TagId).HasConversion(v => v.Value,
-            v => new Identifier(v.ToString()));
-        
+        builder.Property(b => b.TagId).HasConversion(v => v.IntValue,
+            v => new Identifier(v));
+        builder.Property(b => b.CursoCodigo).HasConversion(v => v.StringValue,
+            v => new Identifier(v));
     }
 }

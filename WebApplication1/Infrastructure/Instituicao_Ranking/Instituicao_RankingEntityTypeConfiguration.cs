@@ -10,11 +10,11 @@ public class Instituicao_RankingEntityTypeConfiguration:IEntityTypeConfiguration
     public void Configure(EntityTypeBuilder<Domain.Instituicao_Ranking.Instituicao_Ranking> builder)
     {
         builder.ToTable("Instituicao_Ranking", SchemaNames.DDDSample1);
-        builder.HasKey(b=> new {b.IdRanking,b.InstituicaoCodigo});
+        builder.HasKey(b => new {b.IdRanking,b.InstituicaoCodigo});
 
-        builder.Property(b=> b.IdRanking).HasConversion(v=>v.Value,
+        builder.Property(b=> b.IdRanking).HasConversion(v=>v.IntValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.InstituicaoCodigo).HasConversion(v=>v.Codigo,
-            v=>new InstituicaoCodigo(v));
+        builder.Property(b=>b.InstituicaoCodigo).HasConversion(v=>v.IntValue,
+            v=>new Identifier(v));
     }
 }

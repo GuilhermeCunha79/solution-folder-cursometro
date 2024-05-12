@@ -7,9 +7,11 @@ public class EntityIdValueConverter<TTypedIdValue> : ValueConverter<TTypedIdValu
     where TTypedIdValue : EntityId
 {
     public EntityIdValueConverter(ConverterMappingHints mappingHints = null) 
-        : base(id => id.Value, value => Create(value), mappingHints)
+        : base(id => id.StringValue, value => Create(value), mappingHints)
     {
     }
+    
+    
 
     private static TTypedIdValue Create(String id) => Activator.CreateInstance(typeof(TTypedIdValue), id) as TTypedIdValue;
 }

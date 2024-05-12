@@ -1,7 +1,9 @@
 ﻿using ConsoleApp1.Infraestructure.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using WebApplication1.Domain.Curso;
 using WebApplication1.Infrastructure;
+using WebApplication1.Infrastructure.Curso;
 using WebApplication1.Shared;
 
 namespace ConsoleApp1;
@@ -81,8 +83,8 @@ namespace ConsoleApp1;
             
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-           // services.AddTransient<IJogadorRepository, JogadorRepository>();
-          //  services.AddTransient<IJogadorService, JogadorService>();
+            services.AddTransient<ICursoRepository, CursoRepository>();
+           services.AddTransient<ICursoService, CursoService>();
             
             
         }

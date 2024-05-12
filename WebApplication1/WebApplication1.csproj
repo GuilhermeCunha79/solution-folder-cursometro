@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 
@@ -27,6 +26,14 @@
       <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Migrations\DDDSample1DbContextModelSnapshot.cs" />
+      <Compile Remove="Migrations\20240511114304_Migrations.cs" />
+      <Compile Remove="Migrations\20240511114304_Migrations.Designer.cs" />
+      <Compile Remove="Migrations\20240512160121_Migrations.cs" />
+      <Compile Remove="Migrations\20240512160121_Migrations.Designer.cs" />
     </ItemGroup>
 
 </Project>

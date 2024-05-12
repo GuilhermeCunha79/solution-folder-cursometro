@@ -5,9 +5,7 @@ namespace WebApplication1.Domain.Escola;
 public class Escola:Entity<Identifier>
 {
     public EscolaNome EscolaNome { get; set; }
-    public Identifier IdDistrito { get; set; }
-    public Identifier IdRegiao { get; set; }
-
+    public Identifier DistritoId { get; set; }
     public Distrito.Distrito Distrito { get; set; }
     public Regiao.Regiao Regiao { get; set; }
     public Utilizador.Utilizador Utilizador { get; set; }
@@ -17,11 +15,10 @@ public class Escola:Entity<Identifier>
         
     }
 
-    public Escola(string nomeEscola, string idDistrito, string idRegiao)
+    public Escola(int idEscola, string nomeEscola, int idDistrito, string idRegiao)
     {
-        Id = new Identifier(Guid.NewGuid());
+        Id = new Identifier(idEscola);
         EscolaNome = new EscolaNome(nomeEscola);
-        IdDistrito = new Identifier(idDistrito);
-        IdRegiao = new Identifier(idRegiao);
+        DistritoId = new Identifier(idDistrito);
     }
 }

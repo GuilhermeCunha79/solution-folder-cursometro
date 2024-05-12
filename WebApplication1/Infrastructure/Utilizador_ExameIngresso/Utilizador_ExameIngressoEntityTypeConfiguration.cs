@@ -11,14 +11,12 @@ public class Utilizador_ExameIngressoEntityTypeConfiguration:IEntityTypeConfigur
     public void Configure(EntityTypeBuilder<Domain.Utilizador_ExameIngresso.Utilizador_ExameIngresso> builder)
     {
         builder.ToTable("Utilizador_ExameIngresso", SchemaNames.DDDSample1);
-        builder.HasKey(b=> new {b.IdUtilizador,b.ExameIngressoCodigo});
-
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
+        builder.HasKey(b=> new {b.UtilizadorId,b.ExameIngressoCodigo});
+        
+        builder.Property(b => b.UtilizadorId).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
-        builder.Property(b => b.IdUtilizador).HasConversion(v=>v.Value,
+        builder.Property(b=>b.ExameIngressoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.ExameIngressoCodigo).HasConversion(v=>v.CodigoExameIngresso,
-            v=>new ExameIngressoCodigo(v));
         builder.Property(b=>b.ExameIngressoNotaExame).HasConversion(v=>v.NotaExameIngresso,
             v=>new Utilizador_ExameIngressoNotaExame(v));
         builder.Property(b => b.IngressoBool).HasConversion(v=>v.BoolIngresso,

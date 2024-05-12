@@ -19,7 +19,7 @@ public class CursoService : ICursoService
         var list = await _repo.GetAllAsync();
 
         List<CursoDTO> listDto =
-            list.ConvertAll(curso => new CursoDTO(curso.CursoCodigo.Codigo, curso.CursoNome.Nome));
+            list.ConvertAll(curso => new CursoDTO(curso.Id.StringValue, curso.CursoNome.Nome));
 
         return listDto;
     }
@@ -28,14 +28,14 @@ public class CursoService : ICursoService
     {
         var curso = await this._repo.GetByCodigoCurso(codigo);
 
-        return new CursoDTO(curso.CursoCodigo.Codigo, curso.CursoNome.Nome);
+        return new CursoDTO(curso.Id.StringValue, curso.CursoNome.Nome);
     }
     
     public async Task<CursoDTO> GetByIdAsync(Identifier id)
     {
         var curso = await _repo.GetByIdAsync(id);
         
-        return new CursoDTO(curso.CursoCodigo.Codigo, curso.CursoNome.Nome);
+        return new CursoDTO(curso.Id.StringValue, curso.CursoNome.Nome);
     }
 
     public async Task<CursoDTO> AddAsync(CursoDTO dto)
@@ -46,10 +46,6 @@ public class CursoService : ICursoService
 
         await _unitOfWork.CommitAsync();
 
-        return new CursoDTO(curso.CursoCodigo.Codigo, curso.CursoNome.Nome);
+        return new CursoDTO(curso.Id.StringValue, curso.CursoNome.Nome);
     }
-    
-    
-    
-
 }

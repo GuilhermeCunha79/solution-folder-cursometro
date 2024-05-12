@@ -13,8 +13,9 @@ public class InformacoesCandidaturaEntityTypeConfiguration:IEntityTypeConfigurat
         builder.ToTable("InfoCandidaturas", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Id).HasConversion(v => v.Value,
-            v => new Identifier(v.ToString()));
+        builder.Property(b => b.Id).HasConversion(v => v.IntValue,
+            v => new Identifier(v))
+            .HasColumnName("InformacoesCandidaturaId");
         builder.Property(b => b.NotaEntradaValor).HasConversion(v => v.ValorNotaEntrada,
             v=>new NotaEntradaValor(v));
         builder.Property(b => b.VagasNumero).HasConversion(v => v.NumeroVagas,
@@ -23,5 +24,9 @@ public class InformacoesCandidaturaEntityTypeConfiguration:IEntityTypeConfigurat
         builder.HasOne(f => f.Candidatura)
             .WithOne(j => j.InformacoesCandidatura)
             .HasForeignKey<Domain.Candidatura.Candidatura>(f => f.IdInformacoes);
+        
+        builder
+            .Property(e => e.Id)
+            .ValueGeneratedOnAdd();
     }
 }

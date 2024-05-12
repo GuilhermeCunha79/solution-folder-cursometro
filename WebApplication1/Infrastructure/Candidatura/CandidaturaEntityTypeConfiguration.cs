@@ -12,11 +12,16 @@ public class CandidaturaEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
         builder.ToTable("Candidatura", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Id).HasConversion(v => v.Value,
-            v => new Identifier(v));
+        builder.Property(b => b.Id).HasConversion(v => v.IntValue,
+            v => new Identifier(v))
+            .HasColumnName("CandidaturaId");
         builder.Property(b => b.CandidaturaAno).HasConversion(v => v.Ano,
             v => new CandidaturaAno(v));
         builder.Property(b => b.CandidaturaFase).HasConversion(v => v.Fase,
             v => new CandidaturaFase(v));
+        
+        builder
+            .Property(e => e.Id)
+            .ValueGeneratedOnAdd();
     }
 }

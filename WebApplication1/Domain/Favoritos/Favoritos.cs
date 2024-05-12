@@ -5,8 +5,7 @@ namespace WebApplication1.Domain.Favoritos;
 
 public class Favoritos:Entity<Identifier>
 {
-
-    public Instituicao_CursoCodigo InstituicaoCursoCodigo { get; set; }
+    public Identifier InstituicaoCursoCodigo { get; set; }
     public Identifier UtilizadorId { get; set; }
     
     public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
@@ -18,11 +17,10 @@ public class Favoritos:Entity<Identifier>
         
     }
 
-    public Favoritos(Guid utilGuid, string codigo)
+    public Favoritos(string utilGuid, string codigo)
     {
-        Id = new Identifier(Guid.NewGuid());
         UtilizadorId = new Identifier(utilGuid);
-        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigo);
+        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigo).Codigo;
     }
     
 }

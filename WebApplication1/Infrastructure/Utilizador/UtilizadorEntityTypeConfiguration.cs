@@ -13,9 +13,9 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
         builder.ToTable("Utilizador", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Id).HasConversion(v => v.Value,
-            v=>new Identifier(v));
-        builder.Property(b => b.IdEscola).HasConversion(v => v.Value,
+        builder.Property(b => b.Id).HasColumnName("UtilizadorId").HasConversion(v => v.StringValue,
+            v => new Identifier(v));
+        builder.Property(b => b.EscolaId).HasConversion(v => v.IntValue,
             v=>new Identifier(v));
         builder.Property(b => b.UtilizadorNome).HasConversion(v=>v.NomeUtilizador,
             v=>new UtilizadorNome(v));
@@ -31,14 +31,14 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
             .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
         
-        builder.HasMany(e => e.Favoritos)
+      /*  builder.HasMany(e => e.Favoritos)
             .WithOne(j => j.Utilizador)
             .HasForeignKey(e => e.Id)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict);*/
 
-        builder.HasOne(f => f.Medias)
+        builder.HasOne(f => f.Media)
             .WithOne(j => j.Utilizador)
-            .HasForeignKey<Domain.Calculo.Medias>(f => f.IdUtilizador)
-            .OnDelete(DeleteBehavior.Restrict);;
+            .HasForeignKey<Domain.Calculo.Media>(f => f.UtilizadorId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

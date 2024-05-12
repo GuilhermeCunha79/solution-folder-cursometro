@@ -5,12 +5,11 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Instituicao_Curso;
 
-public class Instituicao_Curso: Entity<Identifier>
+public class Instituicao_Curso:Entity<Identifier>
 {
-    public Instituicao_CursoCodigo InstituicaoCursoCodigo{ get; set; }
     //pk, junção de duas fk
-    public InstituicaoCodigo InstituicaoCodigo{ get; set; }
-    public CursoCodigo CursoCodigo{ get; set; }
+    public Identifier InstituicaoCodigo{ get; set; }
+    public Identifier CursoCodigo{ get; set; }
     //Instituicao_Curso
     public Instituicao_CursoECTS InstituicaoCursoEcts{ get; set; }
     public Instituicao_CursoDuracao InstituicaoCursoDuracao{ get; set; }
@@ -30,11 +29,10 @@ public class Instituicao_Curso: Entity<Identifier>
         
     }
 
-    public Instituicao_Curso(string instituicaoCodigo, string cursoCodigo, string ects, string duracao, string grau,
+    public Instituicao_Curso(int instituicaoCodigo, string cursoCodigo, string ects, string duracao, string grau,
         string area)
     {
-        Id = new Identifier(Guid.NewGuid());
-        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(instituicaoCodigo, cursoCodigo);
+        Id = new Instituicao_CursoCodigo(instituicaoCodigo, cursoCodigo).Codigo;
         InstituicaoCursoEcts = new Instituicao_CursoECTS(ects);
         InstituicaoCursoDuracao = new Instituicao_CursoDuracao(duracao);
         InstituicaoCursoGrau = new Instituicao_CursoGrau(grau);

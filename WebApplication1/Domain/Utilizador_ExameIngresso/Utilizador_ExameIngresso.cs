@@ -7,8 +7,8 @@ public class Utilizador_ExameIngresso : Entity<Identifier>
 {
     public IngressoBool IngressoBool { get; set; }
     public Utilizador_ExameIngressoNotaExame ExameIngressoNotaExame { get; set; }
-    public Identifier IdUtilizador { get; set; }
-    public ExameIngressoCodigo ExameIngressoCodigo { get; set; }
+    public Identifier UtilizadorId { get; set; }
+    public Identifier ExameIngressoCodigo { get; set; }
     public Utilizador.Utilizador Utilizador { get; set; }
     public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
 
@@ -19,9 +19,8 @@ public class Utilizador_ExameIngresso : Entity<Identifier>
 
     public Utilizador_ExameIngresso(string idUtilizador, string exameCodigo, int notaExame, bool isIngresso)
     {
-        Id = new Identifier(Guid.NewGuid());
-        IdUtilizador = new Identifier(idUtilizador);
-        ExameIngressoCodigo = new ExameIngressoCodigo(exameCodigo);
+        UtilizadorId = new Identifier(idUtilizador);
+        ExameIngressoCodigo = new ExameIngressoCodigo(exameCodigo).CodigoExameIngresso;
         ExameIngressoNotaExame = new Utilizador_ExameIngressoNotaExame(notaExame);
         IngressoBool = new IngressoBool(isIngresso);
     }

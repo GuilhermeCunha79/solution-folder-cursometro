@@ -10,13 +10,11 @@ public class Instituicao_TagsEntityTypeConfiguration:IEntityTypeConfiguration<Do
     public void Configure(EntityTypeBuilder<Domain.Instituicao_Tags.Instituicao_Tags> builder)
     {
         builder.ToTable("Instituicao_Tags", SchemaNames.DDDSample1);
-        builder.HasKey(b => new {b.TagId,b.InstituicaoCodigo});
+        builder.HasKey(b => new{b.TagId,b.InstituicaoCodigo});
 
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
+        builder.Property(b=>b.TagId).HasConversion(v=>v.IntValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.TagId).HasConversion(v=>v.Value,
+        builder.Property(b => b.InstituicaoCodigo).HasConversion(v=>v.IntValue,
             v=>new Identifier(v));
-        builder.Property(b => b.InstituicaoCodigo).HasConversion(v=>v.Codigo,
-            v=>new InstituicaoCodigo(v));
     }
 }

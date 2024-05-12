@@ -6,8 +6,8 @@ namespace WebApplication1.Domain.Insituicao_Curso_ExameIngresso;
 
 public class Instituicao_Curso_ExameIngresso : Entity<Identifier>
 {
-    public ExameIngressoCodigo ExameIngressoCodigo { get; set; }
-    public Instituicao_CursoCodigo InstituicaoCursoCodigo { get; set; }
+    public Identifier ExameIngressoCodigo { get; set; }
+    public Identifier InstituicaoCursoCodigo { get; set; }
     public Instituicao_Curso.Instituicao_Curso InstituicaoCurso { get; set; }
 
     public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
@@ -19,9 +19,8 @@ public class Instituicao_Curso_ExameIngresso : Entity<Identifier>
 
     public Instituicao_Curso_ExameIngresso(string codigoInstituicao, string codigoExame)
     {
-        Id = new Identifier(Guid.NewGuid());
-        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigoInstituicao);
-        ExameIngressoCodigo = new ExameIngressoCodigo(codigoExame);
+        InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigoInstituicao).Codigo;
+        ExameIngressoCodigo = new ExameIngressoCodigo(codigoExame).CodigoExameIngresso;
         
     }
 }

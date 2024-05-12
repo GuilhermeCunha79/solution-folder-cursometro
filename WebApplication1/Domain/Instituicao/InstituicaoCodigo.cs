@@ -4,15 +4,15 @@ namespace WebApplication1.Domain.Instituicao;
 
 public class InstituicaoCodigo: IValueObject
 {
-    public string Codigo { get; set; }
+    public Identifier Codigo { get; set; }
 
     public InstituicaoCodigo()
     {
         
     }
     
-    public InstituicaoCodigo(string codigo)
+    public InstituicaoCodigo(int codigo)
     {
-        Codigo = codigo;
+        Codigo = new Identifier(codigo);
     }
 }

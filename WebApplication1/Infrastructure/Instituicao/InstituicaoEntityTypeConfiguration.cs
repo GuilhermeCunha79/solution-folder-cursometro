@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.Instituicao;
 using WebApplication1.Domain.Instituicao_Curso;
+using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Instituicao;
 
@@ -10,10 +11,11 @@ public class InstituicaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
     public void Configure(EntityTypeBuilder<Domain.Instituicao.Instituicao> builder)
     {
         builder.ToTable("Instituicao", SchemaNames.DDDSample1);
-        builder.HasKey(b=>b.Codigo);
+        builder.HasKey(b=>b.Id);
 
-        builder.Property(b => b.Codigo).HasConversion(v => v.Codigo,
-            v=>new InstituicaoCodigo(v.ToString()));
+        builder.Property(b => b.Id).HasConversion(v => v.IntValue,
+            v=>new Identifier(v))
+            .HasColumnName("InstituicaoCodigo");
         builder.Property(b => b.Nome).HasConversion(v=>v.Nome,
             v=>new InstituicaoNome(v.ToString()));
         builder.Property(b => b.Morada).HasConversion(v=>v.Morada,

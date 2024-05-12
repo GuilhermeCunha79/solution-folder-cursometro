@@ -25,7 +25,7 @@ public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
     public DbSet<Domain.Curso.Curso> Cursos { get; set; }
-    public DbSet<Domain.Calculo.Medias> Calculos { get; set; }
+    public DbSet<Domain.Calculo.Media> Calculos { get; set; }
 
     public int ObterNumeroDeJogadores()
     {
@@ -45,25 +45,27 @@ public class DDDSample1DbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new DistritoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new RegiaoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new EscolaEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new UtilizadorEntityTypeConfiguration());
+
+       
         modelBuilder.ApplyConfiguration(new FavoritosEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new MediasEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MediaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new InformacoesCandidaturaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CandidaturaEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new Instituicao_Curso_ExameIngressoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new InstituicaoCursoExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new InstituicaoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CursoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CursoTagsEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new TagsEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Instituicao_TagsEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Instituicao_CursoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DistritoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new RegiaoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new RankingEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Instituicao_RankingEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EscolaEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new UtilizadorEntityTypeConfiguration());
     }
 }

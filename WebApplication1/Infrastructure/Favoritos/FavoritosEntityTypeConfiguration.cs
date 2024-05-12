@@ -12,11 +12,13 @@ public class FavoritosEntityTypeConfiguration: IEntityTypeConfiguration<Domain.F
         builder.ToTable("Favoritos", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);
 
-        builder.Property(b=>b.Id).HasConversion(v=>v.Value,
+        builder.Property(b => b.Id)
+            .HasColumnName("FavoritosId") // Nomeie a coluna como necessário
+            .HasConversion(v => v.IntValue, v => new Identifier(v));
+        builder.Property(b=>b.InstituicaoCursoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.InstituicaoCursoCodigo).HasConversion(v=>v.Codigo,
-            v=>new Instituicao_CursoCodigo(v));
-        builder.Property(b => b.UtilizadorId).HasConversion(v=>v.Value,
+        builder.Property(b => b.UtilizadorId).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
+        
     }
 }

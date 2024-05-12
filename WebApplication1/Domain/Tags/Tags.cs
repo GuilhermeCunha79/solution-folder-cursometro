@@ -4,7 +4,6 @@ namespace WebApplication1.Domain.Tags;
 
 public class Tags : Entity<Identifier>
 {
-
     public NomeTags NomeTags { get; set; }
     public TagDescricao TagDescricao { get; set; }
 
@@ -17,9 +16,8 @@ public class Tags : Entity<Identifier>
         
     }
 
-    public Tags(string id, string nomeTags, string descricao)
+    public Tags(string nomeTags, string descricao)
     {
-        Id = new Identifier(Guid.NewGuid());
         NomeTags = new NomeTags(nomeTags);
         TagDescricao = new TagDescricao(descricao);
     }

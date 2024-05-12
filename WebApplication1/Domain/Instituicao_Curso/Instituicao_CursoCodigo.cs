@@ -4,7 +4,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 
 public class Instituicao_CursoCodigo : IValueObject
 {
-    public string Codigo { get; set; }
+    public Identifier Codigo { get; set; }
 
     public Instituicao_CursoCodigo()
     {
@@ -12,11 +12,11 @@ public class Instituicao_CursoCodigo : IValueObject
 
     public Instituicao_CursoCodigo(string codInstCurso)
     {
-        Codigo = codInstCurso;
+        Codigo = new Identifier(codInstCurso);
     }
 
-    public Instituicao_CursoCodigo(string codigoInstituicao, string codigoCurso)
+    public Instituicao_CursoCodigo(int codigoInstituicao, string codigoCurso)
     {
-        Codigo = codigoInstituicao + "/" + codigoCurso;
+        Codigo = new Identifier(codigoInstituicao + "/" + codigoCurso);
     }
 }

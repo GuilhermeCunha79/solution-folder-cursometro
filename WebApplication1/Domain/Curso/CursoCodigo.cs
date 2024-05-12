@@ -2,16 +2,17 @@
 
 namespace WebApplication1.Domain.Curso;
 
-public class CursoCodigo : IValueObject
+public class CursoCodigo:IValueObject
 {
-    public string Codigo { get; set; }
+    public Identifier CodigoCurso { get; set; }
 
     public CursoCodigo()
     {
+        
     }
 
-    public CursoCodigo(string codigo)
+    public CursoCodigo(string codigoCurso)
     {
-        Codigo = codigo;
+        CodigoCurso = new Identifier(codigoCurso);
     }
 }
