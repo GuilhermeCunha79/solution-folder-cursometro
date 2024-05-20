@@ -6,6 +6,7 @@ public class CursoSecundario : Entity<Identifier>
 {
     public Identifier CursoSecundarioCodigo { get; set; }
     public CursoSecundarioNome CursoSecundarioNome { get; set; }
+    public ICollection<Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
 
     public CursoSecundario()
     {

@@ -9,6 +9,9 @@ public class Disciplina_CursoSecundario : Entity<Identifier>
     public Identifier DisciplinaCodigo { get; set; }
     public Identifier CodigoCursoSecundario { get; set; }
 
+    public CursoSecundario.CursoSecundario CursoSecundario { get; set; }
+    public Disciplina.Disciplina Disciplina { get; set; }
+
     public Disciplina_CursoSecundario()
     {
     }

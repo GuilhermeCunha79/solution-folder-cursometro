@@ -10,7 +10,7 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
 {
     public void Configure(EntityTypeBuilder<Domain.Curso.Curso> builder)
     {
-        builder.ToTable("Curso", SchemaNames.DDDSample1);
+        builder.ToTable("CursoSuperior", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);
 
         builder.Property(b => b.Id)
