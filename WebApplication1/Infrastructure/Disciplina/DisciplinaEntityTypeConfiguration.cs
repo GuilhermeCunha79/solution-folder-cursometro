@@ -23,5 +23,9 @@ public class DisciplinaEntityTypeConfiguration:IEntityTypeConfiguration<ConsoleA
         builder.HasMany(e => e.Disciplina_CursoSecundario)
             .WithOne(j => j.Disciplina)
             .HasForeignKey(f => f.DisciplinaCodigo);
+        
+        builder.HasMany(e => e.Testes)
+            .WithOne(j => j.Disciplina)
+            .HasForeignKey(f => f.DisciplinaId);
     }
 }

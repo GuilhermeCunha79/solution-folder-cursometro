@@ -8,7 +8,8 @@ public class Disciplina:Entity<Identifier>
     public DisciplinaTipo DisciplinaTipo { get; set; }
     
     public ICollection<Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
-
+    public ICollection<Teste.Teste> Testes { get; set; }
+    
     public Disciplina()
     {
         

@@ -1,8 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication1.Infrastructure.Calculo;
 using WebApplication1.Infrastructure.Candidatura;
+using WebApplication1.Infrastructure.Cif;
 using WebApplication1.Infrastructure.Curso;
 using WebApplication1.Infrastructure.Curso_Tags;
+using WebApplication1.Infrastructure.CursoSecundario;
+using WebApplication1.Infrastructure.Disciplina;
+using WebApplication1.Infrastructure.Disciplina_CursoSecundario;
 using WebApplication1.Infrastructure.Distrito;
 using WebApplication1.Infrastructure.Escola;
 using WebApplication1.Infrastructure.ExameIngresso;
@@ -16,6 +20,7 @@ using WebApplication1.Infrastructure.Instituicao_Tags;
 using WebApplication1.Infrastructure.Ranking;
 using WebApplication1.Infrastructure.Regiao;
 using WebApplication1.Infrastructure.Tags;
+using WebApplication1.Infrastructure.Teste;
 using WebApplication1.Infrastructure.Utilizador;
 using WebApplication1.Infrastructure.Utilizador_ExameIngresso;
 
@@ -67,5 +72,12 @@ public class DDDSample1DbContext : DbContext
         modelBuilder.ApplyConfiguration(new Instituicao_RankingEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new EscolaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new UtilizadorEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CursoSecundarioEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DistritoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DisciplinaEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new Disciplina_CursoSecundarioEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new TesteEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new NotaVisualizacaoEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CifEntityTypeConfiguration());
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsoleApp1.Domain.Nota;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.Utilizador;
 using WebApplication1.Domain.Utilizador_ExameIngresso;
@@ -31,6 +32,11 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
             .HasForeignKey(e => e.Id)
             .OnDelete(DeleteBehavior.Restrict);
         
+        builder.HasMany(e => e.Testes)
+            .WithOne(j => j.Utilizador)
+            .HasForeignKey(e => e.Id)
+            .OnDelete(DeleteBehavior.Restrict);
+        
       /*  builder.HasMany(e => e.Favoritos)
             .WithOne(j => j.Utilizador)
             .HasForeignKey(e => e.Id)
@@ -39,6 +45,11 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
         builder.HasOne(f => f.Media)
             .WithOne(j => j.Utilizador)
             .HasForeignKey<Domain.Calculo.Media>(f => f.UtilizadorId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(f => f.NotaVisualizacao)
+            .WithOne(j => j.Utilizador)
+            .HasForeignKey<NotaVisualizacao>(f => f.UtilizadorId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

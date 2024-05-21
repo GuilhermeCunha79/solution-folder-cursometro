@@ -1,4 +1,5 @@
-﻿using WebApplication1.Shared;
+﻿using WebApplication1.Domain.Utilizador;
+using WebApplication1.Shared;
 
 namespace ConsoleApp1.Domain.Teste;
 
@@ -11,6 +12,9 @@ public class Teste : Entity<Identifier>
 
     public Identifier UtilizadorId { get; set; }
     public Identifier DisciplinaId { get; set; }
+    
+    public Disciplina.Disciplina Disciplina { get; set; }
+    public Utilizador Utilizador { get; set; }
 
     public Teste()
     {
