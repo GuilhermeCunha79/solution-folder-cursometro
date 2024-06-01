@@ -20,6 +20,10 @@ public class CandidaturaEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
         builder.Property(b => b.CandidaturaFase).HasConversion(v => v.Fase,
             v => new CandidaturaFase(v));
         
+        builder.HasOne(f => f.InformacoesCandidatura)
+            .WithOne(j => j.Candidatura)
+            .HasForeignKey<Domain.Candidatura.Candidatura>(f => f.Id);
+        
         builder
             .Property(e => e.Id)
             .ValueGeneratedOnAdd();

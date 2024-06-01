@@ -20,11 +20,7 @@ public class InformacoesCandidaturaEntityTypeConfiguration:IEntityTypeConfigurat
             v=>new NotaEntradaValor(v));
         builder.Property(b => b.VagasNumero).HasConversion(v => v.NumeroVagas,
             v => new VagasNumero(v));
-        
-        builder.HasOne(f => f.Candidatura)
-            .WithOne(j => j.InformacoesCandidatura)
-            .HasForeignKey<Domain.Candidatura.Candidatura>(f => f.IdInformacoes);
-        
+
         builder
             .Property(e => e.Id)
             .ValueGeneratedOnAdd();

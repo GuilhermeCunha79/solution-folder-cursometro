@@ -26,41 +26,41 @@ public class CursoController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<CursoDTO>> GetById(Guid id)
     {
-        var jogador = await _service.GetByIdAsync(new Identifier(id));
+        var curso = await _service.GetByIdAsync(new Identifier(id));
 
-        if (jogador == null)
+        if (curso == null)
         {
             return NotFound();
         }
 
-        return jogador;
+        return curso;
     }
 
     // GET: api/Warehouses/ById/5M4
     [HttpGet("ByIdentifier/{licenca}")]
     public async Task<ActionResult<CursoDTO>> GetByCodClube(string licenca)
     {
-        var jogador = await _service.GetByCursoCodigo(licenca);
+        var curso = await _service.GetByCursoCodigo(licenca);
 
-        if (jogador == null)
+        if (curso == null)
         {
             return NotFound();
         }
 
-        return jogador;
+        return curso;
     }
 
-    [HttpGet("NomeClube/{licenca}")]
-    public async Task<ActionResult<CursoDTO>> GetByNomeClube(string licenca)
+    [HttpGet("CodigoCurso/{licenca}")]
+    public async Task<ActionResult<CursoDTO>> GetByCursoCodigo(string codigo)
     {
-        var jogador = await _service.GetByCursoCodigo(licenca);
+        var curso = await _service.GetByCursoCodigo(codigo);
 
-        if (jogador == null)
+        if (curso == null)
         {
             return NotFound();
         }
 
-        return jogador;
+        return curso;
     }
 
     // POST: api/Jogadores
@@ -71,12 +71,12 @@ public class CursoController : ControllerBase
 
         if (list != null)
         {
-            foreach (var jogadorDto in list)
+            foreach (var cursoDto in list)
             {
-                if (jogadorDto.CodigoCurso.Equals(dto.CodigoCurso))
+                if (cursoDto.CodigoCurso.Equals(dto.CodigoCurso))
                 {
                     return BadRequest(new
-                        { Message = "Já existe um 'Clube' registado com este 'Código'." });
+                        { Message = "Já existe um 'Curso' registado com este 'Código'." });
                 }
             }
         }

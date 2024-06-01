@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Domain.Calculo;
 using WebApplication1.Infrastructure.Calculo;
 using WebApplication1.Infrastructure.Candidatura;
 using WebApplication1.Infrastructure.Cif;
@@ -30,7 +31,8 @@ public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
     public DbSet<Domain.Curso.Curso> Cursos { get; set; }
-    public DbSet<Domain.Calculo.Media> Calculos { get; set; }
+    public DbSet<Media> Calculos { get; set; }
+    public DbSet<Domain.Candidatura.Candidatura> Candidaturas { get; set; }
 
     public int ObterNumeroDeJogadores()
     {
