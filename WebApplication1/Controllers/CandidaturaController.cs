@@ -8,7 +8,7 @@ namespace ConsoleApp1.Controllers;
 [ApiController]
 public class CandidaturaController : ControllerBase
 {
-        private readonly ICandidaturaService _service;
+    private readonly ICandidaturaService _service;
 
     public CandidaturaController(ICandidaturaService service)
     {
@@ -44,12 +44,14 @@ public class CandidaturaController : ControllerBase
 
         if (list != null)
         {
-            foreach (var jogadorDto in list)
+            foreach (var candidaturaDto in list)
             {
-                if (jogadorDto.Id.Equals(dto.Id))
+                if (candidaturaDto.Ano.Equals(dto.Ano)
+                    && candidaturaDto.Fase.Equals(dto.Fase) &&
+                    candidaturaDto.InstituicaoCursoCodigo.Equals(dto.InstituicaoCursoCodigo))
                 {
                     return BadRequest(new
-                        { Message = "Já existe um 'Clube' registado com este 'Código'." });
+                        { Message = "Já existe uma 'Candidatura' registada com as informações fornecidas." });
                 }
             }
         }
@@ -57,9 +59,9 @@ public class CandidaturaController : ControllerBase
         dto.Id = dto.Id;
         try
         {
-            var jogador = await _service.AddAsync(dto);
+            var candidatura = await _service.AddAsync(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = jogador.Id }, jogador);
+            return CreatedAtAction(nameof(GetById), new { id = candidatura.Id }, candidatura);
         }
         catch (BusinessRuleValidationException ex)
         {

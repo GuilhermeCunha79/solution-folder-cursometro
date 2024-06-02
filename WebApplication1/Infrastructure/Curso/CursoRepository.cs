@@ -19,9 +19,9 @@ public class CursoRepository : BaseRepository<Domain.Curso.Curso, Identifier>, I
     public async Task<Domain.Curso.Curso> GetByCodigoCurso(string codigo)
     {//ALTERAR QUANDO CRIAR OS DADOS
         var query = 
-            @"SELECT [j].[NomeAssociacao],  [j].[NomeCurto], [j].[Acronimo],[j].[Active], [j].[Id]
-                FROM [Associacao] AS [j]
-                WHERE [j].[NomeAssociacao] = @codigoCurso";
+            @"SELECT [j].[CursoId],  [j].[CursoNome]
+                    FROM [Curso] AS [j]
+                WHERE [j].[CursoId] = @codigoCurso";
 
 
         return await _context.Cursos.FromSqlRaw(query, new SqlParameter("codigoCurso", codigo))

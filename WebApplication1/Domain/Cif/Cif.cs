@@ -1,6 +1,7 @@
-﻿using WebApplication1.Shared;
+﻿using ConsoleApp1.Domain.Cif;
+using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Cif;
+namespace WebApplication1.Domain.Cif;
 
 public class Cif : Entity<Identifier>
 {
@@ -22,7 +23,8 @@ public class Cif : Entity<Identifier>
     }
 
     public Cif(int cifPortugues, int cifEduFisica, int cifFilosofia, int cifLinguaEstr, int cifTrienal, int cifBienal1,
-        int cifBienal2, int cifAnual1, int cifAnual2)
+        int cifBienal2, int cifAnual1, int cifAnual2, int idUtilizador)
+
     {
         CifPortugues = new CifPortugues(cifPortugues);
         CifEduFisica = new CifEduFisica(cifEduFisica);
@@ -33,5 +35,6 @@ public class Cif : Entity<Identifier>
         CifBienal2 = new CifBienal2(cifBienal2);
         CifAnual1 = new CifAnual1(cifAnual1);
         CifAnual2 = new CifAnual2(cifAnual2);
+        UtilizadorId = new Identifier(idUtilizador);
     }
 }

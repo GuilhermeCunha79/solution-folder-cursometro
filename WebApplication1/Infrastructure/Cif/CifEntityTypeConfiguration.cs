@@ -4,9 +4,9 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Cif;
 
-public class CifEntityTypeConfiguration : IEntityTypeConfiguration<ConsoleApp1.Domain.Cif.Cif>
+public class CifEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cif.Cif>
 {
-    public void Configure(EntityTypeBuilder<ConsoleApp1.Domain.Cif.Cif> builder)
+    public void Configure(EntityTypeBuilder<Domain.Cif.Cif> builder)
     {
         builder.ToTable("Cif", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);

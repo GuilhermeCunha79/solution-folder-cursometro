@@ -35,22 +35,8 @@ public class CursoController : ControllerBase
 
         return curso;
     }
-
-    // GET: api/Warehouses/ById/5M4
-    [HttpGet("ByIdentifier/{licenca}")]
-    public async Task<ActionResult<CursoDTO>> GetByCodClube(string licenca)
-    {
-        var curso = await _service.GetByCursoCodigo(licenca);
-
-        if (curso == null)
-        {
-            return NotFound();
-        }
-
-        return curso;
-    }
-
-    [HttpGet("CodigoCurso/{licenca}")]
+    
+    [HttpGet("CodigoCurso/{codigo}")]
     public async Task<ActionResult<CursoDTO>> GetByCursoCodigo(string codigo)
     {
         var curso = await _service.GetByCursoCodigo(codigo);
