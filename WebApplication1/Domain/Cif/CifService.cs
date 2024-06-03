@@ -52,7 +52,7 @@ public class CifService:ICifService
             dto.CifBienal1,dto.CifBienal2,dto.CifAnual1,dto.CifAnual2,dto.UtilizadorId);
         
         await _repo.AddAsync(cif);
-        
+        await _unitOfWork.CommitAsync();
         return new CifDTO(cif.Id.IntValue,cif.CifPortugues.PortuguesCif,
             cif.CifEduFisica.EduFisicaCif, cif.CifFilosofia.FilosofiaCif,cif.CifLinguaEstrangeira.LinguaEstrangeiraCif,
             cif.CifTrienal.TrienalCif,cif.CifBienal1.Bienal1Cif,cif.CifBienal2.Bienal2Cif,cif.CifAnual1.Anual1Cif,

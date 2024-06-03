@@ -1,0 +1,802 @@
+﻿<html>
+<head>
+    <title>Cursometro.pt</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+
+<div class="page">
+    <header style="background-color: black;">CALCULADORA DE MÉDIAS</header>
+
+    <div class="row">
+        <div class="coluna" id="disciplina">
+            <b>Disciplina</b>
+        </div>
+
+        <div class="coluna" id="decimoAno">
+            <b>10º Ano</b>
+        </div>
+
+        <div class="coluna" id="decimoPrimeiroAno">
+            <b>11º Ano</b>
+        </div>
+
+        <div class="coluna" id="decimoSegundoAno">
+            <b>12º Ano</b>
+        </div>
+
+        <div class="coluna" id="exameNacional">
+            <b>Exame Nacional
+                (Nota de 0 a 200)</b>
+        </div>
+
+        <div class="coluna" id="cif">
+            <b>CIF</b>
+        </div>
+
+        <div class="coluna" id="provaIngresso">
+            <b>Prova de
+                Ingresso</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Português</b>
+        </div>
+        <div class="coluna">
+            <select id="decimoPortugues" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimPortugues" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoSegPortugues" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+
+        <div class="coluna">
+            <input type="number" id="examePortugues" min="0" max="200" value="100" class="center" onchange="calcular()">
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" type="text" class="center" id="cifPortugues">
+        </div>
+
+        <div class="coluna">
+            <input type="checkbox" class="center" id="checkPortugues" onchange="calcular()">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Educação Física</b>
+        </div>
+        <div class="coluna" >
+            <select id="decimoEduFisica" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimEduFisica" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoSegEduFisica" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+
+        <div class="coluna">
+
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifEduFisica">
+        </div>
+
+        <div class="coluna">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Filosofia</b>
+        </div>
+        <div class="coluna" >
+            <select id="decimoFilosofia" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimFilosofia" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+
+        <div class="coluna">
+            <form id="formFilosofia">
+                <input class="checkboxDisciplina" type="checkbox" id="inputFilosofia" data-disciplina="Filosofia" onchange="setTimeout(calcular, 2)">
+            </form>
+
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifFilosofia">
+        </div>
+
+        <div class="coluna">
+            <input type="checkbox" class="center" id="checkFilosofia" onchange="calcular()" disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Lingua Estrangeira</b>
+        </div>
+        <div class="coluna" >
+            <select id="decimoLingua" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimLingua" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+
+        <div class="coluna">
+
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifLingua">
+        </div>
+
+        <div class="coluna">
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <select id="trienal">
+                <option value selected>Trienal</option>
+                <option value="desenho">Desenho A</option>
+                <option value="matematica" >Matemática A</option>
+                <option value="historia" >História A</option>
+            </select>
+        </div>
+        <div class="coluna" >
+            <select id="decimoTrienal" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimTrienal" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoSegTrienal" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+
+        <div class="coluna">
+            <form id="formTrienal">
+                <input class="checkboxDisciplina" type="checkbox" id="inputTrienal" data-disciplina="Trienal" onchange="setTimeout(calcular, 2)">
+            </form>
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifTrienal">
+        </div>
+
+        <div class="coluna">
+            <input type="checkbox" class="center" id="checkTrienal" onchange="calcular()" disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <select id="trienal">
+                <option value selected>Bienal I</option>
+                <option value="desenho">Desenho A</option>
+                <option value="matematica" >Matemática A</option>
+                <option value="historia" >História A</option>
+            </select>
+        </div>
+        <div class="coluna" >
+            <select id="decimoBienal" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimBienal" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+
+        <div class="coluna">
+            <form id="formBienal">
+                <input class="checkboxDisciplina" type="checkbox" id="inputBienal" data-disciplina="Bienal" onchange="setTimeout(calcular, 2)">
+            </form>
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifBienal">
+        </div>
+
+        <div class="coluna">
+            <input type="checkbox" class="center" id="checkBienal" onchange="calcular()" disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <select id="bienalI">
+                <option value selected>Bienal II</option>
+                <option value="desenho">Desenho A</option>
+                <option value="matematica" >Matemática A</option>
+                <option value="historia" >História A</option>
+            </select>
+        </div>
+        <div class="coluna" >
+            <select id="decimoBienalI" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoPrimBienalI" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+
+        <div class="coluna">
+            <form id="formBienalI">
+                <input class="checkboxDisciplina" type="checkbox" id="inputBienalI" data-disciplina="BienalI" onchange="setTimeout(calcular, 2)">
+            </form>
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifBienalI">
+        </div>
+
+        <div class="coluna">
+            <input type="checkbox" class="center" id="checkBienalI" onchange="calcular()" disabled>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Anual I</b>
+        </div>
+        <div class="coluna" >
+
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+        <div class="coluna" >
+            <select id="decimoSegAnual" onchange="calcular()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+
+        <div class="coluna">
+
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifAnual">
+        </div>
+
+        <div class="coluna">
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="coluna" id="portugues">
+            <b>Anual II</b>
+        </div>
+        <div class="coluna" >
+
+        </div>
+
+        <div class="coluna" >
+
+        </div>
+
+        <div class="coluna" >
+
+            <select id="decimoSegAnualI" onchange="calcular()" value="10">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option selected>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+            </select>
+        </div>
+
+
+        <div class="coluna">
+
+        </div>
+
+        <div class="coluna">
+            <input disabled value="10" class="center" id="cifAnualI">
+        </div>
+
+        <div class="coluna">
+
+        </div>
+
+    </div>
+
+    <div>
+        <select id="exameWeight" onchange="calcular()" style="display: none;">
+            <option value="45">45%</option>
+            <option value="50" selected>50%</option>
+            <option value="55">55%</option>
+            <option value="60">60%</option>
+        </select>
+    </div>
+
+
+</div>
+
+<div class="page-resultado">
+    <div class="resultado-row">
+        <div class="resultado-coluna" id="media">
+
+        </div>
+
+        <div class="resultado-coluna" id="media-ingresso">
+
+        </div>
+
+        <div class="resultado-coluna" id="media-desporto">
+        </div>
+    </div>
+
+</div>
+
+<button onclick="limpar()">LIMPAR</button>
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+
+
+
+
+
+
+</html>

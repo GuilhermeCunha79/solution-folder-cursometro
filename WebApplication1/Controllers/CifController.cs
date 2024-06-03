@@ -4,6 +4,8 @@ using WebApplication1.Shared;
 
 namespace ConsoleApp1.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class CifController : ControllerBase
 {
     private readonly ICifService _service;
@@ -66,9 +68,9 @@ public class CifController : ControllerBase
         dto.Id = dto.Id;
         try
         {
-            var jogador = await _service.AddAsync(dto);
+            var cif = await _service.AddAsync(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = jogador.Id }, jogador);
+            return CreatedAtAction(nameof(GetById), new { id = cif.Id }, cif);
         }
         catch (BusinessRuleValidationException ex)
         {

@@ -31,9 +31,10 @@ public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
     public DbSet<Domain.Curso.Curso> Cursos { get; set; }
-    public DbSet<Media> Calculos { get; set; }
     public DbSet<Domain.Candidatura.Candidatura> Candidaturas { get; set; }
     public DbSet<Domain.Cif.Cif> Cifs { get; set; }
+    public DbSet<Domain.Curso_Tags.Curso_Tags> Curso_Tags { get; set; }
+    public DbSet<ConsoleApp1.Domain.CursoSecundario.CursoSecundario> CursoSecundarios { get; set; }
 
     public int ObterNumeroDeJogadores()
     {
