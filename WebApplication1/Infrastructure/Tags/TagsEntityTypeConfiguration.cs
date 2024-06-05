@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.Instituicao_Tags;
 using WebApplication1.Domain.Tags;
 using WebApplication1.Shared;
 

@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace WebApplication1.Domain.RankingNacional;
+namespace WebApplication1.Domain.Ranking;
 
 public class Ranking : Entity<Identifier>
 {

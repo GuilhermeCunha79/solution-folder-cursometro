@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Domain.Nota;
+﻿namespace WebApplication1.Domain.NotaVisualizacao;
 
 public class NotaDTO
 {

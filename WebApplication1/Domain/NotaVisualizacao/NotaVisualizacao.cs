@@ -1,7 +1,6 @@
-﻿using WebApplication1.Domain.Utilizador;
-using WebApplication1.Shared;
+﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Nota;
+namespace WebApplication1.Domain.NotaVisualizacao;
 
 public class NotaVisualizacao : Entity<Identifier>
 {
@@ -14,7 +13,7 @@ public class NotaVisualizacao : Entity<Identifier>
     public NotaAnual1 NotaAnual1 { get; set; }
     public NotaAnual2 NotaAnual2 { get; set; }
     
-    public Utilizador Utilizador { get; set; }
+    public Utilizador.Utilizador Utilizador { get; set; }
     public Identifier UtilizadorId { get; set; }
 
     public NotaVisualizacao()

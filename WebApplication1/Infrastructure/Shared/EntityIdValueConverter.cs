@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Infraestructure.Shared;
+namespace WebApplication1.Infrastructure.Shared;
 
 public class EntityIdValueConverter<TTypedIdValue> : ValueConverter<TTypedIdValue, String>
     where TTypedIdValue : EntityId

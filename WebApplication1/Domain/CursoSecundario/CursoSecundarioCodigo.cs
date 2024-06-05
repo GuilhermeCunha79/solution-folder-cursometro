@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.CursoSecundario;
+namespace WebApplication1.Domain.CursoSecundario;
 
 public class CursoSecundarioCodigo : IValueObject
 {
@@ -10,7 +10,7 @@ public class CursoSecundarioCodigo : IValueObject
     {
     }
 
-    public CursoSecundarioCodigo(string codigo)
+    public CursoSecundarioCodigo(int codigo)
     {
         CodigoCursoSecundario = new Identifier(codigo);
     }

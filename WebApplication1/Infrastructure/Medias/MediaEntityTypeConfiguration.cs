@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.Calculo;
+using WebApplication1.Domain.Media;
 using WebApplication1.Shared;
 
-namespace WebApplication1.Infrastructure.Calculo;
+namespace WebApplication1.Infrastructure.Medias;
 
 public class MediaEntityTypeConfiguration:IEntityTypeConfiguration<Media>
 {
-    public void Configure(EntityTypeBuilder<Domain.Calculo.Media> builder)
+    public void Configure(EntityTypeBuilder<Media> builder)
     {
         builder.ToTable("Media", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);

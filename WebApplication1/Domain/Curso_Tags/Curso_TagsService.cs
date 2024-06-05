@@ -1,5 +1,4 @@
-﻿using WebApplication1.Infrastructure;
-using WebApplication1.Shared;
+﻿using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Curso_Tags;
 

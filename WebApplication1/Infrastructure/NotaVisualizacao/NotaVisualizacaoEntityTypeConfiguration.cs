@@ -1,13 +1,12 @@
-﻿using ConsoleApp1.Domain.Nota;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Infrastructure;
 using WebApplication1.Shared;
 
+namespace WebApplication1.Infrastructure.NotaVisualizacao;
 
-public class NotaVisualizacaoEntityTypeConfiguration:IEntityTypeConfiguration<NotaVisualizacao>
+public class NotaVisualizacaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.NotaVisualizacao.NotaVisualizacao>
 {
-    public void Configure(EntityTypeBuilder<NotaVisualizacao> builder)
+    public void Configure(EntityTypeBuilder<Domain.NotaVisualizacao.NotaVisualizacao> builder)
     {
         builder.ToTable("NotaVisualizacao", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);

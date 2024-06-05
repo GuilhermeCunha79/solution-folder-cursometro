@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.RankingNacional;
+using WebApplication1.Domain.Ranking;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Ranking;
 
-public class RankingEntityTypeConfiguration:IEntityTypeConfiguration<Domain.RankingNacional.Ranking>
+public class RankingEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Ranking.Ranking>
 {
-    public void Configure(EntityTypeBuilder<Domain.RankingNacional.Ranking> builder)
+    public void Configure(EntityTypeBuilder<Domain.Ranking.Ranking> builder)
     {
         builder.ToTable("Ranking", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);

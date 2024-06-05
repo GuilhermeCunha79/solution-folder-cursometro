@@ -20,7 +20,7 @@ public class Identifier : EntityId
     override
         public String AsString()
     {
-        Guid obj = (Guid)base.Value;
+        Guid obj = (Guid)Value;
         return obj.ToString();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Nota;
+namespace WebApplication1.Domain.NotaVisualizacao;
 
 public class NotaTrienal:IValueObject
 {

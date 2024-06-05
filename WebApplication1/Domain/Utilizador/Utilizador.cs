@@ -1,6 +1,4 @@
-﻿using ConsoleApp1.Domain.Nota;
-using ConsoleApp1.Domain.Teste;
-using WebApplication1.Shared;
+﻿using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Utilizador;
 
@@ -14,10 +12,10 @@ public class Utilizador : Entity<Identifier>
 
     public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngresso { get; set; }
     public ICollection<Favoritos.Favoritos> Favoritos { get; set; }
-    public ICollection<Teste> Testes { get; set; }
+    public ICollection<Teste.Teste> Testes { get; set; }
     public Escola.Escola Escola { get; set; }
-    public Calculo.Media Media { get; set; }
-    public NotaVisualizacao NotaVisualizacao { get; set; }
+    public Media.Media Media { get; set; }
+    public ICollection<Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
     
 
     public Utilizador()

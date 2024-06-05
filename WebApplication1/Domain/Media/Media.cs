@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace WebApplication1.Domain.Calculo;
+namespace WebApplication1.Domain.Media;
 
 public class Media : Entity<Identifier>
 {

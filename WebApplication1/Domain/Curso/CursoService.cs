@@ -26,7 +26,7 @@ public class CursoService : ICursoService
 
     public async Task<CursoDTO> GetByCursoCodigo(string codigo)
     {
-        var curso = await this._repo.GetByCodigoCurso(codigo);
+        var curso = await _repo.GetByCodigoCurso(codigo);
 
         return new CursoDTO(curso.Id.StringValue, curso.CursoNome.Nome);
     }

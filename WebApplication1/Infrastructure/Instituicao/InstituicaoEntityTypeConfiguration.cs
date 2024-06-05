@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.Instituicao;
-using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Instituicao;

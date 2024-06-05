@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Disciplina;
+namespace WebApplication1.Domain.Disciplina;
 
 public class DisciplinaTipo:IValueObject
 {

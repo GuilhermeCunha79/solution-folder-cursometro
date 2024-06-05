@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Domain.InformacoesCandidatura;
-using WebApplication1.Domain.Vagas;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.InformacoesCandidatura;

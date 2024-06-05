@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Domain.RankingNacional;
+﻿namespace WebApplication1.Domain.Ranking;
 
 public class RankingDTO
 {

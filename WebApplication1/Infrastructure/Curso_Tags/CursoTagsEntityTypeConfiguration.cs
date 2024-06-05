@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.Curso;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Curso_Tags;

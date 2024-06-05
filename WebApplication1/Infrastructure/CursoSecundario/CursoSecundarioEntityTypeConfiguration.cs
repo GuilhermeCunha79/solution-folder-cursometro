@@ -1,15 +1,15 @@
-﻿using ConsoleApp1.Domain.CursoSecundario;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using WebApplication1.Domain.CursoSecundario;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.CursoSecundario;
 
 public class
     CursoSecundarioEntityTypeConfiguration : IEntityTypeConfiguration<
-        ConsoleApp1.Domain.CursoSecundario.CursoSecundario>
+        Domain.CursoSecundario.CursoSecundario>
 {
-    public void Configure(EntityTypeBuilder<ConsoleApp1.Domain.CursoSecundario.CursoSecundario> builder)
+    public void Configure(EntityTypeBuilder<Domain.CursoSecundario.CursoSecundario> builder)
     {
         builder.ToTable("CursoSecundario", SchemaNames.DDDSample1);
         builder.HasKey(b => b.CursoSecundarioCodigo);

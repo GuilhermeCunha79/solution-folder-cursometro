@@ -1,7 +1,7 @@
-﻿using ConsoleApp1.Infraestructure.Shared;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Domain.Curso_Tags;
+using WebApplication1.Infrastructure.Shared;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Curso_Tags;

@@ -1,8 +1,7 @@
-﻿using ConsoleApp1.Infraestructure.Shared;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Domain.Candidatura;
-using WebApplication1.Domain.Curso;
+using WebApplication1.Infrastructure.Shared;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Candidatura;

@@ -1,7 +1,6 @@
 ﻿using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
-
 namespace WebApplication1.Domain.Candidatura;
 
 public class Candidatura:Entity<Identifier>

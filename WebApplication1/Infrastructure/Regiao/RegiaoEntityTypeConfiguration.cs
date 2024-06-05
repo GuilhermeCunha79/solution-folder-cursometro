@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.Escola;
 using WebApplication1.Domain.Regiao;
 using WebApplication1.Shared;
 

@@ -2,7 +2,7 @@
 using WebApplication1.Domain.Curso;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Controllers;
+namespace WebApplication1.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

@@ -1,11 +1,11 @@
-﻿namespace ConsoleApp1.Domain.CursoSecundario;
+﻿namespace WebApplication1.Domain.CursoSecundario;
 
 public class CursoSecundarioDTO
 {
-    public string CodigoCursoSecundario;
+    public int CodigoCursoSecundario;
     public string NomeCursoSecundario;
 
-    public CursoSecundarioDTO(string codigoCursoSecundario, string nomeCursoSecundario)
+    public CursoSecundarioDTO(int codigoCursoSecundario, string nomeCursoSecundario)
     {
         CodigoCursoSecundario = codigoCursoSecundario;
         NomeCursoSecundario = nomeCursoSecundario;

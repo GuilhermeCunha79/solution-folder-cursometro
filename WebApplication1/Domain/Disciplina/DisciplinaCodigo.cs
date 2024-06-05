@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Disciplina;
+namespace WebApplication1.Domain.Disciplina;
 
 public class DisciplinaCodigo:IValueObject
 {
@@ -11,7 +11,7 @@ public class DisciplinaCodigo:IValueObject
         
     }
 
-    public DisciplinaCodigo(string codigoDisciplina)
+    public DisciplinaCodigo(int codigoDisciplina)
     {
         CodigoDisciplina = new Identifier(codigoDisciplina);
     }

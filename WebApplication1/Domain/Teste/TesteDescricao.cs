@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Teste;
+namespace WebApplication1.Domain.Teste;
 
 public class TesteDescricao:IValueObject
 {

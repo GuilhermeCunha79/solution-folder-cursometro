@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Domain.Teste;
+﻿namespace WebApplication1.Domain.Teste;
 
 public class TesteDTO
 {

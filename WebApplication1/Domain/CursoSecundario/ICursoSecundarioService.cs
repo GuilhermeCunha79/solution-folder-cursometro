@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.CursoSecundario;
+namespace WebApplication1.Domain.CursoSecundario;
 
 public interface ICursoSecundarioService
 {

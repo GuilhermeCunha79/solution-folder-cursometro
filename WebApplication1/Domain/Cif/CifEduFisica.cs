@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Cif;
+namespace WebApplication1.Domain.Cif;
 
 public class CifEduFisica : IValueObject
 {

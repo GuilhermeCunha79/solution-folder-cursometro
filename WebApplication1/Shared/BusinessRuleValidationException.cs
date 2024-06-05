@@ -11,6 +11,6 @@ public class BusinessRuleValidationException : Exception
 
     public BusinessRuleValidationException(string message, string details) : base(message)
     {
-        this.Details = details;
+        Details = details;
     }
 }

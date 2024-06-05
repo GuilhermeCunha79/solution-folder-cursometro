@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1.Domain.Cif;
+﻿namespace WebApplication1.Domain.Cif;
 
 public class CifDTO
 {

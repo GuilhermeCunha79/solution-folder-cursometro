@@ -1,7 +1,7 @@
 ﻿using WebApplication1.Infrastructure;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.CursoSecundario;
+namespace WebApplication1.Domain.CursoSecundario;
 
 public class CursoSecundarioService:ICursoSecundarioService
 {
@@ -18,7 +18,7 @@ public class CursoSecundarioService:ICursoSecundarioService
     {
         var cursoSec = await _repo.GetByIdAsync(id);
 
-        return new CursoSecundarioDTO(cursoSec.CursoSecundarioCodigo.StringValue,
+        return new CursoSecundarioDTO(cursoSec.CursoSecundarioCodigo.IntValue,
             cursoSec.CursoSecundarioNome.NomeCursoSecundario);
     }
 
@@ -27,7 +27,7 @@ public class CursoSecundarioService:ICursoSecundarioService
         var list = await _repo.GetAllAsync();
 
         List<CursoSecundarioDTO> listDto = list.ConvertAll(cursoSec => new CursoSecundarioDTO(
-            cursoSec.CursoSecundarioCodigo.StringValue,
+            cursoSec.CursoSecundarioCodigo.IntValue,
             cursoSec.CursoSecundarioNome.NomeCursoSecundario));
 
         return listDto;
@@ -38,7 +38,7 @@ public class CursoSecundarioService:ICursoSecundarioService
         var dto = await _repo.GetByCodCursoSec(codigo);
 
         return new CursoSecundarioDTO(
-            dto.CursoSecundarioCodigo.StringValue,
+            dto.CursoSecundarioCodigo.IntValue,
             dto.CursoSecundarioNome.NomeCursoSecundario);
 
     }
@@ -51,7 +51,7 @@ public class CursoSecundarioService:ICursoSecundarioService
         await _unitOfWork.CommitAsync();
 
         return new CursoSecundarioDTO(
-            cursoSecundario.CursoSecundarioCodigo.StringValue,
+            cursoSecundario.CursoSecundarioCodigo.IntValue,
             cursoSecundario.CursoSecundarioNome.NomeCursoSecundario);
     }
 }

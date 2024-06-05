@@ -1,13 +1,13 @@
-﻿using ConsoleApp1.Domain.Teste;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using WebApplication1.Domain.Teste;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Teste;
 
-public class TesteEntityTypeConfiguration:IEntityTypeConfiguration<ConsoleApp1.Domain.Teste.Teste>
+public class TesteEntityTypeConfiguration:IEntityTypeConfiguration<Domain.Teste.Teste>
 {
-    public void Configure(EntityTypeBuilder<ConsoleApp1.Domain.Teste.Teste> builder)
+    public void Configure(EntityTypeBuilder<Domain.Teste.Teste> builder)
     {
         builder.ToTable("Teste", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);

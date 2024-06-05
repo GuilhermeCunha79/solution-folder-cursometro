@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.ExameIngresso;
 using WebApplication1.Domain.Utilizador_ExameIngresso;
 using WebApplication1.Shared;
 

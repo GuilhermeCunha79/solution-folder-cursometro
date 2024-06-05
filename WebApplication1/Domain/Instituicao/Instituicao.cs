@@ -1,5 +1,4 @@
 ﻿using WebApplication1.Shared;
-using WebApplication1.Domain.Tags;
 
 namespace WebApplication1.Domain.Instituicao;
 

@@ -1,8 +1,6 @@
-using System.Net;
 using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 
-namespace ConsoleApp1;
+namespace WebApplication1;
 
 public class Program
 {

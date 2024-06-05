@@ -1,8 +1,8 @@
-﻿using ConsoleApp1.Domain.CursoSecundario;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Domain.CursoSecundario;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Controllers;
+namespace WebApplication1.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

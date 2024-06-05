@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Infraestructure.Shared
+namespace WebApplication1.Infrastructure.Shared
 {
     /// <summary>
     /// Based on https://andrewlock.net/strongly-typed-ids-in-ef-core-using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-4/

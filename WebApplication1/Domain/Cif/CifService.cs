@@ -1,5 +1,4 @@
-﻿using ConsoleApp1.Domain.Cif;
-using WebApplication1.Shared;
+﻿using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Cif;
 

@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace ConsoleApp1.Domain.Cif;
+namespace WebApplication1.Domain.Cif;
 
 public interface ICifRepository:IRepository<WebApplication1.Domain.Cif.Cif,Identifier>
 {

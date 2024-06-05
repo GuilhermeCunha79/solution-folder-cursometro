@@ -1,6 +1,4 @@
-﻿using WebApplication1.Shared;
-
-namespace WebApplication1.Domain.Candidatura;
+﻿namespace WebApplication1.Domain.Candidatura;
 
 public class CandidaturaDTO
 {

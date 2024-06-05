@@ -11,8 +11,8 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
     {
         get
         {
-            if (this.Value is string)
-                return (String)this.Value;
+            if (Value is string)
+                return (String)Value;
             return AsString();
         }
     }
@@ -40,9 +40,9 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
     {
         if (other == null)
             return false;
-        if (this.GetType() != other.GetType())
+        if (GetType() != other.GetType())
             return false;
-        return this.Value.Equals(other.Value);
+        return Value.Equals(other.Value);
     }
 
     public int CompareTo(EntityId other)
@@ -54,9 +54,9 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
 
     public static bool operator ==(EntityId obj1, EntityId obj2)
     {
-        if (object.Equals(obj1, null))
+        if (Equals(obj1, null))
         {
-            if (object.Equals(obj2, null))
+            if (Equals(obj2, null))
             {
                 return true;
             }

@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Domain.Calculo;
+﻿namespace WebApplication1.Domain.Media;
 
 public class MediaDTO
 {

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Domain.Curso_Tags;
-using WebApplication1.Infrastructure;
 using WebApplication1.Shared;
 
-namespace ConsoleApp1.Controllers;
+namespace WebApplication1.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

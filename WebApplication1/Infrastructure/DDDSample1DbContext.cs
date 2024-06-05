@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Domain.Calculo;
-using WebApplication1.Infrastructure.Calculo;
 using WebApplication1.Infrastructure.Candidatura;
 using WebApplication1.Infrastructure.Cif;
 using WebApplication1.Infrastructure.Curso;
@@ -18,6 +16,8 @@ using WebApplication1.Infrastructure.Instituicao_Curso;
 using WebApplication1.Infrastructure.Instituicao_Curso_ExameIngresso;
 using WebApplication1.Infrastructure.Instituicao_Ranking;
 using WebApplication1.Infrastructure.Instituicao_Tags;
+using WebApplication1.Infrastructure.Medias;
+using WebApplication1.Infrastructure.NotaVisualizacao;
 using WebApplication1.Infrastructure.Ranking;
 using WebApplication1.Infrastructure.Regiao;
 using WebApplication1.Infrastructure.Tags;
@@ -31,10 +31,12 @@ public class DDDSample1DbContext : DbContext
 {
     public DbSet<Domain.Instituicao.Instituicao> Instituicoes { get; set; }
     public DbSet<Domain.Curso.Curso> Cursos { get; set; }
+    public DbSet<Domain.Disciplina.Disciplina> Disciplinas { get; set; }
+    public DbSet<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> DisciplinaCursoSecundarios { get; set; }
     public DbSet<Domain.Candidatura.Candidatura> Candidaturas { get; set; }
     public DbSet<Domain.Cif.Cif> Cifs { get; set; }
     public DbSet<Domain.Curso_Tags.Curso_Tags> Curso_Tags { get; set; }
-    public DbSet<ConsoleApp1.Domain.CursoSecundario.CursoSecundario> CursoSecundarios { get; set; }
+    public DbSet<Domain.CursoSecundario.CursoSecundario> CursoSecundarios { get; set; }
 
     public int ObterNumeroDeJogadores()
     {
@@ -81,7 +83,7 @@ public class DDDSample1DbContext : DbContext
         modelBuilder.ApplyConfiguration(new DisciplinaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new Disciplina_CursoSecundarioEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new TesteEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new NotaVisualizacaoEntityTypeConfiguration());
+       // modelBuilder.ApplyConfiguration(new NotaVisualizacaoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CifEntityTypeConfiguration());
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Infrastructure.Favoritos;
@@ -13,7 +12,7 @@ public class FavoritosEntityTypeConfiguration: IEntityTypeConfiguration<Domain.F
         builder.HasKey(b=>b.Id);
 
         builder.Property(b => b.Id)
-            .HasColumnName("FavoritosId") // Nomeie a coluna como necessário
+            .HasColumnName("FavoritosId") 
             .HasConversion(v => v.IntValue, v => new Identifier(v));
         builder.Property(b=>b.InstituicaoCursoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));

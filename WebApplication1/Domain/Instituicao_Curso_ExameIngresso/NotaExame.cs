@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Shared;
 
-namespace WebApplication1.Domain.Insituicao_Curso_ExameIngresso;
+namespace WebApplication1.Domain.Instituicao_Curso_ExameIngresso;
 
 public class NotaExame:IValueObject
 {
