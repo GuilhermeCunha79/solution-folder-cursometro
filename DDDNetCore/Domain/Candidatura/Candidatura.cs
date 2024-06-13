@@ -3,7 +3,7 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Candidatura;
 
-public class Candidatura:Entity<Identifier>
+public class Candidatura : Entity<Identifier>
 {
     public CandidaturaAno CandidaturaAno { get; set; }
     public CandidaturaFase CandidaturaFase { get; set; }
@@ -14,17 +14,18 @@ public class Candidatura:Entity<Identifier>
 
     public Candidatura()
     {
-        
     }
 
-    public Candidatura(string instituicaoCursoCodigo,int ano, int fase)
+    public Candidatura(string instituicaoCursoCodigo, int ano, int fase)
     {
         Instituicao_CursoCodigo = new Instituicao_CursoCodigo(instituicaoCursoCodigo).Codigo;
         CandidaturaAno = new CandidaturaAno(ano);
         CandidaturaFase = new CandidaturaFase(fase);
+        Active = true;
     }
-    
-    public void ChangeCandidaturaFase(CandidaturaFase fase){
+
+    public void ChangeCandidaturaFase(CandidaturaFase fase)
+    {
         if (!Active)
             throw new BusinessRuleValidationException(
                 "Adicione uma 'Fase de Candidatura' válida.");
@@ -32,8 +33,9 @@ public class Candidatura:Entity<Identifier>
                           throw new BusinessRuleValidationException(
                               "Adicione uma 'Fase de Candidatura' válida.");
     }
-    
-    public void ChangeCandidaturaAno(CandidaturaAno fase){
+
+    public void ChangeCandidaturaAno(CandidaturaAno fase)
+    {
         if (!Active)
             throw new BusinessRuleValidationException(
                 "Adicione um 'Ano de Candidatura' válido.");

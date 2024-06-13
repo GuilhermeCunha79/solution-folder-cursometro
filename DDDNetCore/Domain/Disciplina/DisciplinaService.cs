@@ -18,7 +18,7 @@ public class DisciplinaService : IDisciplinaService
         var list = await _repo.GetAllAsync();
 
         List<DisciplinaDTO> listDto = list.ConvertAll(disciplina =>
-            new DisciplinaDTO(disciplina.Id.IntValue, disciplina.DisciplinaNome.NomeDisciplina,
+            new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
                 disciplina.DisciplinaTipo.TipoDisciplina));
 
         return listDto;
@@ -28,7 +28,7 @@ public class DisciplinaService : IDisciplinaService
     {
         var disciplina = await _repo.GetByIdAsync(id);
 
-        return new DisciplinaDTO(disciplina.Id.IntValue, disciplina.DisciplinaNome.NomeDisciplina,
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
             disciplina.DisciplinaTipo.TipoDisciplina);
     }
 
@@ -36,7 +36,7 @@ public class DisciplinaService : IDisciplinaService
     {
         var disciplina = await _repo.GetByDisciplinaId(identifier.StringValue);
 
-        return new DisciplinaDTO(disciplina.Id.IntValue, disciplina.DisciplinaNome.NomeDisciplina,
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
             disciplina.DisciplinaTipo.TipoDisciplina);
     }
 
@@ -48,7 +48,49 @@ public class DisciplinaService : IDisciplinaService
 
         await _unitOfWork.CommitAsync();
 
-        return new DisciplinaDTO(disciplina.Id.IntValue, disciplina.DisciplinaNome.NomeDisciplina,
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
+            disciplina.DisciplinaTipo.TipoDisciplina);
+    }
+
+    public async Task<DisciplinaDTO> UpdateAsync(DisciplinaDTO dto)
+    {
+        var disciplina = await _repo.GetByIdAsync(new Identifier(dto.Idd));
+
+        // change all fields
+
+        await _unitOfWork.CommitAsync();
+
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
+            disciplina.DisciplinaTipo.TipoDisciplina);
+    }
+
+
+    public async Task<DisciplinaDTO> InactivateAsync(Identifier id)
+    {
+        var disciplina = await _repo.GetByIdAsync(id);
+
+        if (disciplina == null)
+            return null;
+
+        disciplina.MarkAsInactive();
+
+        await _unitOfWork.CommitAsync();
+
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
+            disciplina.DisciplinaTipo.TipoDisciplina);
+    }
+
+    public async Task<DisciplinaDTO> DeleteAsync(Identifier id)
+    {
+        var disciplina = await _repo.GetByIdAsync(id);
+
+        if (disciplina == null)
+            return null;
+
+        _repo.Remove(disciplina);
+        await _unitOfWork.CommitAsync();
+
+        return new DisciplinaDTO(disciplina.Id.StringValue, disciplina.DisciplinaNome.NomeDisciplina,
             disciplina.DisciplinaTipo.TipoDisciplina);
     }
 }

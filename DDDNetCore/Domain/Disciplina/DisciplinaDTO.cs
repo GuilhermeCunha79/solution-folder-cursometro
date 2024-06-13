@@ -2,11 +2,11 @@
 
 public class DisciplinaDTO
 {
-    public int Idd;
+    public string Idd;
     public string DisciplinaNome;
     public string DisciplinaTipo;
 
-    public DisciplinaDTO(int id,string disciplinaNome, string disciplinaTipo)
+    public DisciplinaDTO(string id,string disciplinaNome, string disciplinaTipo)
     {
         Idd = id;
         DisciplinaNome = disciplinaNome;

@@ -1,28 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Domain.CursoSecundario;
+using WebApplication1.Domain.Disciplina;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CursoSecundarioController : ControllerBase
+public class DisciplinaController : ControllerBase
 {
-    private readonly ICursoSecundarioService _service;
+    
+    private readonly IDisciplinaService _service;
 
-    public CursoSecundarioController(ICursoSecundarioService service)
+    public DisciplinaController(IDisciplinaService service)
     {
         _service = service;
     }
-
+    
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CursoSecundarioDTO>>> GetAll()
+    public async Task<ActionResult<IEnumerable<DisciplinaDTO>>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<CursoSecundarioDTO>> GetById(Identifier id)
+    public async Task<ActionResult<DisciplinaDTO>> GetById(Identifier id)
     {
         var cursoSecundarioDto = await _service.GetByIdAsync(id);
 
@@ -34,22 +35,22 @@ public class CursoSecundarioController : ControllerBase
         return cursoSecundarioDto;
     }
 
-    [HttpGet("CursoSec/{cursoSecCod}")]
-    public async Task<ActionResult<CursoSecundarioDTO>> GetByCursoCodigoSec(Identifier cursoSecCod)
+    [HttpGet("Disciplina/{disciplinaId}")]
+    public async Task<ActionResult<DisciplinaDTO>> GetByCodDisciplina(Identifier disciplinaId)
     {
-        var cifDto = await _service.GetByCursoCodigoSec(cursoSecCod);
+        var disciplinaDto = await _service.GetByDisciplinaId(disciplinaId);
 
-        if (cifDto == null)
+        if (disciplinaDto == null)
         {
             return NotFound();
         }
 
-        return cifDto;
+        return disciplinaDto;
     }
 
     // POST: api/Jogadores
     [HttpPost]
-    public async Task<ActionResult<CursoSecundarioDTO>> Create(CursoSecundarioDTO dto)
+    public async Task<ActionResult<DisciplinaDTO>> Create(DisciplinaDTO dto)
     {
         var list = await _service.GetAllAsync();
 
@@ -57,20 +58,20 @@ public class CursoSecundarioController : ControllerBase
         {
             foreach (var cifDto in list)
             {
-                if (cifDto.CodigoCursoSecundario.Equals(dto.CodigoCursoSecundario))
+                if (cifDto.Idd.Equals(dto.Idd))
                 {
                     return BadRequest(new
-                        { Message = "Já existe um curso secundário com o presente código." });
+                        { Message = "Já existe uma disciplina com o presente código." });
                 }
             }
         }
 
-        dto.CodigoCursoSecundario = dto.CodigoCursoSecundario;
+        dto.Idd = dto.Idd;
         try
         {
-            var jogador = await _service.AddAsync(dto);
+            var disciplina = await _service.AddAsync(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = jogador.CodigoCursoSecundario }, jogador);
+            return CreatedAtAction(nameof(GetById), new { id = disciplina.Idd }, disciplina);
         }
         catch (BusinessRuleValidationException ex)
         {
@@ -79,14 +80,14 @@ public class CursoSecundarioController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<CursoSecundarioDTO>> Update(Identifier id, CursoSecundarioDTO dto)
+    public async Task<ActionResult<DisciplinaDTO>> Update(Identifier id, DisciplinaDTO dto)
     {
         // if (id != dto.Id)
         // {
         //     return BadRequest();
         // }
 
-        dto.CodigoCursoSecundario = id.IntValue;
+        dto.Idd = id.StringValue;
 
         try
         {
@@ -107,32 +108,32 @@ public class CursoSecundarioController : ControllerBase
 
     // Inactivate: api/Deliveries/5
     [HttpDelete("{id}")]
-    public async Task<ActionResult<CursoSecundarioDTO>> SoftDelete(Identifier id)
+    public async Task<ActionResult<DisciplinaDTO>> SoftDelete(Identifier id)
     {
-        var candidatura = await _service.InactivateAsync(id);
+        var disciplinaDto = await _service.InactivateAsync(id);
 
-        if (candidatura == null)
+        if (disciplinaDto == null)
         {
             return NotFound();
         }
 
-        return Ok(candidatura);
+        return Ok(disciplinaDto);
     }
 
     // DELETE: api/Deliveries/5
     [HttpDelete("{id}/hard")]
-    public async Task<ActionResult<CursoSecundarioDTO>> HardDelete(Identifier id)
+    public async Task<ActionResult<DisciplinaDTO>> HardDelete(Identifier id)
     {
         try
         {
-            var candidatura = await _service.DeleteAsync(id);
+            var disciplinaDto = await _service.DeleteAsync(id);
 
-            if (candidatura == null)
+            if (disciplinaDto == null)
             {
                 return NotFound();
             }
 
-            return Ok(candidatura);
+            return Ok(disciplinaDto);
         }
         catch (BusinessRuleValidationException ex)
         {

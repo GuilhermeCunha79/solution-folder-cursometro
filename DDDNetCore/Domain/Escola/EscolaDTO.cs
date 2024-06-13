@@ -2,15 +2,13 @@
 
 public class EscolaDTO
 {
-    public Guid Id;
-    public Guid IdDistrito;
-    public Guid IdRegiao;
+    public int Id;
+    public string IdDistrito;
     public string NomeEscola;
 
-    public EscolaDTO(Guid id,Guid idDistrito,Guid idRegiao, string nome)
+    public EscolaDTO(int id,string idDistrito, string nome)
     {
         Id = id;
-        IdRegiao = idRegiao;
         IdDistrito=idDistrito;
         NomeEscola = nome;
     }

@@ -29,4 +29,22 @@ public class Disciplina_CursoSecundario : Entity<Identifier>
         UtilizadorId = new Identifier(utilizadorId);
         Active = true;
     }
+    
+    public void ChangeDisciplinaCursoNota(Disciplina_CursoSecundarioNota nota)
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "O Curso Secundário não se encontra ativo.");
+        DisciplinaCursoSecundarioNota = nota ??
+                                        throw new BusinessRuleValidationException(
+                                            "Adicione um 'Código de Curso' válido.");
+    }
+    
+    public void MarkAsInactive()
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "A Disciplina/Curso selecionada já se encontra inativa.");
+        Active = false;
+    }
 }

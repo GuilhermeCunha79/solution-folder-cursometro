@@ -8,4 +8,7 @@ public interface IDisciplinaService
     Task<DisciplinaDTO> GetByIdAsync(Identifier id);
     Task<DisciplinaDTO> GetByDisciplinaId(Identifier identifier);
     Task<DisciplinaDTO> AddAsync(DisciplinaDTO dto);
+    Task<DisciplinaDTO> InactivateAsync(Identifier id);
+    Task<DisciplinaDTO> DeleteAsync(Identifier id);
+    Task<DisciplinaDTO> UpdateAsync(DisciplinaDTO dto);
 }

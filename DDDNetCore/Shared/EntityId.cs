@@ -6,17 +6,7 @@ public abstract class EntityId : IEquatable<EntityId>, IComparable<EntityId>
 
     public string StringValue => Value.ToString();
     public int IntValue => Value is int intValue ? intValue : throw new InvalidOperationException("Value is not an integer.");
-    
-    public String ValueGuid
-    {
-        get
-        {
-            if (Value is string)
-                return (String)Value;
-            return AsString();
-        }
-    }
-    
+
     protected EntityId(object value)
     {
         if (value is int || value is string)

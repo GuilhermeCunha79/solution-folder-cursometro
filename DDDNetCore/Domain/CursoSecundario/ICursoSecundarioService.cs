@@ -8,4 +8,7 @@ public interface ICursoSecundarioService
     Task<List<CursoSecundarioDTO>> GetAllAsync();
     Task<CursoSecundarioDTO> GetByCursoCodigoSec(Identifier codigo);
     Task<CursoSecundarioDTO> AddAsync(CursoSecundarioDTO dto);
+    Task<CursoSecundarioDTO> InactivateAsync(Identifier id);
+    Task<CursoSecundarioDTO> DeleteAsync(Identifier id);
+    Task<CursoSecundarioDTO> UpdateAsync(CursoSecundarioDTO dto);
 }

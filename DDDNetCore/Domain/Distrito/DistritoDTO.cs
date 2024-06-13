@@ -2,10 +2,10 @@
 
 public class DistritoDTO
 {
-    public Guid Id;
+    public string Id;
     public string Distrito;
 
-    public DistritoDTO(Guid id, string distrito)
+    public DistritoDTO(string id, string distrito)
     {
         Id = id;
         Distrito = distrito;

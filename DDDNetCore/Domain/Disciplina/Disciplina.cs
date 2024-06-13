@@ -23,4 +23,12 @@ public class Disciplina:Entity<Identifier>
         DisciplinaTipo = new DisciplinaTipo(tipo);
         Active = true;
     }
+    
+    public void MarkAsInactive()
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "A Candidatura selecionada já se encontra inativa.");
+        Active = false;
+    }
 }

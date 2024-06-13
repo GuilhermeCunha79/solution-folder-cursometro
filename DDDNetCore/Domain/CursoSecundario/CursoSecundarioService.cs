@@ -3,7 +3,7 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.CursoSecundario;
 
-public class CursoSecundarioService:ICursoSecundarioService
+public class CursoSecundarioService : ICursoSecundarioService
 {
     private readonly UnitOfWork _unitOfWork;
     private readonly ICursoSecundarioRepository _repo;
@@ -13,7 +13,7 @@ public class CursoSecundarioService:ICursoSecundarioService
         _unitOfWork = unitOfWork;
         _repo = repo;
     }
-    
+
     public async Task<CursoSecundarioDTO> GetByIdAsync(Identifier id)
     {
         var cursoSec = await _repo.GetByIdAsync(id);
@@ -40,14 +40,61 @@ public class CursoSecundarioService:ICursoSecundarioService
         return new CursoSecundarioDTO(
             dto.CursoSecundarioCodigo.IntValue,
             dto.CursoSecundarioNome.NomeCursoSecundario);
-
     }
 
     public async Task<CursoSecundarioDTO> AddAsync(CursoSecundarioDTO dto)
     {
-        var cursoSecundario = new CursoSecundario(dto.CodigoCursoSecundario,dto.NomeCursoSecundario);
+        var cursoSecundario = new CursoSecundario(dto.CodigoCursoSecundario, dto.NomeCursoSecundario);
 
         await _repo.AddAsync(cursoSecundario);
+        await _unitOfWork.CommitAsync();
+
+        return new CursoSecundarioDTO(
+            cursoSecundario.CursoSecundarioCodigo.IntValue,
+            cursoSecundario.CursoSecundarioNome.NomeCursoSecundario);
+    }
+
+    public async Task<CursoSecundarioDTO> UpdateAsync(CursoSecundarioDTO dto)
+    {
+        var cursoSecundario = await _repo.GetByIdAsync(new Identifier(dto.CodigoCursoSecundario));
+
+        // change all fields
+
+        cursoSecundario.ChangeCursoSecundarioCodigo(new CursoSecundarioCodigo(dto.CodigoCursoSecundario));
+        cursoSecundario.ChangeCursoSecundarioNome(new CursoSecundarioNome(dto.NomeCursoSecundario));
+
+        await _unitOfWork.CommitAsync();
+
+        return new CursoSecundarioDTO(
+            cursoSecundario.CursoSecundarioCodigo.IntValue,
+            cursoSecundario.CursoSecundarioNome.NomeCursoSecundario);
+    }
+
+
+    public async Task<CursoSecundarioDTO> InactivateAsync(Identifier id)
+    {
+        var cursoSecundario = await _repo.GetByIdAsync(id);
+
+        if (cursoSecundario == null)
+            return null;
+
+        cursoSecundario.MarkAsInactive();
+
+        await _unitOfWork.CommitAsync();
+
+        return new CursoSecundarioDTO(
+            cursoSecundario.CursoSecundarioCodigo.IntValue,
+            cursoSecundario.CursoSecundarioNome.NomeCursoSecundario);
+    }
+
+    public async Task<CursoSecundarioDTO> DeleteAsync(Identifier id)
+    {
+        var cursoSecundario = await _repo.GetByIdAsync(id);
+
+        if (cursoSecundario == null)
+            return null;
+
+        _repo.Remove(cursoSecundario);
         await _unitOfWork.CommitAsync();
 
         return new CursoSecundarioDTO(

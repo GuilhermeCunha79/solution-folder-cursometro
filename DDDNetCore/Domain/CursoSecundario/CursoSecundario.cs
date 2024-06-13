@@ -20,4 +20,32 @@ public class CursoSecundario : Entity<Identifier>
         CursoSecundarioNome = new CursoSecundarioNome(nomeCurso);
         Active = true;
     }
+    
+    public void ChangeCursoSecundarioNome(CursoSecundarioNome fase)
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "O Curso Secundário não se encontra ativo.");
+        CursoSecundarioNome = fase ??
+                              throw new BusinessRuleValidationException(
+                                  "Adicione um 'Nome de Curso' válidao.");
+    }
+
+    public void ChangeCursoSecundarioCodigo(CursoSecundarioCodigo fase)
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "O Curso Secundário não se encontra ativo.");
+        CursoSecundarioCodigo = fase.CodigoCursoSecundario ??
+                                throw new BusinessRuleValidationException(
+                                    "Adicione um 'Código de Curso' válido.");
+    }
+    
+    public void MarkAsInactive()
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "A Candidatura selecionada já se encontra inativa.");
+        Active = false;
+    }
 }
