@@ -1,4 +1,5 @@
-﻿using WebApplication1.Shared;
+﻿using WebApplication1.Domain.Disciplina_CursoSecundario;
+using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Cif;
 
@@ -17,7 +18,7 @@ public class CifService : ICifService
     {
         var list = await _repo.GetAllAsync();
 
-        List<CifDTO> listDto = list.ConvertAll(cif => new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        List<CifDTO> listDto = list.ConvertAll(cif => new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue));
 
@@ -28,7 +29,7 @@ public class CifService : ICifService
     {
         var cif = await _repo.GetByIdAsync(id);
 
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }
@@ -37,7 +38,7 @@ public class CifService : ICifService
     {
         var cif = await _repo.GetByUtilizador(utilizadorId.IntValue);
 
-        List<CifDTO> listDto = cif.ConvertAll(cif => new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        List<CifDTO> listDto = cif.ConvertAll(cif => new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue, cif.DisciplinaCodigo.StringValue));
 
         return listDto;
@@ -47,7 +48,7 @@ public class CifService : ICifService
     {
         var cif = await _repo.GetByUtilizadorDisciplina(utilizadorId,disciplinaId);
 
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }
@@ -58,7 +59,7 @@ public class CifService : ICifService
 
         await _repo.AddAsync(cif);
         await _unitOfWork.CommitAsync();
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }
@@ -69,11 +70,11 @@ public class CifService : ICifService
 
         // change all fields
 
-        cif.ChangeCifDisciplina(new CifDisciplina(dto.CifDisciplina));
+        cif.ChangeCifDisciplina(new Disciplina_CursoCifDisciplina(dto.CifDisciplina));
 
         await _unitOfWork.CommitAsync();
 
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }
@@ -85,12 +86,12 @@ public class CifService : ICifService
         if (cif == null)
             return null;
 
-        cif.ChangeCifDisciplina(new CifDisciplina(dto.CifDisciplina));
+        cif.ChangeCifDisciplina(new Disciplina_CursoCifDisciplina(dto.CifDisciplina));
 
 
         await this._unitOfWork.CommitAsync();
 
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }
@@ -128,7 +129,7 @@ public class CifService : ICifService
         _repo.Remove(cif);
         await _unitOfWork.CommitAsync();
 
-        return new CifDTO(cif.Id.IntValue, cif.CifDisciplina.DisciplinaCif,
+        return new CifDTO(cif.Id.IntValue, cif.DisciplinaCursoCifDisciplina.DisciplinaCif,
             cif.UtilizadorId.IntValue,
             cif.DisciplinaCodigo.StringValue);
     }

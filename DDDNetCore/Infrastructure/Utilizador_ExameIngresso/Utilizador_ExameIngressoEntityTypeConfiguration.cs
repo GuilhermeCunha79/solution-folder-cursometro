@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using WebApplication1.Domain.Disciplina_CursoSecundario;
 using WebApplication1.Domain.Utilizador_ExameIngresso;
 using WebApplication1.Shared;
 
@@ -16,9 +17,9 @@ public class Utilizador_ExameIngressoEntityTypeConfiguration:IEntityTypeConfigur
             v=>new Identifier(v));
         builder.Property(b=>b.ExameIngressoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.ExameIngressoNotaExame).HasConversion(v=>v.NotaExameIngresso,
-            v=>new Utilizador_ExameIngressoNotaExame(v));
-        builder.Property(b => b.IngressoBool).HasConversion(v=>v.BoolIngresso,
-            v=>new IngressoBool(v));
+        builder.Property(b=>b.Exame).HasConversion(v=>v.NotaExameIngresso,
+            v=>new Disciplina_CursoNotaExame(v));
+        builder.Property(b => b.DisciplinaCursoIngressoBool).HasConversion(v=>v.BoolIngresso,
+            v=>new Disciplina_CursoIngressoBool(v));
     }
 }

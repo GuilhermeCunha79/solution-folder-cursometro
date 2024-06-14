@@ -1,18 +1,18 @@
 ﻿using WebApplication1.Shared;
 
-namespace WebApplication1.Domain.Cif;
+namespace WebApplication1.Domain.Disciplina_CursoSecundario;
 
-public class CifDisciplina : IValueObject
+public class Disciplina_CursoCifDisciplina : IValueObject
 {
     private int MAX_NOTA = 200;
     private int MIN_NOTA = 0;
     public int DisciplinaCif { get; set; }
 
-    public CifDisciplina()
+    public Disciplina_CursoCifDisciplina()
     {
     }
 
-    public CifDisciplina(int disciplinaCif)
+    public Disciplina_CursoCifDisciplina(int disciplinaCif)
     {
         DisciplinaCif = CheckCifDisciplina(disciplinaCif);
     }

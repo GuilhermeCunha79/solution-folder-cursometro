@@ -2,10 +2,10 @@
 
 public class Instituicao_RankingDTO
 {
-    public Guid IdRanking;
-    public Guid CodigoInstituicao;
+    public int IdRanking;
+    public string CodigoInstituicao;
 
-    public Instituicao_RankingDTO(Guid idRanking, Guid codigoInstituicao)
+    public Instituicao_RankingDTO(int idRanking, string codigoInstituicao)
     {
         IdRanking = idRanking;
         CodigoInstituicao = codigoInstituicao;

@@ -60,7 +60,7 @@ public class DDDSample1DbContext : DbContext
 
        
         modelBuilder.ApplyConfiguration(new FavoritosEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
+        //modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new MediaEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());
@@ -85,6 +85,6 @@ public class DDDSample1DbContext : DbContext
         modelBuilder.ApplyConfiguration(new Disciplina_CursoSecundarioEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new TesteEntityTypeConfiguration());
        // modelBuilder.ApplyConfiguration(new NotaVisualizacaoEntityTypeConfiguration());
-        modelBuilder.ApplyConfiguration(new CifEntityTypeConfiguration());
+       // modelBuilder.ApplyConfiguration(new CifEntityTypeConfiguration());
     }
 }

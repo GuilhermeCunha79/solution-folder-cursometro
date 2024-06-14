@@ -14,6 +14,7 @@ public class Teste : Entity<Identifier>
     
     public Disciplina.Disciplina Disciplina { get; set; }
     public Utilizador.Utilizador Utilizador { get; set; }
+    public Disciplina_CursoSecundario.Disciplina_CursoSecundario DisciplinaCursoSecundario { get; set; }
 
     public Teste()
     {

@@ -8,6 +8,7 @@ public interface IDisciplina_CursoSecundarioService
     Task<List<Disciplina_CursoSecundarioDTO>> GetAllAsync();
     Task<Disciplina_CursoSecundarioDTO> GetByIdAsync(Identifier id);
     Task<List<Disciplina_CursoSecundarioDTO>> GetByUtilizadorId(Identifier identifier);
+    Task<Disciplina_CursoSecundarioDTO> GetByUtilizadorDisciplina(Identifier utilizadorId, Identifier disciplinaCod);
     Task<List<Disciplina_CursoSecundarioDTO>> AddAsync(NotaVisualizacaoDTO dto);
     Task<Disciplina_CursoSecundarioDTO> InactivateAsync(Identifier id);
     Task<Disciplina_CursoSecundarioDTO> DeleteAsync(Identifier id);

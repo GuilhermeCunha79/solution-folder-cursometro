@@ -48,6 +48,20 @@ public class Disciplina_CursoSecundarioController : ControllerBase
         return disciplinaDto;
     }
 
+    [HttpGet("UtilizadorDisciplinaCurso/{utilizadorId}/{disciplinaCod}")]
+    public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> GetByUtilizadorDisciplina(
+        Identifier utilizadorId, Identifier disciplinaCod)
+    {
+        var disciplinaDto = await _service.GetByUtilizadorDisciplina(utilizadorId,disciplinaCod);
+
+        if (disciplinaDto == null)
+        {
+            return NotFound();
+        }
+
+        return disciplinaDto;
+    }
+
     // POST: api/Jogadores
     [HttpPost]
     public async Task<ActionResult<IEnumerable<Disciplina_CursoSecundarioDTO>>> Create(NotaVisualizacaoDTO dto)
@@ -82,11 +96,11 @@ public class Disciplina_CursoSecundarioController : ControllerBase
     }
 
 
-
     [HttpPut("{id}")]
-    public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> Update(Identifier id, Disciplina_CursoSecundarioDTO dto)
+    public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> Update(Identifier id,
+        Disciplina_CursoSecundarioDTO dto)
     {
-        dto.Idd = id.IntValue;
+        dto.Id = id.StringValue;
 
         try
         {

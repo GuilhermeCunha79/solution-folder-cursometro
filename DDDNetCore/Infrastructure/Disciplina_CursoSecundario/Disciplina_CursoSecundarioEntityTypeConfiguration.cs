@@ -14,7 +14,7 @@ public class
         builder.ToTable("Disciplina_CursoSecundario", SchemaNames.DDDSample1);
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Id).HasConversion(v => v.IntValue,
+        builder.Property(b => b.Id).HasConversion(v => v.StringValue,
             v => new Identifier(v)).HasColumnName("Disciplina_CursoSecundarioId");
         builder.OwnsOne(e => e.DisciplinaCursoSecundarioNota,
             np =>
@@ -23,5 +23,17 @@ public class
                 np.Property(p => p.NotaDecimoPrim).HasColumnName("NotaDecimoPrim");
                 np.Property(p => p.NotaDecimoSeg).HasColumnName("NotaDecimoSeg");
             });
+        builder.Property(b => b.DisciplinaCursoCifDisciplina).HasConversion(v => v.DisciplinaCif,
+            v => new Disciplina_CursoCifDisciplina(v));
+        builder.Property(b => b.DisciplinaCursoNotaExame).HasConversion(v => v.NotaExameIngresso,
+            v => new Disciplina_CursoNotaExame(v));
+        builder.Property(b => b.DisciplinaCursoIngressoBool).HasConversion(v => v.BoolIngresso,
+            v => new Disciplina_CursoIngressoBool(v));
+        
+        builder.HasMany<Domain.Teste.Teste>(f => f.Testes)
+            .WithOne(j => j.DisciplinaCursoSecundario)
+            .HasForeignKey(f => f.UtilizadorId)
+            .HasForeignKey(f=>f.DisciplinaId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

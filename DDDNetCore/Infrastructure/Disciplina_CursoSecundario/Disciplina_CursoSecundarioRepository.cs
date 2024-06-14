@@ -31,4 +31,17 @@ public class
         return await _context.DisciplinaCursoSecundarios.FromSqlRaw(query, new SqlParameter("utilizadorId", utilizadorId))
             .ToListAsync();
     }
+
+    public async Task<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> GetByUtilizadorDisciplina(int utilizadorId, string disciplinaCod)
+    {
+        var query =
+            @"SELECT *
+                    FROM [Disciplina_CursoSecundario] AS [j]
+                WHERE [j].[UtilizadorId] = @utilizadorId AND [j].[DisciplinaCursoCodigo] = @disciplinaCod";
+
+
+        return await _context.DisciplinaCursoSecundarios.FromSqlRaw(query, new SqlParameter("utilizadorId", utilizadorId),
+                new SqlParameter("disciplinaCod",disciplinaCod))
+            .FirstOrDefaultAsync();
+    }
 }

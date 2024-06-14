@@ -36,6 +36,11 @@ public class NotaVisualizacaoDTO
     public string IdNotaAnual2;
     public string NotaAnual2DecimoSeg;
 
+    public int CifDisciplina;
+
+    public string NotaExame;
+    public bool IsIngresso;
+
     public NotaVisualizacaoDTO(int id,string notaPortuguesDecimo, string notaPortuguesDecimoPrim,
         string notaPortuguesDecimoSeg,
         string notaEduFisicaDecimo,
@@ -45,7 +50,8 @@ public class NotaVisualizacaoDTO
         string idNotaBienal1,
         string notaBienal1Decimo, string notaBienal1DecimoPrim, string idNotaBienal2, string notaBienal2Decimo,
         string notaBienal2DecimoPrim,
-        string idNotaAnual1, string notaAnual1DecimoSeg, string idNotaAnual2, string notaAnual2DecimoSeg)
+        string idNotaAnual1, string notaAnual1DecimoSeg, string idNotaAnual2, string notaAnual2DecimoSeg,
+        int cifDisciplina,string notaExame, bool isIngresso)
     {
         Id = id;
         NotaPortuguesDecimo = notaPortuguesDecimo;
@@ -70,5 +76,8 @@ public class NotaVisualizacaoDTO
         NotaAnual1DecimoSeg = notaAnual1DecimoSeg;
         IdNotaAnual2 = idNotaAnual2;
         NotaAnual2DecimoSeg = notaAnual2DecimoSeg;
+        CifDisciplina = cifDisciplina;
+        NotaExame = notaExame;
+        IsIngresso = isIngresso;
     }
 }
