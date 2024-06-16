@@ -2,12 +2,11 @@
 
 public class FavoritosDTO
 {
-
-    public Guid Id;
-    public Guid IdUtilizador;
+    public int Id;
+    public string IdUtilizador;
     public string InstituicaoCursoCodigo;
 
-    public FavoritosDTO(Guid id, Guid idUtilizador, string instituicaoCursoCodigo)
+    public FavoritosDTO(int id,string idUtilizador, string instituicaoCursoCodigo)
     {
         Id = id;
         IdUtilizador = idUtilizador;

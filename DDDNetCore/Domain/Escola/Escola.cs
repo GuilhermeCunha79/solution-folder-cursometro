@@ -15,11 +15,19 @@ public class Escola:Entity<Identifier>
         
     }
 
-    public Escola(int idEscola, string nomeEscola, int idDistrito)
+    public Escola(int idEscola, string nomeEscola, string idDistrito)
     {
         Id = new Identifier(idEscola);
         EscolaNome = new EscolaNome(nomeEscola);
         DistritoId = new Identifier(idDistrito);
         Active = true;
+    }
+    
+    public void MarkAsInactive()
+    {
+        if (!Active)
+            throw new BusinessRuleValidationException(
+                "A Escola selecionada já se encontra inativa.");
+        Active = false;
     }
 }

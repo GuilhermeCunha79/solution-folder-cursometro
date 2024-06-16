@@ -17,9 +17,9 @@ public class Favoritos:Entity<Identifier>
         
     }
 
-    public Favoritos(string utilGuid, string codigo)
+    public Favoritos(string utilizadorId, string codigo)
     {
-        UtilizadorId = new Identifier(utilGuid);
+        UtilizadorId = new Identifier(utilizadorId);
         InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigo).Codigo;
     }
     

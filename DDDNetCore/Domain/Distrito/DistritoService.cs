@@ -61,6 +61,13 @@ public class DistritoService : IDistritoService
 
     public async Task<DistritoDTO> UpdateAsync(DistritoDTO dto)
     {
-        throw new NotImplementedException();
+        var distrito = await _repo.GetByIdAsync(new Identifier(dto.Id));
+
+        // change all fields
+        
+
+        await _unitOfWork.CommitAsync();
+
+        return new DistritoDTO(distrito.Id.StringValue, distrito.DistritoNome.NomeDistrito);
     }
 }

@@ -2,14 +2,16 @@
 
 public class InformacoesCandidaturaDTO
 {
-    public Guid Id;
+    public int Id;
     public int NotaEntrada;
     public int NrVagas;
+    public int CandidaturaId;
 
-    public InformacoesCandidaturaDTO(Guid id, int notaEntrada, int nrVagas)
+    public InformacoesCandidaturaDTO(int id, int notaEntrada, int nrVagas, int candidaturaId)
     {
         Id = id;
         NotaEntrada = notaEntrada;
         NrVagas = nrVagas;
+        CandidaturaId = candidaturaId;
     }
 }

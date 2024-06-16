@@ -25,31 +25,67 @@ public class EscolaService : IEscolaService
 
     public async Task<EscolaDTO> GetByIdAsync(Identifier id)
     {
-        throw new NotImplementedException();
+        var escola = await _repo.GetByIdAsync(id);
+
+        return new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola);
     }
 
     public async Task<List<EscolaDTO>> GetByDistrito(string nome)
     {
-        throw new NotImplementedException();
+        var escolaList = await _repo.GetByDistrito(nome);
+
+        List<EscolaDTO> list = escolaList.ConvertAll(escola =>
+            new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola));
+
+        return list;
     }
 
     public async Task<EscolaDTO> AddAsync(EscolaDTO dto)
     {
-        throw new NotImplementedException();
+        var escola = new Escola(dto.Id, dto.NomeEscola, dto.IdDistrito);
+
+        await _repo.AddAsync(escola);
+
+        await _unitOfWork.CommitAsync();
+
+        return new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola);
     }
 
     public async Task<EscolaDTO> InactivateAsync(Identifier id)
     {
-        throw new NotImplementedException();
+        var escola = await _repo.GetByIdAsync(id);
+
+        if (escola == null)
+            return null;
+
+        escola.MarkAsInactive();
+
+        await _unitOfWork.CommitAsync();
+
+        return new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola);
     }
 
     public async Task<EscolaDTO> DeleteAsync(Identifier id)
     {
-        throw new NotImplementedException();
+        var escola = await _repo.GetByIdAsync(id);
+
+        if (escola == null)
+            return null;
+
+        _repo.Remove(escola);
+        await _unitOfWork.CommitAsync();
+
+        return new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola);
     }
 
     public async Task<EscolaDTO> UpdateAsync(EscolaDTO dto)
     {
-        throw new NotImplementedException();
+        var escola = await _repo.GetByIdAsync(new Identifier(dto.Id));
+
+        // change all fields
+
+        await _unitOfWork.CommitAsync();
+
+        return new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola);
     }
 }
