@@ -14,6 +14,7 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     public InstituicaoNome Nome { get; set; }
     public InstituicaoMapaLink MapaLink { get; set; }
     public InstituicaoPaginaLink PaginaLink { get; set; }
+    public Identifier IdRanking { get; set; }
 
     public ICollection<Instituicao_Ranking.Instituicao_Ranking> InstituicaoRankings { get; set; }
     public ICollection<Instituicao_Tags.Instituicao_Tags> InstituicaoTags { get; set; }
@@ -24,8 +25,8 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
     {
     }
 
-    public Instituicao(string nome,string email, int codigo, string fax, byte[] logo, string morada, string telefone,
-        string tipoEnsino, string mapaLink, string paginaLink)
+    public Instituicao(string nome,string email, string codigo, string fax, byte[] logo, string morada, string telefone,
+        string tipoEnsino, string mapaLink, string paginaLink, int idRanking)
     {
         Id = new InstituicaoCodigo(codigo).Codigo;
         Nome = new InstituicaoNome(nome);
@@ -37,6 +38,7 @@ public class Instituicao : Entity<Identifier>, IAggregateRoot
         TipoEnsino = new InstituicaoTipoEnsino(tipoEnsino);
         MapaLink = new InstituicaoMapaLink(mapaLink);
         PaginaLink = new InstituicaoPaginaLink(paginaLink);
+        IdRanking = new Identifier(idRanking);
         Active = true;
     }
 }

@@ -2,11 +2,11 @@
 
 public class RankingDTO
 {
-    public Guid Id;
+    public int Id;
     public string PosicaoRankingNacional;
     public string NomeRankingNacional;
 
-    public RankingDTO(Guid id, string posicaoRankingNacional, string nomeRankingNacional)
+    public RankingDTO(int id, string posicaoRankingNacional, string nomeRankingNacional)
     {
         Id = id;
         PosicaoRankingNacional = posicaoRankingNacional;

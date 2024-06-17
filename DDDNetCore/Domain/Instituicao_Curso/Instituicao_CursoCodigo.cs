@@ -15,7 +15,7 @@ public class Instituicao_CursoCodigo : IValueObject
         Codigo = new Identifier(codInstCurso);
     }
 
-    public Instituicao_CursoCodigo(int codigoInstituicao, string codigoCurso)
+    public Instituicao_CursoCodigo(string codigoInstituicao, string codigoCurso)
     {
         Codigo = new Identifier(codigoInstituicao + "/" + codigoCurso);
     }

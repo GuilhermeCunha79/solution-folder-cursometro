@@ -15,8 +15,9 @@ public class Ranking : Entity<Identifier>
         
     }
 
-    public Ranking(string nome,string posicao, bool nacional)
+    public Ranking(int idRanking,string nome,string posicao, bool nacional)
     {
+        Id = new Identifier(idRanking);
         RankingNome = new RankingNome(nome);
         Posicao = new RankingPosicao(posicao);
         RankingNacional = new RankingNacional(nacional);

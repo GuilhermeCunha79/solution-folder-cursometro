@@ -8,7 +8,6 @@ public interface IFavoritosService
     Task<FavoritosDTO> GetByIdAsync(Identifier id);
     Task<List<FavoritosDTO>> GetByUtilizadorId(Identifier id);
     Task<FavoritosDTO> AddAsync(FavoritosDTO dto);
-    Task<FavoritosDTO> InactivateAsync(Identifier id);
     Task<FavoritosDTO> DeleteAsync(Identifier id);
     Task<FavoritosDTO> UpdateAsync(FavoritosDTO dto);
 }

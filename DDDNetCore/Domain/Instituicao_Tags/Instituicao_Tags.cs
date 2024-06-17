@@ -18,7 +18,7 @@ public class Instituicao_Tags:Entity<Identifier>
         
     }
 
-    public Instituicao_Tags(int tagId,int codInstituicao)
+    public Instituicao_Tags(int tagId,string codInstituicao)
     {
         InstituicaoCodigo = new InstituicaoCodigo(codInstituicao).Codigo;
         TagId = new Identifier(tagId);

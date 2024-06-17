@@ -9,14 +9,13 @@ public class InstituicaoDTO
     public string TipoEnsino;
     public string Fax;
     public string Email;
-    public string Logo;
+    public byte[] Logo;
     public string MapaLink;
     public string PaginaLink;
-    public Guid IdRankingIntenacional;
-    public Guid IdRankingPortugues;
+    public int IdRanking;
 
     public InstituicaoDTO(string codigo, string nome, string morada, string telefone, string tipoEnsino, string fax,
-        string email, string logo, Guid idRankingInternacional, Guid idRankingPortugues, string mapaLink, string paginaLink)
+        string email, byte[] logo, int idRanking, string mapaLink, string paginaLink)
     {
         Codigo = codigo;
         Nome = nome;
@@ -26,8 +25,7 @@ public class InstituicaoDTO
         Fax = fax;
         Email = email;
         Logo = logo;
-        IdRankingIntenacional = idRankingInternacional;
-        IdRankingPortugues = idRankingPortugues;
+        IdRanking = idRanking;
         MapaLink = mapaLink;
         PaginaLink = paginaLink;
     }

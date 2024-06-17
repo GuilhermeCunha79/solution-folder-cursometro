@@ -16,7 +16,7 @@ public class Instituicao_Ranking:Entity<Identifier>
         
     }
 
-    public Instituicao_Ranking(int idRanking, int codigo)
+    public Instituicao_Ranking(int idRanking, string codigo)
     {
         IdRanking = new Identifier(idRanking);
         InstituicaoCodigo = new InstituicaoCodigo(codigo).Codigo;

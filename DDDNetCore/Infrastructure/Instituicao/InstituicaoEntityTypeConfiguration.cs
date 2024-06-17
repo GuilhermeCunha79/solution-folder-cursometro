@@ -12,7 +12,7 @@ public class InstituicaoEntityTypeConfiguration:IEntityTypeConfiguration<Domain.
         builder.ToTable("Instituicao", SchemaNames.DDDSample1);
         builder.HasKey(b=>b.Id);
 
-        builder.Property(b => b.Id).HasConversion(v => v.IntValue,
+        builder.Property(b => b.Id).HasConversion(v => v.StringValue,
             v=>new Identifier(v))
             .HasColumnName("InstituicaoCodigo");
         builder.Property(b => b.Nome).HasConversion(v=>v.Nome,

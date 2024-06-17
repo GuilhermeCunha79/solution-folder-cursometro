@@ -39,14 +39,9 @@ public class DDDSample1DbContext : DbContext
     public DbSet<Domain.CursoSecundario.CursoSecundario> CursoSecundarios { get; set; }
     public DbSet<Domain.Escola.Escola> Escolas { get; set; } 
     public DbSet<Domain.Favoritos.Favoritos> Favoritos { get; set; } 
+    public DbSet<Domain.Instituicao_Curso.Instituicao_Curso> InstituicaoCursos { get; set; } 
     public DbSet<Domain.InformacoesCandidatura.InformacoesCandidatura> InformacoesCandidaturas { get; set; }
-
-
-    public int ObterNumeroDeJogadores()
-    {
-        return Instituicoes.Count()+1;
-    }
-
+    
     public DDDSample1DbContext(DbContextOptions options) : base(options)
     {
 

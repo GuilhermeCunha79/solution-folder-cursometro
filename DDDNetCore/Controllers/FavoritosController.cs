@@ -107,20 +107,6 @@ public class FavoritosController : ControllerBase
         }
     }
 
-    // Inactivate: api/Deliveries/5
-    [HttpDelete("{id}")]
-    public async Task<ActionResult<FavoritosDTO>> SoftDelete(Identifier id)
-    {
-        var favoritosDto = await _service.InactivateAsync(id);
-
-        if (favoritosDto == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(favoritosDto);
-    }
-
     // DELETE: api/Deliveries/5
     [HttpDelete("{id}/hard")]
     public async Task<ActionResult<FavoritosDTO>> HardDelete(Identifier id)

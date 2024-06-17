@@ -55,10 +55,6 @@ public class FavoritosService : IFavoritosService
             favoritos.InstituicaoCursoCodigo.StringValue);
     }
 
-    public async Task<FavoritosDTO> InactivateAsync(Identifier id)
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task<FavoritosDTO> DeleteAsync(Identifier id)
     {

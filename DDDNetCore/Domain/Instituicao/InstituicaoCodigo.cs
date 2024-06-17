@@ -11,7 +11,7 @@ public class InstituicaoCodigo: IValueObject
         
     }
     
-    public InstituicaoCodigo(int codigo)
+    public InstituicaoCodigo(string codigo)
     {
         Codigo = new Identifier(codigo);
     }
