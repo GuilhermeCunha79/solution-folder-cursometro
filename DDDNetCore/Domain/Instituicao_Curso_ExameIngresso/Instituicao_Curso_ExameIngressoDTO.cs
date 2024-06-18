@@ -2,14 +2,14 @@
 
 public class Instituicao_Curso_ExameIngressoDTO
 {
-    public Guid Id;
-    public Guid IdUtilizador;
-    public int NotaExame;
+    public int Id;
+    public string InstituicaoCursoCodigo;
+    public string CodigoExame;
 
-    public Instituicao_Curso_ExameIngressoDTO(Guid id, Guid idUtilizador, int notaExame)
+    public Instituicao_Curso_ExameIngressoDTO(int id, string instituicaoCursoCodigo, string codigoExame)
     {
         Id = id;
-        IdUtilizador = idUtilizador;
-        NotaExame = notaExame;
+        InstituicaoCursoCodigo = instituicaoCursoCodigo;
+        CodigoExame = codigoExame;
     }
 }
