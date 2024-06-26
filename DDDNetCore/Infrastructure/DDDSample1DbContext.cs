@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Domain.Media;
 using WebApplication1.Infrastructure.Candidatura;
 using WebApplication1.Infrastructure.Cif;
 using WebApplication1.Infrastructure.Curso;
@@ -41,6 +42,7 @@ public class DDDSample1DbContext : DbContext
     public DbSet<Domain.Favoritos.Favoritos> Favoritos { get; set; } 
     public DbSet<Domain.Instituicao_Curso.Instituicao_Curso> InstituicaoCursos { get; set; } 
     public DbSet<Domain.InformacoesCandidatura.InformacoesCandidatura> InformacoesCandidaturas { get; set; }
+    public DbSet<Media> Medias { get; set; }
     
     public DDDSample1DbContext(DbContextOptions options) : base(options)
     {

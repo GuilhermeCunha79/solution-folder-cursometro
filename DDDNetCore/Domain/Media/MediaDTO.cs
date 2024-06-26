@@ -2,16 +2,18 @@
 
 public class MediaDTO
 {
-    public Guid Id;
+    public int Id;
     public string MediaSecundario;
     public string? MediaIngresso;
     public string? MediaIngressoDesporto;
+    public string UtilizadorId;
 
-    public MediaDTO(Guid id, string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto)
+    public MediaDTO(int id, string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto, string idUtilizador)
     {
         Id = id;
         MediaSecundario = mediaSecundario;
         MediaIngresso = mediaIngresso;
         MediaIngressoDesporto = mediaIngressoDesporto;
+        UtilizadorId = idUtilizador;
     }
 }

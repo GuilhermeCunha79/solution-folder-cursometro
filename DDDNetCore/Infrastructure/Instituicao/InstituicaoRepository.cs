@@ -20,7 +20,7 @@ public class InstituicaoRepository:
     {
         var query =
             @"SELECT * FROM [Instituicao] AS [j]
-                  WHERE [j].[InstituicaoCodigo] = @codigoCurso)";
+                  WHERE [j].[InstituicaoCodigo] = @codigoCurso";
 
 
         return await _context.Instituicoes.FromSqlRaw(query, new SqlParameter("codigoCurso", id))

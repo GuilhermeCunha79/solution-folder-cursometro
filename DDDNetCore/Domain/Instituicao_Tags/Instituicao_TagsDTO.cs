@@ -2,11 +2,11 @@
 
 public class Instituicao_TagsDTO
 {
-    public Guid Id;
-    public Guid IdTag;
+    public int Id;
+    public int IdTag;
     public string CodigoInstituicao;
 
-    public Instituicao_TagsDTO(Guid id, Guid idTag, string codigoInstituicao)
+    public Instituicao_TagsDTO(int id, int idTag, string codigoInstituicao)
     {
         Id = id;
         IdTag = idTag;

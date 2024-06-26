@@ -15,10 +15,11 @@ public class Media : Entity<Identifier>
         
     }
 
-    public Media(string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto)
+    public Media(string mediaSecundario, string? mediaIngresso, string? mediaIngressoDesporto, string idUtilizador)
     {
         MediaSecundario = new MediaSecundario(mediaSecundario);
         MediaIngresso = new MediaIngresso(mediaIngresso);
         MediaIngressoDesporto = new MediaIngressoDesporto(mediaIngressoDesporto);
+        UtilizadorId = new Identifier(idUtilizador);
     }
 }
