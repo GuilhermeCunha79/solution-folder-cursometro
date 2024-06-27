@@ -1,50 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Domain.Distrito;
+using WebApplication1.Domain.Utilizador;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class DistritoController : ControllerBase
+public class UtilizadorController:ControllerBase
 {
-    private readonly IDistritoService _service;
+     private readonly IUtilizadorService _service;
 
-    public DistritoController(IDistritoService service)
+    public UtilizadorController(IUtilizadorService service)
     {
         _service = service;
     }
 
     // GET: api/Jogadores
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<DistritoDTO>>> GetAll()
+    public async Task<ActionResult<IEnumerable<UtilizadorDTO>>> GetAll()
     {
         return await _service.GetAllAsync();
     }
 
     // GET: api/Jogadores/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<DistritoDTO>> GetById(Identifier id)
+    public async Task<ActionResult<UtilizadorDTO>> GetById(Identifier id)
     {
-        var distritoDto = await _service.GetByIdAsync(id);
+        var utilizadorDto = await _service.GetByIdAsync(id);
 
-        if (distritoDto == null)
+        if (utilizadorDto == null)
         {
             return NotFound();
         }
 
-        return distritoDto;
+        return utilizadorDto;
     }
 
     // POST: api/Jogadores
     [HttpPost]
-    public async Task<ActionResult<DistritoDTO>> Create(DistritoDTO dto)
+    public async Task<ActionResult<UtilizadorDTO>> Create(UtilizadorDTO dto)
     {
-        var list = await _service.GetAllAsync();
+        /*var list = await _service.GetAllAsync();
 
         if (list != null)
         {
-            foreach (var distritoDto in list)
+            foreach (var utilizadorDto in list)
             {
                 if (distritoDto.Id.Equals(dto.Id) || distritoDto.Distrito.Equals(dto.Distrito))
                 {
@@ -52,14 +50,14 @@ public class DistritoController : ControllerBase
                         { Message = "Já existe um 'Distrito' registada com uma das informações fornecidas." });
                 }
             }
-        }
+        }*/
 
         dto.Id = dto.Id;
         try
         {
-            var distrito = await _service.AddAsync(dto);
+            var utilizadorDto = await _service.AddAsync(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = distrito.Id }, distrito);
+            return CreatedAtAction(nameof(GetById), new { id = utilizadorDto.Id }, utilizadorDto);
         }
         catch (BusinessRuleValidationException ex)
         {
@@ -68,7 +66,7 @@ public class DistritoController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<DistritoDTO>> Update(Identifier id, DistritoDTO dto)
+    public async Task<ActionResult<UtilizadorDTO>> Update(Identifier id, UtilizadorDTO dto)
     {
         // if (id != dto.Id)
         // {
@@ -79,14 +77,14 @@ public class DistritoController : ControllerBase
 
         try
         {
-            var distrito = await _service.UpdateAsync(dto);
+            var utilizadorDto = await _service.UpdateAsync(dto);
 
-            if (distrito == null)
+            if (utilizadorDto == null)
             {
                 return NotFound();
             }
 
-            return Ok(distrito);
+            return Ok(utilizadorDto);
         }
         catch (BusinessRuleValidationException ex)
         {
@@ -96,32 +94,32 @@ public class DistritoController : ControllerBase
 
     // Inactivate: api/Deliveries/5
     [HttpDelete("{id}")]
-    public async Task<ActionResult<DistritoDTO>> SoftDelete(Identifier id)
+    public async Task<ActionResult<UtilizadorDTO>> SoftDelete(Identifier id)
     {
-        var distrito = await _service.InactivateAsync(id);
+        var utilizadorDto = await _service.InactivateAsync(id);
 
-        if (distrito == null)
+        if (utilizadorDto == null)
         {
             return NotFound();
         }
 
-        return Ok(distrito);
+        return Ok(utilizadorDto);
     }
 
     // DELETE: api/Deliveries/5
     [HttpDelete("{id}/hard")]
-    public async Task<ActionResult<DistritoDTO>> HardDelete(Identifier id)
+    public async Task<ActionResult<UtilizadorDTO>> HardDelete(Identifier id)
     {
         try
         {
-            var distritoDto = await _service.DeleteAsync(id);
+            var utilizadorDto = await _service.DeleteAsync(id);
 
-            if (distritoDto == null)
+            if (utilizadorDto == null)
             {
                 return NotFound();
             }
 
-            return Ok(distritoDto);
+            return Ok(utilizadorDto);
         }
         catch (BusinessRuleValidationException ex)
         {

@@ -3,13 +3,15 @@
 public class RankingDTO
 {
     public int Id;
-    public string PosicaoRankingNacional;
-    public string NomeRankingNacional;
+    public string NomeRanking;
+    public string Posicao;
+    public bool NacionalBool;
 
-    public RankingDTO(int id, string posicaoRankingNacional, string nomeRankingNacional)
+    public RankingDTO(int id,string nome,string posicao, bool nacional)
     {
         Id = id;
-        PosicaoRankingNacional = posicaoRankingNacional;
-        NomeRankingNacional = nomeRankingNacional;
+        NomeRanking = nome;
+        Posicao = posicao;
+        NacionalBool = nacional;
     }
 }
