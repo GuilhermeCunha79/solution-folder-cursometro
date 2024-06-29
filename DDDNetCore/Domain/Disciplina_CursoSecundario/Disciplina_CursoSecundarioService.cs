@@ -19,14 +19,14 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         var list = await _repo.GetAllAsync();
 
         List<Disciplina_CursoSecundarioDTO> listDto = list.ConvertAll(disciplina =>
-            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-                disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+                disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-                disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+                disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
                 disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-                disciplina.DisciplinaCursoIngressoBool.BoolIngresso));
+                disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
     }
@@ -35,14 +35,14 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
     {
         var disciplina = await _repo.GetByIdAsync(id);
 
-        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-            disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+            disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-            disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+            disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
             disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-            disciplina.DisciplinaCursoIngressoBool.BoolIngresso);
+            disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
     public async Task<List<Disciplina_CursoSecundarioDTO>> GetByUtilizadorId(Identifier identifier)
@@ -50,53 +50,57 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         var list = await _repo.GetByUtilizadorId(identifier.IntValue);
 
         List<Disciplina_CursoSecundarioDTO> listDto = list.ConvertAll(disciplina =>
-            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-                disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+                disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-                disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+                disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
                 disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-                disciplina.DisciplinaCursoIngressoBool.BoolIngresso));
+                disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
     }
 
-    public async Task<Disciplina_CursoSecundarioDTO> GetByUtilizadorDisciplina(Identifier utilizadorId, Identifier disciplinaCod)
+    public async Task<Disciplina_CursoSecundarioDTO> GetByUtilizadorDisciplina(Identifier utilizadorId,
+        Identifier disciplinaCod)
     {
-        var disciplina = await _repo.GetByUtilizadorDisciplina(utilizadorId.IntValue,disciplinaCod.StringValue);
+        var disciplina = await _repo.GetByUtilizadorDisciplina(utilizadorId.IntValue, disciplinaCod.StringValue);
 
-        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-            disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+            disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-            disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+            disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
             disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-            disciplina.DisciplinaCursoIngressoBool.BoolIngresso);
+            disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
-    
+
 
     public async Task<List<Disciplina_CursoSecundarioDTO>> AddAsync(NotaVisualizacaoDTO dto)
     {
         var disciplinas = new List<Disciplina_CursoSecundario>
         {
             CreateDisciplina("POR", dto.CodigoCurso, dto.NotaPortuguesDecimo, dto.NotaPortuguesDecimoPrim,
-                dto.NotaPortuguesDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.NotaPortuguesDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
+                dto.CodigoExame),
             CreateDisciplina("EDU", dto.CodigoCurso, dto.NotaEduFisicaDecimo, dto.NotaEduFisicaDecimoPrim,
-                dto.NotaEduFisicaDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.NotaEduFisicaDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
+                dto.CodigoExame),
             CreateDisciplina("FIL", dto.CodigoCurso, dto.NotaFilosofiaDecimo, dto.NotaFilosofiaDecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaTrienal, dto.CodigoCurso, dto.NotaTrienalDecimo, dto.NotaTrienalDecimoPrim,
-                dto.NotaTrienalDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.NotaTrienalDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
+                dto.CodigoExame),
             CreateDisciplina(dto.IdNotaBienal1, dto.CodigoCurso, dto.NotaBienal1Decimo, dto.NotaBienal1DecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaBienal2, dto.CodigoCurso, dto.NotaBienal2Decimo, dto.NotaBienal2DecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaAnual1, dto.CodigoCurso, "-", "-", dto.NotaAnual1DecimoSeg, dto.IdUtilizador,
-                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso),
+                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaAnual2, dto.CodigoCurso, "-", "-", dto.NotaAnual2DecimoSeg, dto.IdUtilizador,
-                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso)
+                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame)
         };
 
         foreach (var disciplina in disciplinas)
@@ -107,25 +111,25 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         await _unitOfWork.CommitAsync();
 
         List<Disciplina_CursoSecundarioDTO> listDto = disciplinas.ConvertAll(disciplina =>
-            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-                disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+            new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+                disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-                disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+                disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
                 disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-                disciplina.DisciplinaCursoIngressoBool.BoolIngresso));
+                disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
     }
 
-    private Disciplina_CursoSecundario CreateDisciplina(string codigoDisciplina, int codigoCurso, string notaDecimo,
-        string notaDecimoPrim, string notaDecimoSeg, int idUtilizador, int cifDisciplina, string notaExame,
-        bool isIngresso)
+    private Disciplina_CursoSecundario CreateDisciplina(string codigoDisciplina, string codigoCurso, string notaDecimo,
+        string notaDecimoPrim, string notaDecimoSeg, string idUtilizador, int cifDisciplina, string notaExame,
+        bool isIngresso, string codigoExame)
     {
         return new Disciplina_CursoSecundario(codigoDisciplina, codigoCurso, notaDecimo, notaDecimoPrim, notaDecimoSeg,
             cifDisciplina, notaExame, isIngresso,
-            idUtilizador);
+            idUtilizador, codigoExame);
     }
 
     public async Task<Disciplina_CursoSecundarioDTO> UpdateAsync(Disciplina_CursoSecundarioDTO dto)
@@ -138,14 +142,14 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
 
         await _unitOfWork.CommitAsync();
 
-        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-            disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+            disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-            disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+            disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
             disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-            disciplina.DisciplinaCursoIngressoBool.BoolIngresso);
+            disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
 
@@ -160,14 +164,14 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
 
         await _unitOfWork.CommitAsync();
 
-        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-            disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+            disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-            disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+            disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
             disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-            disciplina.DisciplinaCursoIngressoBool.BoolIngresso);
+            disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
     public async Task<Disciplina_CursoSecundarioDTO> DeleteAsync(Identifier id)
@@ -180,13 +184,13 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         _repo.Remove(disciplina);
         await _unitOfWork.CommitAsync();
 
-        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue,disciplina.UtilizadorId.IntValue,
-            disciplina.DisciplinaCodigo.StringValue, disciplina.CodigoCursoSecundario.IntValue,
+        return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
+            disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimo,
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
-            disciplina.DisciplinaCursoCifDisciplina.DisciplinaCif,
+            disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
             disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
-            disciplina.DisciplinaCursoIngressoBool.BoolIngresso);
+            disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 }

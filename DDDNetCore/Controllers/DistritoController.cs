@@ -68,7 +68,7 @@ public class DistritoController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<DistritoDTO>> Update(Identifier id, DistritoDTO dto)
+    public async Task<ActionResult<DistritoDTO>> Update([FromRoute] Identifier id, [FromBody]DistritoDTO dto)
     {
         // if (id != dto.Id)
         // {

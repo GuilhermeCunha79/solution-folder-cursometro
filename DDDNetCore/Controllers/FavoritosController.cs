@@ -81,7 +81,7 @@ public class FavoritosController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<FavoritosDTO>> Update(Identifier id, FavoritosDTO dto)
+    public async Task<ActionResult<FavoritosDTO>> Update([FromRoute] Identifier id, [FromBody]FavoritosDTO dto)
     {
         // if (id != dto.Id)
         // {

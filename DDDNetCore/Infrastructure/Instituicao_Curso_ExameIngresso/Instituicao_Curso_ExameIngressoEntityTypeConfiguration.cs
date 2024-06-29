@@ -11,10 +11,6 @@ public class InstituicaoCursoExameIngressoEntityTypeConfiguration:
     {
         builder.ToTable("Instituicao_Curso_ExameIngresso", SchemaNames.DDDSample1);
         builder.HasKey(b => new {b.ExameIngressoCodigo, b.InstituicaoCursoCodigo});
-
-        builder.Property(b=>b.ExameIngressoCodigo).HasConversion(v=>v.IntValue,
-            v=>new Identifier(v));
-        builder.Property(b=>b.InstituicaoCursoCodigo).HasConversion(v=>v.StringValue,
-            v=>new Identifier(v));
+        
     }
 }

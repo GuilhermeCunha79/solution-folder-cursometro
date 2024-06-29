@@ -13,7 +13,7 @@ public class Instituicao_RankingEntityTypeConfiguration:IEntityTypeConfiguration
 
         builder.Property(b=> b.IdRanking).HasConversion(v=>v.IntValue,
             v=>new Identifier(v));
-        builder.Property(b=>b.InstituicaoCodigo).HasConversion(v=>v.IntValue,
+        builder.Property(b=>b.InstituicaoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
     }
 }

@@ -10,7 +10,7 @@ public class CursoSecundarioCodigo : IValueObject
     {
     }
 
-    public CursoSecundarioCodigo(int codigo)
+    public CursoSecundarioCodigo(string codigo)
     {
         CodigoCursoSecundario = new Identifier(codigo);
     }

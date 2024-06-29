@@ -67,7 +67,7 @@ public class RankingController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<RankingDTO>> Update(Identifier id, RankingDTO dto)
+    public async Task<ActionResult<RankingDTO>> Update([FromRoute] Identifier id,[FromBody] RankingDTO dto)
     {
         // if (id != dto.Id)
         // {

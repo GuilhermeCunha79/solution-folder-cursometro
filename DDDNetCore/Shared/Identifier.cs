@@ -7,6 +7,7 @@ public class Identifier : EntityId
     
     
     [JsonConstructor]
+    
     public Identifier(int value) : base(value)
     {
     }

@@ -37,7 +37,7 @@ public class
         var query =
             @"SELECT *
                     FROM [Disciplina_CursoSecundario] AS [j]
-                WHERE [j].[UtilizadorId] = @utilizadorId AND [j].[DisciplinaCursoCodigo] = @disciplinaCod";
+                WHERE [j].[UtilizadorId] = @utilizadorId AND [j].[Disciplina_CursoCodigo] = @disciplinaCod";
 
 
         return await _context.DisciplinaCursoSecundarios.FromSqlRaw(query, new SqlParameter("utilizadorId", utilizadorId),

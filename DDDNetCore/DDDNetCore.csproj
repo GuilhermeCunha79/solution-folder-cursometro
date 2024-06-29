@@ -36,6 +36,14 @@
       <Compile Remove="Migrations\20240511114304_Migrations.Designer.cs" />
       <Compile Remove="Migrations\20240512160121_Migrations.cs" />
       <Compile Remove="Migrations\20240512160121_Migrations.Designer.cs" />
+      <Compile Remove="Migrations\20240521233532_Migrations.cs" />
+      <Compile Remove="Migrations\20240521233532_Migrations.Designer.cs" />
+      <Compile Remove="Migrations\20240629132656_Migrations.cs" />
+      <Compile Remove="Migrations\20240629132656_Migrations.Designer.cs" />
+      <Compile Remove="Migrations\20240629133215_Migrations.cs" />
+      <Compile Remove="Migrations\20240629133215_Migrations.Designer.cs" />
+      <Compile Remove="Migrations\20240629133314_Migrations.cs" />
+      <Compile Remove="Migrations\20240629133314_Migrations.Designer.cs" />
     </ItemGroup>
 
 </Project>

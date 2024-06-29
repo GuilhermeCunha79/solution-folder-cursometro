@@ -18,12 +18,7 @@ public class ExameIngressoEntityTypeConfiguration:IEntityTypeConfiguration<Domai
         
         builder.Property(b => b.ExameIngressoNome).HasConversion(v => v.NomeExameIngresso,
         v=>new ExameIngressoNome(v.ToString()));
-        
-        builder.HasMany(e => e.UtilizadorExameIngressos)
-            .WithOne(j => j.ExameIngresso)
-            .HasForeignKey(e => e.Id)
-            .OnDelete(DeleteBehavior.Restrict);
-        
+
         builder.HasMany(e => e.InstituicaoCursoExameIngressos)
             .WithOne(j => j.ExameIngresso)
             .HasForeignKey(e => e.Id)

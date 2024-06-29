@@ -1,4 +1,5 @@
-﻿using WebApplication1.Shared;
+﻿using System.ComponentModel.DataAnnotations;
+using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Curso;
 
@@ -16,7 +17,7 @@ public class Curso : Entity<Identifier>
 
     public Curso(string codigoId, string nome)
     {
-        Id = new CursoCodigo(codigoId).CodigoCurso;
+        Id = new Identifier(codigoId);
         CursoNome = new CursoNome(nome);
         Active = true;
     }

@@ -50,7 +50,7 @@ public class Disciplina_CursoSecundarioController : ControllerBase
 
     [HttpGet("UtilizadorDisciplinaCurso/{utilizadorId}/{disciplinaCod}")]
     public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> GetByUtilizadorDisciplina(
-        Identifier utilizadorId, Identifier disciplinaCod)
+        [FromRoute] Identifier utilizadorId,[FromRoute] Identifier disciplinaCod)
     {
         var disciplinaDto = await _service.GetByUtilizadorDisciplina(utilizadorId,disciplinaCod);
 
@@ -97,8 +97,8 @@ public class Disciplina_CursoSecundarioController : ControllerBase
 
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> Update(Identifier id,
-        Disciplina_CursoSecundarioDTO dto)
+    public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> Update([FromRoute] Identifier id,
+        [FromBody] Disciplina_CursoSecundarioDTO dto)
     {
         dto.Id = id.StringValue;
 

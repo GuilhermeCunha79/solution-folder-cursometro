@@ -6,8 +6,7 @@ public class Disciplina:Entity<Identifier>
 {
     public DisciplinaNome DisciplinaNome { get; set; }
     public DisciplinaTipo DisciplinaTipo { get; set; }
-    public DisciplinaCodigo DisciplinaCodigo { get; set; }
-    
+
     public ICollection<WebApplication1.Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
     public ICollection<Teste.Teste> Testes { get; set; }
     public bool Active { get; set; }
@@ -17,8 +16,9 @@ public class Disciplina:Entity<Identifier>
         
     }
 
-    public Disciplina(string nomeDisciplina, string tipo)
+    public Disciplina(string codigo,string nomeDisciplina, string tipo)
     {
+        Id = new DisciplinaCodigo(codigo).CodigoDisciplina;
         DisciplinaNome = new DisciplinaNome(nomeDisciplina);
         DisciplinaTipo = new DisciplinaTipo(tipo);
         Active = true;

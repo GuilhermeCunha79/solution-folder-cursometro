@@ -12,28 +12,26 @@ public class
     public void Configure(EntityTypeBuilder<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> builder)
     {
         builder.ToTable("Disciplina_CursoSecundario", SchemaNames.DDDSample1);
-        builder.HasKey(b => b.Id);
+        builder.HasKey(b => new { b.UtilizadorId, b.DisciplinaId });
 
         builder.Property(b => b.Id).HasConversion(v => v.StringValue,
             v => new Identifier(v)).HasColumnName("Disciplina_CursoSecundarioId");
-        builder.OwnsOne(e => e.DisciplinaCursoSecundarioNota,
-            np =>
-            {
-                np.Property(p => p.NotaDecimo).HasColumnName("NotaDecimo");
-                np.Property(p => p.NotaDecimoPrim).HasColumnName("NotaDecimoPrim");
-                np.Property(p => p.NotaDecimoSeg).HasColumnName("NotaDecimoSeg");
-            });
-        builder.Property(b => b.DisciplinaCursoCifDisciplina).HasConversion(v => v.DisciplinaCif,
-            v => new Disciplina_CursoCifDisciplina(v));
+        builder.OwnsOne(e => e.DisciplinaCursoSecundarioNota, np =>
+        {
+            np.Property(p => p.NotaDecimo).HasColumnName("NotaDecimo");
+            np.Property(p => p.NotaDecimoPrim).HasColumnName("NotaDecimoPrim");
+            np.Property(p => p.NotaDecimoSeg).HasColumnName("NotaDecimoSeg");
+        });
+        builder.Property(b => b.DisciplinaCursoCifDiscDisciplina).HasConversion(v => v.DisciplinaCif,
+            v => new Disciplina_CursoCif(v));
         builder.Property(b => b.DisciplinaCursoNotaExame).HasConversion(v => v.NotaExameIngresso,
             v => new Disciplina_CursoNotaExame(v));
-        builder.Property(b => b.DisciplinaCursoIngressoBool).HasConversion(v => v.BoolIngresso,
-            v => new Disciplina_CursoIngressoBool(v));
-        
-        builder.HasMany<Domain.Teste.Teste>(f => f.Testes)
+        builder.Property(b => b.DisciplinaCursoIngresso).HasConversion(v => v.BoolIngresso,
+            v => new Disciplina_CursoIngresso(v));
+
+        builder.HasMany(f => f.Testes)
             .WithOne(j => j.DisciplinaCursoSecundario)
-            .HasForeignKey(f => f.UtilizadorId)
-            .HasForeignKey(f=>f.DisciplinaId)
+            .HasForeignKey(f => new { f.UtilizadorId, f.DisciplinaId })
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

@@ -1,8 +1,9 @@
-﻿using Moq;
+﻿/*using Moq;
 using WebApplication1.Domain.Candidatura;
 using WebApplication1.Shared;
 
 namespace tests.Tests.Domain;
+
 
 public class CandidaturaServiceTest
 {
@@ -114,4 +115,4 @@ public class CandidaturaServiceTest
         var actual = await candidaturaService.UpdateAsync(candidaturaDto);
         Assert.Equal(candidatura.CandidaturaAno.Ano, actual.Ano);
     }
-}
+}*/

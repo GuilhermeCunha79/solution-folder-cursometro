@@ -13,7 +13,7 @@ public class FavoritosEntityTypeConfiguration: IEntityTypeConfiguration<Domain.F
 
         builder.Property(b => b.Id)
             .HasColumnName("FavoritosId") 
-            .HasConversion(v => v.IntValue, v => new Identifier(v));
+            .HasConversion(v => v.StringValue, v => new Identifier(v));
         builder.Property(b=>b.InstituicaoCursoCodigo).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
         builder.Property(b => b.UtilizadorId).HasConversion(v=>v.StringValue,

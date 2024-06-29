@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using WebApplication1.Domain.Instituicao;
 using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
@@ -17,6 +18,8 @@ public class Instituicao_CursoEntityTypeConfiguration:IEntityTypeConfiguration<D
             .HasColumnName("InstituicaoCursoCodigo");
         builder.Property(b=>b.InstituicaoCursoEcts).HasConversion(v=>v.ECTS,
             v=>new Instituicao_CursoECTS(v));
+        builder.Property(b=>b.InstituicaoCodigo).HasConversion(v=>v.StringValue,
+            v=>new Identifier(v));
         builder.Property(b=>b.InstituicaoArea).HasConversion(v=>v.AreaInstituicao,
             v=>new InstituicaoArea(v));
         builder.Property(b => b.InstituicaoCursoDuracao).HasConversion(v=>v.Duracao,

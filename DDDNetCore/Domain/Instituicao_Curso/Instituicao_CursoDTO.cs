@@ -10,12 +10,11 @@ public class Instituicao_CursoDTO
     public string Duracao;
     public string Grau;
 
-    public Instituicao_CursoDTO(string id, string codigoInstituicao, string codigoCurso, string ects, string area,
+    public Instituicao_CursoDTO(string id, string codigoInstituicao, string ects, string area,
         string duracao, string grau)
     {
         Id = id;
         CodigoInstituicao = codigoInstituicao;
-        CodigoCurso = codigoCurso;
         Ects = ects;
         Area = area;
         Duracao = duracao;

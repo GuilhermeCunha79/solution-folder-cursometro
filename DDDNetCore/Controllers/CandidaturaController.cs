@@ -4,7 +4,6 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class CandidaturaController : ControllerBase
@@ -71,7 +70,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<CandidaturaDTO>> Update(Identifier id, CandidaturaDTO dto)
+        public async Task<ActionResult<CandidaturaDTO>> Update([FromRoute] Identifier id, [FromBody] CandidaturaDTO dto)
         {
             // if (id != dto.Id)
             // {
@@ -82,7 +81,6 @@ namespace WebApplication1.Controllers
 
             try
             {
-
                 var candidatura = await _service.UpdateAsync(dto);
 
                 if (candidatura == null)

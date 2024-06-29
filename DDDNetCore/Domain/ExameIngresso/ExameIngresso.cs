@@ -5,7 +5,6 @@ namespace WebApplication1.Domain.ExameIngresso;
 public class ExameIngresso : Entity<Identifier>
 {
     public ExameIngressoNome ExameIngressoNome { get; set; }
-    public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngressos { get; set; }
 
     public ICollection<Instituicao_Curso_ExameIngresso.Instituicao_Curso_ExameIngresso> InstituicaoCursoExameIngressos
     {

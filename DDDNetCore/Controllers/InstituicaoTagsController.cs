@@ -67,7 +67,7 @@ public class InstituicaoTagsController:ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Instituicao_TagsDTO>> Update(Identifier id, Instituicao_TagsDTO dto)
+    public async Task<ActionResult<Instituicao_TagsDTO>> Update([FromRoute] Identifier id,[FromBody] Instituicao_TagsDTO dto)
     {
         // if (id != dto.Id)
         // {

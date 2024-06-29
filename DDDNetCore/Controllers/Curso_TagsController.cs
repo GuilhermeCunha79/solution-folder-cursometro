@@ -35,7 +35,7 @@ public class Curso_TagsController : ControllerBase
     }
 
     [HttpGet("{codigo}/{tagId}")]
-    public async Task<List<Curso_TagsDTO>> GetByCursoCodigoTagId(Identifier codigo, Identifier tagId)
+    public async Task<List<Curso_TagsDTO>> GetByCursoCodigoTagId([FromRoute]Identifier codigo, [FromRoute]Identifier tagId)
     {
         var list = await _service.GetByCursoCodigoTagId(codigo, tagId);
 

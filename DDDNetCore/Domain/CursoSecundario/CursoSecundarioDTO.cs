@@ -2,10 +2,10 @@
 
 public class CursoSecundarioDTO
 {
-    public int CodigoCursoSecundario;
+    public string CodigoCursoSecundario;
     public string NomeCursoSecundario;
 
-    public CursoSecundarioDTO(int codigoCursoSecundario, string nomeCursoSecundario)
+    public CursoSecundarioDTO(string codigoCursoSecundario, string nomeCursoSecundario)
     {
         CodigoCursoSecundario = codigoCursoSecundario;
         NomeCursoSecundario = nomeCursoSecundario;

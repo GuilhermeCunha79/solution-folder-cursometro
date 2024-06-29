@@ -21,8 +21,7 @@ public class Instituicao_CursoService
 
         List<Instituicao_CursoDTO> listDto = list.ConvertAll(instituicaoCurso =>
             new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-                instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-                instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+                instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
                 instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
                 instituicaoCurso.InstituicaoCursoGrau.Grau));
 
@@ -34,8 +33,7 @@ public class Instituicao_CursoService
         var instituicaoCurso = await _repo.GetByIdAsync(id);
 
         return new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-            instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-            instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+            instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
             instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
             instituicaoCurso.InstituicaoCursoGrau.Grau);
     }
@@ -50,8 +48,7 @@ public class Instituicao_CursoService
         await _unitOfWork.CommitAsync();
 
         return new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-            instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-            instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+            instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
             instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
             instituicaoCurso.InstituicaoCursoGrau.Grau);
     }
@@ -68,8 +65,7 @@ public class Instituicao_CursoService
         await _unitOfWork.CommitAsync();
 
         return new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-            instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-            instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+            instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
             instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
             instituicaoCurso.InstituicaoCursoGrau.Grau);
     }
@@ -85,8 +81,7 @@ public class Instituicao_CursoService
         await _unitOfWork.CommitAsync();
 
         return new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-            instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-            instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+            instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
             instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
             instituicaoCurso.InstituicaoCursoGrau.Grau);
     }
@@ -101,8 +96,7 @@ public class Instituicao_CursoService
         await _unitOfWork.CommitAsync();
 
         return new Instituicao_CursoDTO(instituicaoCurso.Id.StringValue,
-            instituicaoCurso.InstituicaoCodigo.Codigo.StringValue,
-            instituicaoCurso.CursoCodigo.CodigoCurso.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
+            instituicaoCurso.InstituicaoCodigo.StringValue, instituicaoCurso.InstituicaoCursoEcts.ECTS,
             instituicaoCurso.InstituicaoArea.AreaInstituicao, instituicaoCurso.InstituicaoCursoDuracao.Duracao,
             instituicaoCurso.InstituicaoCursoGrau.Grau);
     }

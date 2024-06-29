@@ -6,7 +6,7 @@ public class CursoSecundario : Entity<Identifier>
 {
     public Identifier CursoSecundarioCodigo { get; set; }
     public CursoSecundarioNome CursoSecundarioNome { get; set; }
-    public ICollection<WebApplication1.Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
+    public ICollection<Disciplina_CursoSecundario.Disciplina_CursoSecundario> Disciplina_CursoSecundario { get; set; }
     public bool Active { get; set; }
     
     public CursoSecundario()
@@ -14,7 +14,7 @@ public class CursoSecundario : Entity<Identifier>
         
     }
 
-    public CursoSecundario(int codigo, string nomeCurso)
+    public CursoSecundario(string codigo, string nomeCurso)
     {
         CursoSecundarioCodigo = new CursoSecundarioCodigo(codigo).CodigoCursoSecundario;
         CursoSecundarioNome = new CursoSecundarioNome(nomeCurso);

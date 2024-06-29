@@ -68,8 +68,8 @@ public class Instituicao_Curso_ExameIngressoController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Instituicao_Curso_ExameIngressoDTO>> Update(Identifier id,
-        Instituicao_Curso_ExameIngressoDTO dto)
+    public async Task<ActionResult<Instituicao_Curso_ExameIngressoDTO>> Update([FromRoute] Identifier id,
+        [FromBody] Instituicao_Curso_ExameIngressoDTO dto)
     {
         // if (id != dto.Id)
         // {

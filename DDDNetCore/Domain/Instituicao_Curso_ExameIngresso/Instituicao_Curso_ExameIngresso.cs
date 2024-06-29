@@ -21,6 +21,5 @@ public class Instituicao_Curso_ExameIngresso : Entity<Identifier>
     {
         InstituicaoCursoCodigo = new Instituicao_CursoCodigo(codigoInstituicao).Codigo;
         ExameIngressoCodigo = new ExameIngressoCodigo(codigoExame).CodigoExameIngresso;
-        
     }
 }

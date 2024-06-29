@@ -9,8 +9,6 @@ public class Utilizador : Entity<Identifier>
     public UtilizadorNome UtilizadorNome { get; set; }
     public UtilizadorPassword UtilizadorPassword { get; set; }
     public UtilizadorAno UtilizadorAno { get; set; }
-
-    public ICollection<Utilizador_ExameIngresso.Utilizador_ExameIngresso> UtilizadorExameIngresso { get; set; }
     public ICollection<Favoritos.Favoritos> Favoritos { get; set; }
     public ICollection<Teste.Teste> Testes { get; set; }
     public Escola.Escola Escola { get; set; }

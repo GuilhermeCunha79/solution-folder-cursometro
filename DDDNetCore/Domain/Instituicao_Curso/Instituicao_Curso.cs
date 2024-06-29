@@ -7,9 +7,7 @@ namespace WebApplication1.Domain.Instituicao_Curso;
 public class Instituicao_Curso : Entity<Identifier>
 {
     //pk, junção de duas fk
-    public InstituicaoCodigo InstituicaoCodigo { get; set; }
-
-    public CursoCodigo CursoCodigo { get; set; }
+    public Identifier InstituicaoCodigo { get; set; }
 
     //Instituicao_Curso
     public Instituicao_CursoECTS InstituicaoCursoEcts { get; set; }
@@ -19,6 +17,7 @@ public class Instituicao_Curso : Entity<Identifier>
 
     //atributos estrangeiros
     public ICollection<Candidatura.Candidatura> Candidaturas { get; set; }
+    public Identifier CodigoCurso { get; set; }
 
     public ICollection<Instituicao_Curso_ExameIngresso.Instituicao_Curso_ExameIngresso> Instituicao_Curso_ExameIngressos
     {
@@ -44,8 +43,8 @@ public class Instituicao_Curso : Entity<Identifier>
         InstituicaoCursoDuracao = new Instituicao_CursoDuracao(duracao);
         InstituicaoCursoGrau = new Instituicao_CursoGrau(grau);
         InstituicaoArea = new InstituicaoArea(area);
-        InstituicaoCodigo = new InstituicaoCodigo(instituicaoCodigo);
-        CursoCodigo = new CursoCodigo(cursoCodigo);
+        InstituicaoCodigo = new Identifier(instituicaoCodigo);
+        CodigoCurso = new Identifier(cursoCodigo);
         Active = true;
     }
 

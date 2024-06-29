@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Domain.Disciplina_CursoSecundario;
 using WebApplication1.Domain.Media;
 using WebApplication1.Infrastructure.Candidatura;
-using WebApplication1.Infrastructure.Cif;
 using WebApplication1.Infrastructure.Curso;
 using WebApplication1.Infrastructure.Curso_Tags;
 using WebApplication1.Infrastructure.CursoSecundario;
@@ -24,7 +24,6 @@ using WebApplication1.Infrastructure.Regiao;
 using WebApplication1.Infrastructure.Tags;
 using WebApplication1.Infrastructure.Teste;
 using WebApplication1.Infrastructure.Utilizador;
-using WebApplication1.Infrastructure.Utilizador_ExameIngresso;
 
 namespace WebApplication1.Infrastructure;
 
@@ -35,7 +34,6 @@ public class DDDSample1DbContext : DbContext
     public DbSet<Domain.Disciplina.Disciplina> Disciplinas { get; set; }
     public DbSet<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> DisciplinaCursoSecundarios { get; set; }
     public DbSet<Domain.Candidatura.Candidatura> Candidaturas { get; set; }
-    public DbSet<Domain.Cif.Cif> Cifs { get; set; }
     public DbSet<Domain.Curso_Tags.Curso_Tags> Curso_Tags { get; set; }
     public DbSet<Domain.CursoSecundario.CursoSecundario> CursoSecundarios { get; set; }
     public DbSet<Domain.Escola.Escola> Escolas { get; set; } 
@@ -58,7 +56,7 @@ public class DDDSample1DbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-       
+        modelBuilder.Entity<Disciplina_CursoIngresso>().HasNoKey();
         modelBuilder.ApplyConfiguration(new FavoritosEntityTypeConfiguration());
         //modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());

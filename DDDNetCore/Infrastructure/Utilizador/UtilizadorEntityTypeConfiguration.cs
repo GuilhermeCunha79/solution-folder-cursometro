@@ -26,20 +26,15 @@ public class UtilizadorEntityTypeConfiguration : IEntityTypeConfiguration<Domain
         builder.Property(b=>b.UtilizadorAno).HasConversion(v=>v.AnoUtilizador,
             v=>new UtilizadorAno(v));
 
-        builder.HasMany(e => e.UtilizadorExameIngresso)
+          builder.HasMany(e => e.Testes)
+              .WithOne(j => j.Utilizador)
+              .HasForeignKey(e => e.Id)
+              .OnDelete(DeleteBehavior.Restrict);
+          
+        builder.HasMany(e => e.Favoritos)
             .WithOne(j => j.Utilizador)
-            .HasForeignKey(e => e.Id)
+            .HasForeignKey(e => e.UtilizadorId)
             .OnDelete(DeleteBehavior.Restrict);
-        
-        builder.HasMany(e => e.Testes)
-            .WithOne(j => j.Utilizador)
-            .HasForeignKey(e => e.Id)
-            .OnDelete(DeleteBehavior.Restrict);
-        
-      /*  builder.HasMany(e => e.Favoritos)
-            .WithOne(j => j.Utilizador)
-            .HasForeignKey(e => e.Id)
-            .OnDelete(DeleteBehavior.Restrict);*/
 
         builder.HasOne(f => f.Media)
             .WithOne(j => j.Utilizador)

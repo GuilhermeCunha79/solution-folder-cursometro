@@ -6,9 +6,9 @@ namespace WebApplication1.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class InformacoesCandidaturaController:ControllerBase
+public class InformacoesCandidaturaController : ControllerBase
 {
-     private readonly IInformacoesCandidaturaService _service;
+    private readonly IInformacoesCandidaturaService _service;
 
     public InformacoesCandidaturaController(IInformacoesCandidaturaService service)
     {
@@ -35,7 +35,7 @@ public class InformacoesCandidaturaController:ControllerBase
 
         return informacoesDto;
     }
-    
+
     [HttpGet("{candidatura}")]
     public async Task<ActionResult<InformacoesCandidaturaDTO>> GetByCandidaturaId(Identifier candidatura)
     {
@@ -81,7 +81,8 @@ public class InformacoesCandidaturaController:ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<InformacoesCandidaturaDTO>> Update(Identifier id, InformacoesCandidaturaDTO dto)
+    public async Task<ActionResult<InformacoesCandidaturaDTO>> Update([FromRoute] Identifier id,
+        [FromBody] InformacoesCandidaturaDTO dto)
     {
         // if (id != dto.Id)
         // {

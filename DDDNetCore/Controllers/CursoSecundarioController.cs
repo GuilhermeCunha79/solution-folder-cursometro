@@ -79,14 +79,14 @@ public class CursoSecundarioController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<CursoSecundarioDTO>> Update(Identifier id, CursoSecundarioDTO dto)
+    public async Task<ActionResult<CursoSecundarioDTO>> Update([FromRoute] Identifier id, [FromBody] CursoSecundarioDTO dto)
     {
         // if (id != dto.Id)
         // {
         //     return BadRequest();
         // }
 
-        dto.CodigoCursoSecundario = id.IntValue;
+        dto.CodigoCursoSecundario = id.StringValue;
 
         try
         {

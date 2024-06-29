@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Domain.Curso;
+using WebApplication1.Domain.Disciplina;
 using WebApplication1.Infrastructure;
 using WebApplication1.Infrastructure.Curso;
+using WebApplication1.Infrastructure.Disciplina;
 using WebApplication1.Infrastructure.Shared;
 using WebApplication1.Shared;
 
@@ -79,5 +81,7 @@ public class Startup
 
         services.AddTransient<ICursoRepository, CursoRepository>();
         services.AddTransient<ICursoService, CursoService>();
+        services.AddTransient<IDisciplinaRepository, DisciplinaRepository>();
+        services.AddTransient<IDisciplinaService, DisciplinaService>();
     }
 }

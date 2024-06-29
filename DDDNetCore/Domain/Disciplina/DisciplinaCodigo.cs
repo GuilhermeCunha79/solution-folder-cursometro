@@ -1,4 +1,5 @@
-﻿using WebApplication1.Shared;
+﻿using System.ComponentModel.DataAnnotations;
+using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Disciplina;
 

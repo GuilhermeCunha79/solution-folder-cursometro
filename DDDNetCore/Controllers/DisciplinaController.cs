@@ -8,14 +8,13 @@ namespace WebApplication1.Controllers;
 [ApiController]
 public class DisciplinaController : ControllerBase
 {
-    
     private readonly IDisciplinaService _service;
 
     public DisciplinaController(IDisciplinaService service)
     {
         _service = service;
     }
-    
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<DisciplinaDTO>>> GetAll()
     {
@@ -80,7 +79,7 @@ public class DisciplinaController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<DisciplinaDTO>> Update(Identifier id, DisciplinaDTO dto)
+    public async Task<ActionResult<DisciplinaDTO>> Update([FromRoute] Identifier id, [FromBody] DisciplinaDTO dto)
     {
         // if (id != dto.Id)
         // {

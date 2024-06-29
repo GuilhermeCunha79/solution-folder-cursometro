@@ -66,7 +66,7 @@ public class UtilizadorController:ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<UtilizadorDTO>> Update(Identifier id, UtilizadorDTO dto)
+    public async Task<ActionResult<UtilizadorDTO>> Update([FromRoute] Identifier id,[FromBody] UtilizadorDTO dto)
     {
         // if (id != dto.Id)
         // {

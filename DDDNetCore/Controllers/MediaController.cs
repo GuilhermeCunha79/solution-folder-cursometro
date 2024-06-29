@@ -80,7 +80,7 @@ public class MediaController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<MediaDTO>> Update(Identifier id, MediaDTO dto)
+    public async Task<ActionResult<MediaDTO>> Update([FromRoute] Identifier id,[FromBody] MediaDTO dto)
     {
         // if (id != dto.Id)
         // {

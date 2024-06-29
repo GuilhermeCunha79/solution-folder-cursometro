@@ -42,7 +42,7 @@ public class DisciplinaService : IDisciplinaService
 
     public async Task<DisciplinaDTO> AddAsync(DisciplinaDTO dto)
     {
-        var disciplina = new Disciplina(dto.DisciplinaNome, dto.DisciplinaTipo);
+        var disciplina = new Disciplina(dto.Idd,dto.DisciplinaNome, dto.DisciplinaTipo);
 
         await _repo.AddAsync(disciplina);
 
