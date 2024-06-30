@@ -23,7 +23,7 @@ internal class CursoEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Cu
 
         builder.HasMany(e => e.Curso_Tags)
             .WithOne(j => j.Curso)
-            .HasForeignKey(e => e.Id)
+            .HasForeignKey(e => e.CursoCodigo)
             .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasOne(f => f.InstituicaoCurso)

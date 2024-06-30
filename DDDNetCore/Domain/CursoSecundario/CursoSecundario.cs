@@ -45,7 +45,7 @@ public class CursoSecundario : Entity<Identifier>
     {
         if (!Active)
             throw new BusinessRuleValidationException(
-                "A Candidatura selecionada já se encontra inativa.");
+                "A Curso selecionado já se encontra inativa.");
         Active = false;
     }
 }

@@ -55,8 +55,6 @@ public class DDDSample1DbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        modelBuilder.Entity<Disciplina_CursoIngresso>().HasNoKey();
         modelBuilder.ApplyConfiguration(new FavoritosEntityTypeConfiguration());
         //modelBuilder.ApplyConfiguration(new Utilizador_ExameIngressoEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ExameIngressoEntityTypeConfiguration());

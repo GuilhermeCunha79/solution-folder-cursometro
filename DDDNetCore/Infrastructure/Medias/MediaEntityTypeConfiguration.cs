@@ -17,10 +17,16 @@ public class MediaEntityTypeConfiguration:IEntityTypeConfiguration<Media>
             .HasColumnName("MediaId");
         builder.Property(b => b.MediaSecundario).HasConversion(v => v.SecundarioMedia,
             v=> new MediaSecundario(v.ToString()));
-        builder.Property(b => b.MediaIngresso).HasConversion(v => v.IngressoMedia,
-            v=> new MediaIngresso(v!.ToString()));
-        builder.Property(b => b.MediaIngressoDesporto).HasConversion(v => v.IngressoMediaDesporto,
-            v=> new MediaIngressoDesporto(v!.ToString()));
+        builder.Property(b => b.MediaIngresso)
+            .HasConversion(
+                v => v == null ? "-" : v.IngressoMedia,
+                v => v == "-" ? null : new MediaIngresso(v)
+            );
+        builder.Property(b => b.MediaIngressoDesporto)
+            .HasConversion(
+                v => v == null ? "-" : v.IngressoMediaDesporto,
+                v => v == "-" ? null : new MediaIngressoDesporto(v)
+            );
         builder.Property(b=>b.UtilizadorId).HasConversion(v=>v.StringValue,
             v=>new Identifier(v));
         

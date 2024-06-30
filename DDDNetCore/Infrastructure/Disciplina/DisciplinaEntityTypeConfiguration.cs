@@ -21,7 +21,7 @@ public class DisciplinaEntityTypeConfiguration:IEntityTypeConfiguration<Domain.D
         
         builder.HasMany(e => e.Disciplina_CursoSecundario)
             .WithOne(j => j.Disciplina)
-            .HasForeignKey(f => f.Id);
+            .HasForeignKey(f => f.DisciplinaId);
         
         builder.HasMany(e => e.Testes)
             .WithOne(j => j.Disciplina)
