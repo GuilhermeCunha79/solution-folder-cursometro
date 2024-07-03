@@ -10,11 +10,16 @@ public class Disciplina_CursoSecundarioDTO
     public string NotaDecimoPrim;
     public string NotaDecimoSeg;
     public int CifDisciplina;
-    public string NotaExame;
+    public string NotaExameInterno1;
+    public string NotaExameInterno2;
+    public string NotaExameExterno1;
+    public string NotaExameExterno2;
     public bool IsIngresso;
 
-    public Disciplina_CursoSecundarioDTO(string id,int utilizadorId,string codigoDisciplina, int codigoCursoSecundario,
-        string notaDecimo,string notaDecimoPrim,string notaDecimoSeg, int cifDisciplina, string notaExame, bool isIngresso)
+    public Disciplina_CursoSecundarioDTO(string id, int utilizadorId, string codigoDisciplina,
+        int codigoCursoSecundario,
+        string notaDecimo, string notaDecimoPrim, string notaDecimoSeg, int cifDisciplina, string notaExameInterno1,
+        string notaExameInterno2, string notaExameExterno1, string notaExameExterno2, bool isIngresso)
     {
         Id = id;
         UtilizadorId = utilizadorId;
@@ -24,7 +29,10 @@ public class Disciplina_CursoSecundarioDTO
         NotaDecimoPrim = notaDecimoPrim;
         NotaDecimoSeg = notaDecimoSeg;
         CifDisciplina = cifDisciplina;
-        NotaExame = notaExame;
+        NotaExameInterno1 = notaExameInterno1;
+        NotaExameInterno2 = notaExameInterno2;
+        NotaExameExterno1 = notaExameExterno1;
+        NotaExameExterno2 = notaExameExterno2;
         IsIngresso = isIngresso;
     }
 }

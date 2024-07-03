@@ -24,8 +24,14 @@ public class
         });
         builder.Property(b => b.DisciplinaCursoCifDiscDisciplina).HasConversion(v => v.DisciplinaCif,
             v => new Disciplina_CursoCif(v));
-        builder.Property(b => b.DisciplinaCursoNotaExame).HasConversion(v => v.NotaExameIngresso,
-            v => new Disciplina_CursoNotaExame(v));
+        builder.Property(b => b.DisciplinaCursoNotaExameInterno1).HasConversion(v => v.NotaExameInterno1,
+            v => new Disciplina_CursoNotaExameInterno1(v));
+        builder.Property(b => b.DisciplinaCursoNotaExameInterno2).HasConversion(v => v.NotaExameInterno2,
+            v => new Disciplina_CursoNotaExameInterno2(v));
+        builder.Property(b => b.DisciplinaCursoNotaExameExterno1).HasConversion(v => v.NotaExameExterno1,
+            v => new Disciplina_CursoNotaExameExterno1(v));
+        builder.Property(b => b.DisciplinaCursoNotaExameExterno2).HasConversion(v => v.NotaExameExterno2,
+            v => new Disciplina_CursoNotaExameExterno2(v));
         builder.Property(b => b.DisciplinaCursoIngresso).HasConversion(v => v.BoolIngresso,
             v => new Disciplina_CursoIngresso(v));
 

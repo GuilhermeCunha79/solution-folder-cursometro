@@ -25,7 +25,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
                 disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-                disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+                disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+                disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+                disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+                disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
                 disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
@@ -41,13 +44,16 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
             disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-            disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+            disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+            disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+            disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+            disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
             disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
-    public async Task<List<Disciplina_CursoSecundarioDTO>> GetByUtilizadorId(Identifier identifier)
+    public async Task<List<Disciplina_CursoSecundarioDTO>> GetByUtilizadorId(string identifier)
     {
-        var list = await _repo.GetByUtilizadorId(identifier.IntValue);
+        var list = await _repo.GetByUtilizadorId(identifier);
 
         List<Disciplina_CursoSecundarioDTO> listDto = list.ConvertAll(disciplina =>
             new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
@@ -56,7 +62,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
                 disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-                disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+                disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+                disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+                disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+                disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
                 disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
@@ -73,7 +82,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
             disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-            disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+            disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+            disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+            disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+            disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
             disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
@@ -83,24 +95,35 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         var disciplinas = new List<Disciplina_CursoSecundario>
         {
             CreateDisciplina("POR", dto.CodigoCurso, dto.NotaPortuguesDecimo, dto.NotaPortuguesDecimoPrim,
-                dto.NotaPortuguesDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
+                dto.NotaPortuguesDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, dto.IsIngresso,
                 dto.CodigoExame),
             CreateDisciplina("EDU", dto.CodigoCurso, dto.NotaEduFisicaDecimo, dto.NotaEduFisicaDecimoPrim,
-                dto.NotaEduFisicaDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
-                dto.CodigoExame),
+                dto.NotaEduFisicaDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, "-",
+                "-", dto.NotaExameExterno1, dto.NotaExameExterno2, false,
+                "-"),
             CreateDisciplina("FIL", dto.CodigoCurso, dto.NotaFilosofiaDecimo, dto.NotaFilosofiaDecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, dto.IsIngresso, dto.CodigoExame),
+            CreateDisciplina(dto.IdLingua, dto.CodigoCurso, dto.NotaLinguaDecimo, dto.NotaLinguaDecimoPrim, "-",
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, false, "-"),
             CreateDisciplina(dto.IdNotaTrienal, dto.CodigoCurso, dto.NotaTrienalDecimo, dto.NotaTrienalDecimoPrim,
-                dto.NotaTrienalDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso,
+                dto.NotaTrienalDecimoSeg, dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, dto.IsIngresso,
                 dto.CodigoExame),
             CreateDisciplina(dto.IdNotaBienal1, dto.CodigoCurso, dto.NotaBienal1Decimo, dto.NotaBienal1DecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaBienal2, dto.CodigoCurso, dto.NotaBienal2Decimo, dto.NotaBienal2DecimoPrim, "-",
-                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
+                dto.IdUtilizador, dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, dto.IsIngresso, dto.CodigoExame),
             CreateDisciplina(dto.IdNotaAnual1, dto.CodigoCurso, "-", "-", dto.NotaAnual1DecimoSeg, dto.IdUtilizador,
-                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame),
+                dto.CifDisciplina, dto.NotaExameInterno1,
+                dto.NotaExameInterno2, dto.NotaExameExterno1, dto.NotaExameExterno2, false, "-"),
             CreateDisciplina(dto.IdNotaAnual2, dto.CodigoCurso, "-", "-", dto.NotaAnual2DecimoSeg, dto.IdUtilizador,
-                dto.CifDisciplina, dto.NotaExame, dto.IsIngresso, dto.CodigoExame)
+                dto.CifDisciplina, "-",
+                "-", dto.NotaExameExterno1, dto.NotaExameExterno2, false, "-")
         };
 
         foreach (var disciplina in disciplinas)
@@ -117,18 +140,22 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
                 disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
                 , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
                 disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-                disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+                disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+                disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+                disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+                disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
                 disciplina.DisciplinaCursoIngresso.BoolIngresso));
 
         return listDto;
     }
 
     private Disciplina_CursoSecundario CreateDisciplina(string codigoDisciplina, string codigoCurso, string notaDecimo,
-        string notaDecimoPrim, string notaDecimoSeg, string idUtilizador, int cifDisciplina, string notaExame,
+        string notaDecimoPrim, string notaDecimoSeg, string idUtilizador, int cifDisciplina, string notaExameInterno1,
+        string notaExameInterno2, string notaExameExterno1, string notaExameExterno2,
         bool isIngresso, string codigoExame)
     {
         return new Disciplina_CursoSecundario(codigoDisciplina, codigoCurso, notaDecimo, notaDecimoPrim, notaDecimoSeg,
-            cifDisciplina, notaExame, isIngresso,
+            cifDisciplina, notaExameInterno1, notaExameInterno2, notaExameExterno1, notaExameExterno2, isIngresso,
             idUtilizador, codigoExame);
     }
 
@@ -148,7 +175,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
             disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-            disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+            disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+            disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+            disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+            disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
             disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
@@ -170,7 +200,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
             disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-            disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+            disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+            disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+            disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+            disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
             disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 
@@ -190,7 +223,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
             disciplina.DisciplinaCursoSecundarioNota.NotaDecimoPrim
             , disciplina.DisciplinaCursoSecundarioNota.NotaDecimoSeg,
             disciplina.DisciplinaCursoCifDiscDisciplina.DisciplinaCif,
-            disciplina.DisciplinaCursoNotaExame.NotaExameIngresso,
+            disciplina.DisciplinaCursoNotaExameInterno1.NotaExameInterno1,
+            disciplina.DisciplinaCursoNotaExameInterno2.NotaExameInterno2,
+            disciplina.DisciplinaCursoNotaExameExterno1.NotaExameExterno1,
+            disciplina.DisciplinaCursoNotaExameExterno2.NotaExameExterno2,
             disciplina.DisciplinaCursoIngresso.BoolIngresso);
     }
 }

@@ -20,7 +20,7 @@ public class
     }
 
     public async Task<List<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario>> GetByUtilizadorId(
-        int utilizadorId)
+        string utilizadorId)
     {
         var query =
             @"SELECT *
