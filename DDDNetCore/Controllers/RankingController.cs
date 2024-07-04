@@ -3,7 +3,8 @@ using WebApplication1.Domain.Ranking;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class RankingController : ControllerBase
 {
     private readonly IRankingService _service;

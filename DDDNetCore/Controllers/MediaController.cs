@@ -4,7 +4,8 @@ using WebApplication1.Domain.Media;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class MediaController : ControllerBase
 {
      private readonly IMediaService _service;

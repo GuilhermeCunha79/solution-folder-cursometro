@@ -2,9 +2,13 @@
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Domain.Curso;
 using WebApplication1.Domain.Disciplina;
+using WebApplication1.Domain.Disciplina_CursoSecundario;
+using WebApplication1.Domain.Escola;
 using WebApplication1.Infrastructure;
 using WebApplication1.Infrastructure.Curso;
 using WebApplication1.Infrastructure.Disciplina;
+using WebApplication1.Infrastructure.Disciplina_CursoSecundario;
+using WebApplication1.Infrastructure.Escola;
 using WebApplication1.Infrastructure.Shared;
 using WebApplication1.Shared;
 
@@ -83,5 +87,9 @@ public class Startup
         services.AddTransient<ICursoService, CursoService>();
         services.AddTransient<IDisciplinaRepository, DisciplinaRepository>();
         services.AddTransient<IDisciplinaService, DisciplinaService>();
+        services.AddTransient<IEscolaRepository, EscolaRepository>();
+        services.AddTransient<IEscolaService, EscolaService>();
+        services.AddTransient<IDisciplina_CursoSecundarioRepository, Disciplina_CursoSecundarioRepository>();
+        services.AddTransient<IDisciplina_CursoSecundarioService, Disciplina_CursoSecundarioService>();
     }
 }

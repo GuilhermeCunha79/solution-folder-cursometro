@@ -3,7 +3,8 @@ using WebApplication1.Domain.Instituicao_Curso;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class InstituicaoCursoController:ControllerBase
 {
      private readonly IInstituicao_CursoService _service;

@@ -4,7 +4,8 @@ using WebApplication1.Domain.Instituicao_Tags;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class InstituicaoTagsController:ControllerBase
 {
      private readonly IInstituicao_TagsService _service;

@@ -11,6 +11,12 @@ public class ExameIngresso : Entity<Identifier>
         get;
         set;
     }
+    
+    public ICollection<Disciplina_CursoSecundario.Disciplina_CursoSecundario> DisciplinaCursoSecundarios
+    {
+        get;
+        set;
+    }
 
     public bool Active { get; set; }
 

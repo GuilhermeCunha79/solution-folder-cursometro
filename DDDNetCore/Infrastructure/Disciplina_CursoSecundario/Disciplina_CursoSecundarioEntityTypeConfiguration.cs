@@ -14,8 +14,6 @@ public class
         builder.ToTable("Disciplina_CursoSecundario", SchemaNames.DDDSample1);
         builder.HasKey(b => new { b.UtilizadorId, b.DisciplinaId });
 
-        builder.Property(b => b.Id).HasConversion(v => v.StringValue,
-            v => new Identifier(v)).HasColumnName("Disciplina_CursoSecundarioId");
         builder.OwnsOne(e => e.DisciplinaCursoSecundarioNota, np =>
         {
             np.Property(p => p.NotaDecimo).HasColumnName("NotaDecimo");
@@ -23,17 +21,17 @@ public class
             np.Property(p => p.NotaDecimoSeg).HasColumnName("NotaDecimoSeg");
         });
         builder.Property(b => b.DisciplinaCursoCifDiscDisciplina).HasConversion(v => v.DisciplinaCif,
-            v => new Disciplina_CursoCif(v));
+            v => new Disciplina_CursoCif(v)).HasColumnName("CifDisciplina");
         builder.Property(b => b.DisciplinaCursoNotaExameInterno1).HasConversion(v => v.NotaExameInterno1,
-            v => new Disciplina_CursoNotaExameInterno1(v));
+            v => new Disciplina_CursoNotaExameInterno1(v)).HasColumnName("NotaExameInterno1");
         builder.Property(b => b.DisciplinaCursoNotaExameInterno2).HasConversion(v => v.NotaExameInterno2,
-            v => new Disciplina_CursoNotaExameInterno2(v));
+            v => new Disciplina_CursoNotaExameInterno2(v)).HasColumnName("NotaExameInterno2");
         builder.Property(b => b.DisciplinaCursoNotaExameExterno1).HasConversion(v => v.NotaExameExterno1,
-            v => new Disciplina_CursoNotaExameExterno1(v));
+            v => new Disciplina_CursoNotaExameExterno1(v)).HasColumnName("NotaExameExterno1");
         builder.Property(b => b.DisciplinaCursoNotaExameExterno2).HasConversion(v => v.NotaExameExterno2,
-            v => new Disciplina_CursoNotaExameExterno2(v));
+            v => new Disciplina_CursoNotaExameExterno2(v)).HasColumnName("NotaExameExterno2");
         builder.Property(b => b.DisciplinaCursoIngresso).HasConversion(v => v.BoolIngresso,
-            v => new Disciplina_CursoIngresso(v));
+            v => new Disciplina_CursoIngresso(v)).HasColumnName("IsIngresso");
 
         builder.HasMany(f => f.Testes)
             .WithOne(j => j.DisciplinaCursoSecundario)

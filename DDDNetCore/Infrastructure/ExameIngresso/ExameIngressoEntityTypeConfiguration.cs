@@ -23,5 +23,10 @@ public class ExameIngressoEntityTypeConfiguration:IEntityTypeConfiguration<Domai
             .WithOne(j => j.ExameIngresso)
             .HasForeignKey(e => e.ExameIngressoCodigo)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasMany(e => e.DisciplinaCursoSecundarios)
+            .WithOne(j => j.ExameIngresso)
+            .HasForeignKey(e => e.CodigoExame)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

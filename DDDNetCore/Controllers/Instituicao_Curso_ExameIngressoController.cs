@@ -5,6 +5,8 @@ using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class Instituicao_Curso_ExameIngressoController : ControllerBase
 {
     private readonly IInstituicao_Curso_ExameIngressoService _service;

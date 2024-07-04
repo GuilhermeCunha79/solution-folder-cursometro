@@ -17,8 +17,8 @@ public class EscolaService : IEscolaService
     {
         var list = await _repo.GetAllAsync();
 
-        List<EscolaDTO> listDto = list.ConvertAll(distrito =>
-            new EscolaDTO(distrito.Id.IntValue, distrito.Distrito.Id.StringValue, distrito.EscolaNome.NomeEscola));
+        List<EscolaDTO> listDto = list.ConvertAll(escola =>
+            new EscolaDTO(escola.Id.IntValue, escola.DistritoId.StringValue, escola.EscolaNome.NomeEscola));
 
         return listDto;
     }

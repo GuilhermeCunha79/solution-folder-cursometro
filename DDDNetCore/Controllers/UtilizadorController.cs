@@ -3,7 +3,8 @@ using WebApplication1.Domain.Utilizador;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class UtilizadorController:ControllerBase
 {
      private readonly IUtilizadorService _service;

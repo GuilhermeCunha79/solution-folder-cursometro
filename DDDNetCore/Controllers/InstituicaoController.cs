@@ -3,7 +3,8 @@ using WebApplication1.Domain.Instituicao;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class InstituicaoController : ControllerBase
 {
     private readonly IInstituicaoService _service;

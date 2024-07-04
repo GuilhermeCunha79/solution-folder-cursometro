@@ -3,7 +3,8 @@ using WebApplication1.Domain.Tags;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class TagsController : ControllerBase
 {
     private readonly ITagsService _service;

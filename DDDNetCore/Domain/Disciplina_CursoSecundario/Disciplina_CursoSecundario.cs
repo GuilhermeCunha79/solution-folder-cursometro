@@ -20,6 +20,7 @@ public class Disciplina_CursoSecundario : Entity<Identifier>
     public Identifier CodigoCursoSecundario { get; set; }
     public CursoSecundario.CursoSecundario CursoSecundario { get; set; }
     public Disciplina.Disciplina Disciplina { get; set; }
+    public ExameIngresso.ExameIngresso ExameIngresso { get; set; }
     public Identifier UtilizadorId { get; set; }
     public Utilizador.Utilizador Utilizador { get; set; }
     public bool Active { get; set; }
