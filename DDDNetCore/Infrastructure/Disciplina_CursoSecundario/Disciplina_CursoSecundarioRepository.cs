@@ -32,7 +32,7 @@ public class
             .ToListAsync();
     }
 
-    public async Task<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> GetByUtilizadorDisciplina(int utilizadorId, string disciplinaCod)
+    public async Task<Domain.Disciplina_CursoSecundario.Disciplina_CursoSecundario> GetByUtilizadorDisciplina(string utilizadorId, string disciplinaCod)
     {
         var query =
             @"SELECT *

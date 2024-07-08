@@ -71,10 +71,10 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         return listDto;
     }
 
-    public async Task<Disciplina_CursoSecundarioDTO> GetByUtilizadorDisciplina(Identifier utilizadorId,
-        Identifier disciplinaCod)
+    public async Task<Disciplina_CursoSecundarioDTO> GetByUtilizadorDisciplina(string utilizadorId,
+        string disciplinaCod)
     {
-        var disciplina = await _repo.GetByUtilizadorDisciplina(utilizadorId.IntValue, disciplinaCod.StringValue);
+        var disciplina = await _repo.GetByUtilizadorDisciplina(utilizadorId, disciplinaCod);
 
         return new Disciplina_CursoSecundarioDTO(disciplina.Id.StringValue, disciplina.UtilizadorId.IntValue,
             disciplina.DisciplinaId.StringValue, disciplina.CodigoCursoSecundario.IntValue,

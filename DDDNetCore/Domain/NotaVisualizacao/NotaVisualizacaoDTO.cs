@@ -2,7 +2,6 @@
 
 public class NotaVisualizacaoDTO
 {
-    public int Id;
 
     public string CodigoCurso;
     public string IdUtilizador;
@@ -97,8 +96,7 @@ public class NotaVisualizacaoDTO
         string idNotaBienal1, string notaBienal1Decimo, string notaBienal1DecimoPrim, string idNotaBienal2,
         string notaBienal2Decimo,
         string notaBienal2DecimoPrim, string idNotaAnual1, string notaAnual1DecimoSeg, string idNotaAnual2,
-        string notaAnual2DecimoSeg,
-        string codigoExame, string codigoCurso, string idUtilizador, int cifPortugues,
+        string notaAnual2DecimoSeg, string codigoCurso, string idUtilizador, int cifPortugues,
         string notaExameInterno1Portugues, string notaExameInterno2Portugues, string notaExameExterno1Portugues,
         string notaExameExterno2Portugues, bool isIngressoPortugues, int cifFilosofia,
         string notaExameInterno1Filosofia, string notaExameInterno2Filosofia, string notaExameExterno1Filosofia,
@@ -114,7 +112,6 @@ public class NotaVisualizacaoDTO
         string notaExameExterno2Anual1, int cifAnual2, string notaExameExterno1Anual2,
         string notaExameExterno2Anual2)
     {
-        Id = id;
         CodigoCurso = codigoCurso;
         NotaPortuguesDecimo = notaPortuguesDecimo;
         NotaPortuguesDecimoPrim = notaPortuguesDecimoPrim;

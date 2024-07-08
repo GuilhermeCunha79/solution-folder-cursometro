@@ -50,7 +50,7 @@ public class Disciplina_CursoSecundarioController : ControllerBase
 
     [HttpGet("UtilizadorDisciplinaCurso/{utilizadorId}/{disciplinaCod}")]
     public async Task<ActionResult<Disciplina_CursoSecundarioDTO>> GetByUtilizadorDisciplina(
-        [FromRoute] Identifier utilizadorId,[FromRoute] Identifier disciplinaCod)
+        [FromRoute] string utilizadorId,[FromRoute] string disciplinaCod)
     {
         var disciplinaDto = await _service.GetByUtilizadorDisciplina(utilizadorId,disciplinaCod);
 
