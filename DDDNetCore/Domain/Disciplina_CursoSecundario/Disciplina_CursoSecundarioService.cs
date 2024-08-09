@@ -1,4 +1,5 @@
-﻿using WebApplication1.Domain.NotaVisualizacao;
+﻿using WebApplication1.Domain.Media;
+using WebApplication1.Domain.NotaVisualizacao;
 using WebApplication1.Shared;
 
 namespace WebApplication1.Domain.Disciplina_CursoSecundario;
@@ -7,11 +8,14 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IDisciplina_CursoSecundarioRepository _repo;
+    private readonly IMediaRepository _repoMedia;
 
-    public Disciplina_CursoSecundarioService(IUnitOfWork unitOfWork, IDisciplina_CursoSecundarioRepository repo)
+    public Disciplina_CursoSecundarioService(IUnitOfWork unitOfWork, IDisciplina_CursoSecundarioRepository repo,
+        IMediaRepository repoMedia)
     {
         _unitOfWork = unitOfWork;
         _repo = repo;
+        _repoMedia = repoMedia;
     }
 
     public async Task<List<Disciplina_CursoSecundarioDTO>> GetAllAsync()
@@ -135,6 +139,9 @@ public class Disciplina_CursoSecundarioService : IDisciplina_CursoSecundarioServ
         {
             await _repo.AddAsync(disciplina);
         }
+
+        await _repoMedia.AddAsync(new Media.Media(dto.MediaSecundario, dto.MediaIngresso, dto.MediaIngressoDesporto,
+            dto.IdUtilizador));
 
         await _unitOfWork.CommitAsync();
 

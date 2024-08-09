@@ -6,6 +6,10 @@ public class NotaVisualizacaoDTO
     public string CodigoCurso;
     public string IdUtilizador;
 
+    public string MediaSecundario;
+    public string MediaIngresso;
+    public string MediaIngressoDesporto;
+
     public string NotaPortuguesDecimo;
     public string NotaPortuguesDecimoPrim;
     public string NotaPortuguesDecimoSeg;
@@ -87,7 +91,7 @@ public class NotaVisualizacaoDTO
     public int CifAnual2;
     
 
-    public NotaVisualizacaoDTO(int id, string notaPortuguesDecimo, string notaPortuguesDecimoPrim,
+    public NotaVisualizacaoDTO(string notaPortuguesDecimo, string notaPortuguesDecimoPrim,
         string notaPortuguesDecimoSeg,
         string notaEduFisicaDecimo,
         string notaEduFisicaDecimoPrim, string notaEduFisicaDecimoSeg, string notaFilosofiaDecimo,
@@ -110,7 +114,7 @@ public class NotaVisualizacaoDTO
         string notaExameExterno2EduFisica, int cifLingua, string notaExameExterno1Lingua,
         string notaExameExterno2Lingua, bool isIngressoLingua, int cifAnual1, string notaExameExterno1Anual1,
         string notaExameExterno2Anual1, int cifAnual2, string notaExameExterno1Anual2,
-        string notaExameExterno2Anual2)
+        string notaExameExterno2Anual2, string mediaIngresso, string mediaIngressoDesporto, string mediaSecundario)
     {
         CodigoCurso = codigoCurso;
         NotaPortuguesDecimo = notaPortuguesDecimo;
@@ -175,17 +179,18 @@ public class NotaVisualizacaoDTO
         CifEduFisica = cifEduFisica;
         NotaExameExterno1EduFisica = notaExameExterno1EduFisica;
         NotaExameExterno2EduFisica = notaExameExterno2EduFisica;
-
         CifLingua = cifLingua;
         NotaExameExterno1Lingua = notaExameExterno1Lingua;
         NotaExameExterno2Lingua = notaExameExterno2Lingua;
-
         CifAnual1 = cifAnual1;
         NotaExameExterno1Anual1 = notaExameExterno1Anual1;
         NotaExameExterno2Anual1 = notaExameExterno2Anual1;
-
         CifAnual2 = cifAnual2;
         NotaExameExterno1Anual2 = notaExameExterno1Anual2;
         NotaExameExterno2Anual2 = notaExameExterno2Anual2;
+        
+        MediaIngresso = mediaIngresso;
+        MediaIngressoDesporto = mediaIngressoDesporto;
+        MediaSecundario = mediaSecundario;
     }
 }
